@@ -123,6 +123,7 @@
     <Compile Include="Assets\Scripts\Core\Interface\IUIPanel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Shaders\Hit\HitFlashSprite.shader" />
     <None Include="Assets\DOTween\DOTween.XML" />
     <None Include="Assets\Audio\Sounds\Free Fantasy SFX Pack By TomMusic\Free Fantasy SFX Pack By TomMusic\ReadMe.txt" />
     <None Include="Assets\Audio\Sounds\Shapeforms Audio Free Sound Effects\Shapeforms Audio Free Sound Effects\Future UI Preview\Future UI info.txt" />
@@ -679,16 +680,16 @@
       <HintPath>Library\PackageCache\com.unity.visualscripting@eb6004dcc707\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="DOTween">
+      <HintPath>Assets\DOTween\DOTween.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>Library\PackageCache\com.unity.nuget.mono-cecil@ecb9724e46ff\Mono.Cecil.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe">
       <HintPath>Library\PackageCache\com.unity.collections@538ace9075bc\Unity.Collections.Tests\System.Runtime.CompilerServices.Unsafe\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="DOTween">
-      <HintPath>Assets\DOTween\DOTween.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
