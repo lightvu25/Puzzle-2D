@@ -197,5 +197,20 @@ public partial class GameInput : MonoBehaviour
     public bool IsAttackActionHeld() => isActiveAndEnabled && (inputActions.Player.Attack.IsPressed() || IsMobileHeld(MobileInputAction.Attack));
     public bool IsAttackActionReleased() => isActiveAndEnabled && (inputActions.Player.Attack.WasReleasedThisFrame() || IsMobileReleased(MobileInputAction.Attack));
     
+    // ── HOUSEFLOW PUZZLE INPUT ─────────────────────────────────────────────
+    public bool IsPuzzleTapPressed(out Vector2 tapPosition)
+    {
+        tapPosition = Vector2.zero;
+        if (!isActiveAndEnabled) return false;
+
+        if (UnityEngine.InputSystem.Pointer.current != null && UnityEngine.InputSystem.Pointer.current.press.wasPressedThisFrame)
+        {
+            tapPosition = UnityEngine.InputSystem.Pointer.current.position.ReadValue();
+            return true;
+        }
+        return false;
+    }
+    // ──────────────────────────────────────────────────────────────────────
+
     public bool IsPauseActionPressed() => isActiveAndEnabled && (inputActions.Player.Menu.IsPressed() || IsMobilePressed(MobileInputAction.Menu));
 }

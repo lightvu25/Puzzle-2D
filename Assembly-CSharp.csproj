@@ -49,7 +49,9 @@
     <Analyzer Include="D:\Unity\6000.4.0f1\Editor\Data\Tools\BuildPipeline\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
+    <Compile Include="Assets\ThirdParty\DOTween\Modules\DOTweenModuleEPOOutline.cs" />
+    <Compile Include="Assets\Scripts\HouseFlow\Mechanical\AirflowSource.cs" />
+    <Compile Include="Assets\Scripts\HouseFlow\Level\LevelDifficulty.cs" />
     <Compile Include="Assets\Scripts\Core\Interface\PlayerAttack.cs" />
     <Compile Include="Assets\Scripts\UI\Tooltip\UITooltipManager.cs" />
     <Compile Include="Assets\Scripts\Manager\System\ReturnToPool.cs" />
@@ -58,12 +60,11 @@
     <Compile Include="Assets\Scripts\Manager\System\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\Dialogue\DialogueBubbleSizing.cs" />
     <Compile Include="Assets\Scripts\Manager\System\SoundManager.cs" />
-    <Compile Include="Assets\DOTween\Modules\DOTweenModulePhysics2D.cs" />
     <Compile Include="Assets\Scripts\Manager\System\TickManager.cs" />
     <Compile Include="Assets\Scripts\Manager\System\GameManager.cs" />
-    <Compile Include="Assets\DOTween\Modules\DOTweenModuleUI.cs" />
     <Compile Include="Assets\Scripts\Data\MapModifier.cs" />
     <Compile Include="Assets\Scripts\Core\Interface\IInteractable.cs" />
+    <Compile Include="Assets\Scripts\HouseFlow\Fluid\FluidParticle.cs" />
     <Compile Include="Assets\Scripts\Manager\Gameplay\GameFeelManager.cs" />
     <Compile Include="Assets\Scripts\Core\Interface\PlayerInteract.cs" />
     <Compile Include="Assets\Scripts\Manager\System\GameInput.Mobile.cs" />
@@ -76,60 +77,85 @@
     <Compile Include="Assets\Scripts\Manager\Gameplay\EventManager.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioPitchUtility.cs" />
     <Compile Include="Assets\Scripts\Core\Gameplay\TimeRewind.cs" />
+    <Compile Include="Assets\ThirdParty\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
+    <Compile Include="Assets\Scripts\HouseFlow\Objective\DeliverFluidObjective.cs" />
+    <Compile Include="Assets\Scripts\Manager\System\LoadingScene.cs" />
+    <Compile Include="Assets\Scripts\HouseFlow\Thermal\HeatSource.cs" />
     <Compile Include="Assets\Scripts\Manager\System\GameLevel.cs" />
     <Compile Include="Assets\Scripts\Audio\UIAudioManager.cs" />
+    <Compile Include="Assets\Scripts\HouseFlow\Thermal\CoolingSource.cs" />
     <Compile Include="Assets\Scripts\Core\Interface\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\HouseFlow\Level\LevelLoader.cs" />
+    <Compile Include="Assets\Scripts\HouseFlow\Objective\ObjectiveBase.cs" />
     <Compile Include="Assets\Scripts\Manager\System\MusicManager.cs" />
+    <Compile Include="Assets\ThirdParty\DOTween\Modules\DOTweenModulePhysics.cs" />
+    <Compile Include="Assets\Scripts\HouseFlow\Mechanical\BimetallicStrip.cs" />
+    <Compile Include="Assets\Scripts\HouseFlow\Level\LevelPhysicsConfig.cs" />
     <Compile Include="Assets\Scripts\Data\ItemBaseData.cs" />
     <Compile Include="Assets\Scripts\UI\UIPanelType.cs" />
+    <Compile Include="Assets\Scripts\HouseFlow\Thermal\IThermalReceiver.cs" />
     <Compile Include="Assets\Scripts\Core\Interface\BaseLevelGenerator.cs" />
+    <Compile Include="Assets\ThirdParty\DOTween\Modules\DOTweenModuleAudio.cs" />
+    <Compile Include="Assets\Scripts\HouseFlow\Mechanical\Boiler.cs" />
     <Compile Include="Assets\Scripts\Dialogue\DialogueBubbleView.cs" />
     <Compile Include="Assets\Scripts\Core\Interface\RuntimeTilemapMerger.cs" />
     <Compile Include="Assets\Scripts\UI\UIDragHandler.cs" />
     <Compile Include="Assets\Scripts\Dialogue\DialogueSequenceCursor.cs" />
+    <Compile Include="Assets\ThirdParty\DOTween\Modules\DOTweenModuleSprite.cs" />
     <Compile Include="Assets\Scripts\Manager\System\CutsceneManager.cs" />
     <Compile Include="Assets\Scripts\UI\UILineDrawer.cs" />
     <Compile Include="Assets\Scripts\Core\Gameplay\PointInTime.cs" />
     <Compile Include="Assets\Scripts\Manager\Gameplay\RunManager.cs" />
     <Compile Include="Assets\Scripts\Dialogue\DialogueConversation.cs" />
+    <Compile Include="Assets\Scripts\HouseFlow\Level\LevelData.cs" />
     <Compile Include="Assets\Scripts\Data\GameDataManager.cs" />
+    <Compile Include="Assets\ThirdParty\DOTween\Modules\DOTweenModuleUtils.cs" />
     <Compile Include="Assets\Scripts\UI\UIZoomable.cs" />
+    <Compile Include="Assets\ThirdParty\DOTween\Modules\DOTweenModuleUI.cs" />
+    <Compile Include="Assets\Scripts\HouseFlow\Fluid\FluidType.cs" />
     <Compile Include="Assets\Scripts\Manager\System\ObjectPoolManager.cs" />
     <Compile Include="Assets\Scripts\Core\Interface\CinemachineCameraZoom2D.cs" />
+    <Compile Include="Assets\Scripts\HouseFlow\Objective\ObjectiveSystem.cs" />
     <Compile Include="Assets\Scripts\UI\UIAudioHandler.cs" />
     <Compile Include="Assets\Scripts\Audio\EntityAudioManager.cs" />
     <Compile Include="Assets\Scripts\Dialogue\DialogueInteractable.cs" />
     <Compile Include="Assets\Scripts\Manager\System\GameInput.cs" />
+    <Compile Include="Assets\Scripts\HouseFlow\Objective\ObjectiveType.cs" />
     <Compile Include="Assets\Scripts\Data\ProfileData.cs" />
     <Compile Include="Assets\Scripts\Core\Interface\MetaProgressionManager.cs" />
-    <Compile Include="Assets\DOTween\Modules\DOTweenModuleEPOOutline.cs" />
+    <Compile Include="Assets\Scripts\HouseFlow\Level\LevelRoot.cs" />
+    <Compile Include="Assets\Scripts\HouseFlow\Fluid\WaterSource.cs" />
     <Compile Include="Assets\Scripts\Dialogue\DialogueController.cs" />
+    <Compile Include="Assets\Scripts\HouseFlow\Level\LevelState.cs" />
+    <Compile Include="Assets\Scripts\HouseFlow\Objective\ObjectiveDefinition.cs" />
     <Compile Include="Assets\Scripts\Core\Interface\MindPlayerMovement.cs" />
-    <Compile Include="Assets\DOTween\Modules\DOTweenModuleAudio.cs" />
+    <Compile Include="Assets\Scripts\HouseFlow\Mechanical\Valve.cs" />
     <Compile Include="Assets\Scripts\UI\Number\NumberPopup.cs" />
     <Compile Include="Assets\Scripts\UI\UIPanelAnimator.cs" />
     <Compile Include="Assets\Scripts\Manager\System\GameManagerVisual.cs" />
-    <Compile Include="Assets\DOTween\Modules\DOTweenModulePhysics.cs" />
     <Compile Include="Assets\Scripts\Audio\EventAudioPlayer.cs" />
+    <Compile Include="Assets\Scripts\HouseFlow\Level\HouseflowDebugUI.cs" />
+    <Compile Include="Assets\Scripts\HouseFlow\Fluid\FluidTarget.cs" />
     <Compile Include="Assets\Scripts\UI\Tooltip\UITooltipTrigger.cs" />
     <Compile Include="Assets\Scripts\Data\RunData.cs" />
-    <Compile Include="Assets\DOTween\Modules\DOTweenModuleSprite.cs" />
+    <Compile Include="Assets\Scripts\HouseFlow\Level\LevelFlowController.cs" />
     <Compile Include="Assets\Scripts\Manager\System\SaveManager.cs" />
+    <Compile Include="Assets\Scripts\HouseFlow\Thermal\ThermalBody.cs" />
     <Compile Include="Assets\Scripts\UI\UIManager.cs" />
     <Compile Include="Assets\Scripts\Manager\System\TimeManager.cs" />
-    <Compile Include="Assets\DOTween\Modules\DOTweenModuleUtils.cs" />
+    <Compile Include="Assets\ThirdParty\DOTween\Modules\DOTweenModulePhysics2D.cs" />
     <Compile Include="Assets\Scripts\Data\InputConfig.cs" />
     <Compile Include="Assets\Scripts\Dialogue\DialogueSpeaker.cs" />
     <Compile Include="Assets\Scripts\Core\Interface\IUIPanel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shaders\Hit\HitFlashSprite.shader" />
-    <None Include="Assets\DOTween\DOTween.XML" />
+    <None Include="Assets\ThirdParty\DOTween\DOTween.XML" />
     <None Include="Assets\Audio\Sounds\Free Fantasy SFX Pack By TomMusic\Free Fantasy SFX Pack By TomMusic\ReadMe.txt" />
     <None Include="Assets\Audio\Sounds\Shapeforms Audio Free Sound Effects\Shapeforms Audio Free Sound Effects\Future UI Preview\Future UI info.txt" />
     <None Include="Assets\Audio\Sounds\Shapeforms Audio Free Sound Effects\Shapeforms Audio Free Sound Effects\20 Percent Off Coupon.txt" />
-    <None Include="Assets\DOTween\DOTween.dll" />
-    <None Include="Assets\DOTween\readme.txt" />
+    <None Include="Assets\ThirdParty\DOTween\DOTween.dll" />
+    <None Include="Assets\ThirdParty\DOTween\readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -681,7 +707,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="DOTween">
-      <HintPath>Assets\DOTween\DOTween.dll</HintPath>
+      <HintPath>Assets\ThirdParty\DOTween\DOTween.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Mono.Cecil">

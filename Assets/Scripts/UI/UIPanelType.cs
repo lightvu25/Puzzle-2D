@@ -12,5 +12,6 @@ public enum UIPanelType
     Map,
     MindNode,
     MindNodeSelection,
-    Dialogue
+    Dialogue,
+    PuzzleDebug
 }

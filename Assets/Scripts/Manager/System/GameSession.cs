@@ -12,6 +12,7 @@ public class GameSession : MonoBehaviour
     public RunData currentRun;
 
     [HideInInspector] public MemoryNodeData pendingNextNode;
+    [HideInInspector] public HouseFlow.Level.LevelData pendingPuzzleLevel;
 
     private void Awake()
     {
