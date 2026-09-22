@@ -88,3 +88,36 @@ When running the game in the Unity Editor or a Development Build, press **F1** t
    *(If these are missing, go to Edit > Project Settings > Tags and Layers and add them at layers 8, 9, and 10).*
 2. **Never instantiate particles via code.** The `WaterSource` automatically pulls from the global `ObjectPoolManager` for performance.
 3. **Save your Prefab:** Always remember to apply your changes to the Layout Prefab before hitting Play!
+
+### 💨 Phase 3: Pneumatics & Airflow
+
+**Fan / AirflowSource (AirflowSource.cs)**
+Creates open-room airflow. Uses Unity's \AreaEffector2D\ to push objects.
+* **Starts Active:** Does the fan blow immediately?
+* *Setup:* Ensure the Collider2D has **Is Trigger** and **Used By Effector** checked.
+* *Control:* Can be toggled by a Valve just like a WaterSource.
+
+**Duct Segment (DuctSegment.cs)**
+Simulates closed-duct airflow velocity using the GDD formula.
+* **Entry Source:** Drag the feeding AirflowSource here.
+* **Duct Length / Hydraulic Diameter:** Tunes the velocity dampening.
+* **Acceleration Factor:** How fast objects reach target velocity (usually ~50).
+* *Note:* Requires a tiny BoxCollider2D (Is Trigger) at the duct exit nozzle to push objects out.
+
+**Pneumatic Gate (PneumaticGate.cs)**
+A player-tappable one-way flap valve for air and objects.
+* **Flap Collider:** Drag the physical blocking collider here.
+* **Starts Open:** Is the duct initially unblocked?
+* *Integration:* Drag this into upstreamGate on a DuctSegment to let it recalculate pressure when the gate toggles.
+
+**Balloon (Balloon.cs)**
+A free-floating object that inflates (gains buoyancy) when inside an airflow zone.
+* *Setup:* Needs a Rigidbody2D and Collider2D.
+* **Gravity Scale:** Set deflated (e.g., 0.3) and inflated (e.g., -0.5).
+
+**Counterweight Bladder (CounterweightBladder.cs)**
+A constrained inflatable that pushes a mechanical arm when active.
+* **Linked Airflow Source:** The fan or duct that inflates this bladder.
+* **Max Inflation Force / Axis:** The maximum physical push force and direction.
+* *Setup:* Add a HingeJoint2D or SliderJoint2D to constrain its movement so it actuates a lever rather than floating away.
+

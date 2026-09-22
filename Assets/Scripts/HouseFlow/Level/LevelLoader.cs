@@ -113,8 +113,12 @@ namespace HouseFlow.Level
 
         private void Start()
         {
-            // Auto-load the initialLevelData if assigned in Inspector.
-            // LevelFlowController.Awake runs before Start and takes over if present.
+            // If LevelFlowController is present in the scene, it manages loading.
+            // Avoid double-loading the initial level.
+            if (FindFirstObjectByType<LevelFlowController>() != null)
+                return;
+
+            // Auto-load the initialLevelData if assigned in standalone testing mode.
             if (initialLevelData != null && !IsLevelLoaded)
             {
                 LoadLevel(initialLevelData);

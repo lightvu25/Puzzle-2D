@@ -160,8 +160,90 @@ namespace HouseFlow.Editor
                 Result  = hasTargets ? CheckResult.Pass : CheckResult.Error,
                 Message = hasTargets ? $"{targets.Length} found." : "No FluidTarget found in layout.",
             });
+            
+            // --- Phase 3 Checks ---
+            
+            // 6 — DuctSegment missing upstream provider
+            var ducts = data.LayoutPrefab.GetComponentsInChildren<HouseFlow.Mechanical.DuctSegment>(true);
+            int brokenDucts = 0;
+            foreach (var d in ducts)
+            {
+                var entrySourceField = d.GetType().GetField("upstreamProviderRef", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+                if (entrySourceField != null)
+                {
+                    var source = entrySourceField.GetValue(d) as MonoBehaviour;
+                    if (source == null) brokenDucts++;
+                }
+            }
+            if (ducts.Length > 0)
+            {
+                results.Add(new ValidationCheck
+                {
+                    Label   = "Duct Segments",
+                    Result  = brokenDucts == 0 ? CheckResult.Pass : CheckResult.Error,
+                    Message = brokenDucts == 0 ? $"{ducts.Length} configured correctly." : $"{brokenDucts} DuctSegment(s) missing 'upstreamProviderRef'.",
+                });
+            }
+            
+            // 7 — CounterweightBladder missing linked source
+            var bladders = data.LayoutPrefab.GetComponentsInChildren<HouseFlow.Mechanical.CounterweightBladder>(true);
+            int brokenBladders = 0;
+            foreach (var b in bladders)
+            {
+                var linkedField = b.GetType().GetField("linkedAirflowSourceRef", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+                if (linkedField != null)
+                {
+                    var source = linkedField.GetValue(b) as MonoBehaviour;
+                    if (source == null) brokenBladders++;
+                }
+            }
+            if (bladders.Length > 0)
+            {
+                results.Add(new ValidationCheck
+                {
+                    Label   = "Counterweight Bladders",
+                    Result  = brokenBladders == 0 ? CheckResult.Pass : CheckResult.Error,
+                    Message = brokenBladders == 0 ? $"{bladders.Length} configured correctly." : $"{brokenBladders} bladder(s) missing 'linkedAirflowSourceRef'.",
+                });
+            }
+            
+            // 8 — Orphaned PneumaticGate
+            var gates = data.LayoutPrefab.GetComponentsInChildren<HouseFlow.Mechanical.PneumaticGate>(true);
+            if (gates.Length > 0 && ducts.Length == 0)
+            {
+                // A gate without any ducts is likely orphaned (or used oddly in an open room).
+                results.Add(new ValidationCheck
+                {
+                    Label   = "Pneumatic Gates",
+                    Result  = CheckResult.Warning,
+                    Message = $"Found {gates.Length} gate(s) but 0 DuctSegments. Gates usually require ducts.",
+                });
+            }
 
-            // 6 — Objective checks
+            // --- World 2 Electricity Checks ---
+            var pumps = data.LayoutPrefab.GetComponentsInChildren<HouseFlow.Electricity.ElectricPump>(true);
+            if (pumps.Length > 0)
+            {
+                results.Add(new ValidationCheck
+                {
+                    Label   = "Electric Pumps",
+                    Result  = CheckResult.Pass,
+                    Message = $"{pumps.Length} found in layout.",
+                });
+            }
+
+            var terminals = data.LayoutPrefab.GetComponentsInChildren<HouseFlow.Electricity.ElectricTerminal>(true);
+            if (terminals.Length > 0)
+            {
+                results.Add(new ValidationCheck
+                {
+                    Label   = "Electric Terminals",
+                    Result  = CheckResult.Pass,
+                    Message = $"{terminals.Length} found in layout.",
+                });
+            }
+
+            // 9 — Objective checks
             results.AddRange(ValidateObjective(data, targets));
 
             return results;

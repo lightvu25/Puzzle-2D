@@ -203,11 +203,42 @@ public partial class GameInput : MonoBehaviour
         tapPosition = Vector2.zero;
         if (!isActiveAndEnabled) return false;
 
+        // 1. Mobile Touchscreen (New Input System primary touch)
+        if (UnityEngine.InputSystem.Touchscreen.current != null)
+        {
+            var touch = UnityEngine.InputSystem.Touchscreen.current.primaryTouch;
+            if (touch.press.wasPressedThisFrame)
+            {
+                tapPosition = touch.position.ReadValue();
+                return true;
+            }
+        }
+
+        // 2. Universal Pointer (Mouse / Stylus / Synthesized pointer)
         if (UnityEngine.InputSystem.Pointer.current != null && UnityEngine.InputSystem.Pointer.current.press.wasPressedThisFrame)
         {
             tapPosition = UnityEngine.InputSystem.Pointer.current.position.ReadValue();
             return true;
         }
+
+        // 3. Fallback: Legacy mobile touch
+        if (Input.touchCount > 0)
+        {
+            Touch t = Input.GetTouch(0);
+            if (t.phase == UnityEngine.TouchPhase.Began)
+            {
+                tapPosition = t.position;
+                return true;
+            }
+        }
+
+        // 4. Fallback: Editor mouse click
+        if (Input.GetMouseButtonDown(0))
+        {
+            tapPosition = Input.mousePosition;
+            return true;
+        }
+
         return false;
     }
     // ──────────────────────────────────────────────────────────────────────

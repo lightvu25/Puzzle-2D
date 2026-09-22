@@ -44,7 +44,73 @@ public static class SaveManager
         File.Delete(runPath);
     }
 
+    public static void ResetHouseflowProgression()
+    {
+        ProfileData profile = loadProfile();
+        if (profile != null)
+        {
+            profile.unlockedLevelIDs?.Clear();
+            profile.completedLevelIDs?.Clear();
+            profile.levelStarKeys?.Clear();
+            profile.levelStarValues?.Clear();
+            saveProfile(profile);
+            Debug.Log("[SaveManager] HOUSEFLOW campaign progression has been reset!");
+        }
+    }
+
+    public static void ResetHouseflowEconomy()
+    {
+        ProfileData profile = loadProfile();
+        if (profile != null)
+        {
+            profile.coins = 0;
+            profile.gems = 0;
+            profile.showcaseAcclaim = 0;
+            saveProfile(profile);
+            Debug.Log("[SaveManager] HOUSEFLOW economy has been reset!");
+        }
+    }
+
+    public static void ResetHouseflowAll()
+    {
+        ResetHouseflowProgression();
+        ResetHouseflowEconomy();
+        ProfileData profile = loadProfile();
+        if (profile != null)
+        {
+            profile.toolInventory?.Clear();
+            profile.unlockedHouseFeatureIDs?.Clear();
+            profile.ownedCosmeticIDs?.Clear();
+            profile.equippedCosmetics?.Clear();
+            profile.noAdsPurchased = false;
+            profile.purchasedProductIDs?.Clear();
+            profile.purchasedShopItemIDs?.Clear();
+            profile.lastVisitorTipClaimUtcTicks = 0;
+            profile.lastDailyRewardClaimUtcTicks = 0;
+            saveProfile(profile);
+            Debug.Log("[SaveManager] All HOUSEFLOW meta, inventory, and economy data has been reset!");
+        }
+    }
+
 #if UNITY_EDITOR
+    [UnityEditor.MenuItem("HOUSEFLOW/Reset Campaign Progression")]
+    public static void ResetHouseflowProgressionEditor()
+    {
+        ResetHouseflowProgression();
+    }
+
+    [UnityEditor.MenuItem("HOUSEFLOW/Reset Economy")]
+    public static void ResetHouseflowEconomyEditor()
+    {
+        ResetHouseflowEconomy();
+    }
+
+    [UnityEditor.MenuItem("HOUSEFLOW/Reset ALL Meta & Progression")]
+    public static void ResetHouseflowAllEditor()
+    {
+        ResetHouseflowAll();
+    }
+
     [UnityEditor.MenuItem("Project Echoes/Reset Current Run Data")]
     public static void ResetRunDataEditor()
     {

@@ -51,6 +51,22 @@ namespace HouseFlow.Level
         [Min(0f)]
         public float steamLinearDrag;
 
+        [Tooltip("How long a Steam particle lives before returning to pool. " +
+                 "Set to 0 for infinite lifetime (legacy behaviour). GDD default: 6.0s")]
+        [Min(0f)]
+        public float steamLifetimeSec;
+
+        [Header("Pneumatics")]
+        [Tooltip("Duct friction factor μ used in the GDD formula: v_out = v_in × (1 - μ × L/D). " +
+                 "Higher values reduce exit velocity over longer/narrower ducts. GDD-implied default: 0.05")]
+        [Min(0f)]
+        public float ductFrictionFactor;
+
+        [Tooltip("Maximum open-room airflow dissipation distance in world units (Box2D meters). " +
+                 "GDD specifies 3.5m (350dp). Used as a designer reference and collider-sizing hint.")]
+        [Min(0.1f)]
+        public float airDissipationDistance;
+
         /// <summary>
         /// Returns a sensible default configuration suitable for a standard water level.
         /// </summary>
@@ -65,7 +81,10 @@ namespace HouseFlow.Level
             defaultFluidCoolingRate = 5f,
             steamGravityScale       = -0.2f,
             steamMass               = 0.02f,
-            steamLinearDrag         = 1.5f
+            steamLinearDrag         = 1.5f,
+            steamLifetimeSec        = 6.0f,   // GDD Appendix A: lifetime 6.0s
+            ductFrictionFactor      = 0.05f,  // GDD-implied default μ
+            airDissipationDistance  = 3.5f,   // GDD Appendix A: 3.5m / 350dp
         };
     }
 }

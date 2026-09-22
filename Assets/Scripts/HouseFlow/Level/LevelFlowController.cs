@@ -47,6 +47,12 @@ namespace HouseFlow.Level
         /// <summary>Fires when the primary objective is completed.</summary>
         public event Action OnLevelCompleted;
 
+        /// <summary>Fires when a level fails.</summary>
+        public event Action<string> OnLevelFailed;
+
+        /// <summary>Fires when the player requests to return to the map / level selection.</summary>
+        public event Action OnReturnToMapRequested;
+
         // ─────────────────────────────────────────────────────────────
         //  State
         // ─────────────────────────────────────────────────────────────
@@ -153,6 +159,56 @@ namespace HouseFlow.Level
             Debug.Log($"[LevelFlowController] Level '{levelData.LevelId}' reset.");
         }
 
+        /// <summary>
+        /// Convenience method matching standard restart terminology. Calls ResetLevel().
+        /// </summary>
+        public void RestartLevel()
+        {
+            ResetLevel();
+        }
+
+        /// <summary>
+        /// Triggers level failure state (e.g. hazard triggered, unrecoverable failure).
+        /// </summary>
+        public void FailLevel(string reason = "Level Failed")
+        {
+            if (currentState != LevelState.Playing) return;
+
+            SetState(LevelState.Failed);
+            OnLevelFailed?.Invoke(reason);
+            Debug.Log($"[LevelFlowController] Level '{levelData?.LevelId}' FAILED: {reason}");
+        }
+
+        /// <summary>
+        /// Requests return to campaign map or level selection.
+        /// </summary>
+        public void ReturnToMap()
+        {
+            levelLoader?.UnloadCurrentLevel();
+            SetState(LevelState.Idle);
+            OnReturnToMapRequested?.Invoke();
+        }
+
+        /// <summary>
+        /// Loads the specified next LevelData, or automatically advances to the next campaign level.
+        /// </summary>
+        public void LoadNextLevel(LevelData nextData = null)
+        {
+            if (nextData == null && HouseFlow.Progression.ProgressionManager.Instance != null && HouseFlow.Progression.ProgressionManager.Instance.Database != null)
+            {
+                nextData = HouseFlow.Progression.ProgressionManager.Instance.Database.GetNextLevel(levelData);
+            }
+
+            if (nextData != null)
+            {
+                StartLevel(nextData);
+            }
+            else
+            {
+                ReturnToMap();
+            }
+        }
+
         // ─────────────────────────────────────────────────────────────
         //  Update Loop (Input)
         // ─────────────────────────────────────────────────────────────
@@ -161,12 +217,11 @@ namespace HouseFlow.Level
         {
             if (currentState != LevelState.Playing) return;
 
-            // Check if GameInput registered a tap
+            // Check if GameInput registered a tap (Touchscreen or Pointer/Mouse)
             if (GameInput.Instance != null && GameInput.Instance.IsPuzzleTapPressed(out Vector2 screenPos))
             {
-                // Prevent clicking through UI
-                if (UnityEngine.EventSystems.EventSystem.current != null && 
-                    UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+                // Prevent clicking/tapping through UI using EventSystem RaycastAll
+                if (IsPointerOverUI(screenPos))
                     return;
 
                 if (Camera.main != null)
@@ -188,6 +243,20 @@ namespace HouseFlow.Level
             }
         }
 
+        private bool IsPointerOverUI(Vector2 screenPos)
+        {
+            if (UnityEngine.EventSystems.EventSystem.current == null) return false;
+
+            var pointerEventData = new UnityEngine.EventSystems.PointerEventData(UnityEngine.EventSystems.EventSystem.current)
+            {
+                position = screenPos
+            };
+
+            var results = new System.Collections.Generic.List<UnityEngine.EventSystems.RaycastResult>();
+            UnityEngine.EventSystems.EventSystem.current.RaycastAll(pointerEventData, results);
+            return results.Count > 0;
+        }
+
         // ─────────────────────────────────────────────────────────────
         //  Private
         // ─────────────────────────────────────────────────────────────
@@ -197,6 +266,30 @@ namespace HouseFlow.Level
             if (currentState != LevelState.Playing) return;
 
             SetState(LevelState.Completed);
+
+            int stars = 1;
+            int optionalCompleted = 0;
+            if (objectiveSystem != null && objectiveSystem.OptionalObjectives.Count > 0)
+            {
+                optionalCompleted = objectiveSystem.CompletedOptionalObjectiveCount;
+                stars += optionalCompleted;
+            }
+
+            bool isFirstClear = false;
+            // Record progression and stars
+            if (HouseFlow.Progression.ProgressionManager.Instance != null && levelData != null)
+            {
+                isFirstClear = !HouseFlow.Progression.ProgressionManager.Instance.IsLevelCompleted(levelData);
+                HouseFlow.Progression.ProgressionManager.Instance.CompleteLevel(levelData, stars);
+            }
+
+            // Route level rewards through RewardCalculator -> RewardService -> EconomyManager
+            var rewardService = HouseFlow.Rewards.RewardService.Instance ?? FindAnyObjectByType<HouseFlow.Rewards.RewardService>();
+            if (rewardService != null && levelData != null)
+            {
+                var bundle = HouseFlow.Rewards.RewardCalculator.CalculateLevelRewards(levelData, stars, isFirstClear, optionalCompleted);
+                rewardService.GrantRewardBundle(bundle, $"LevelClear_{levelData.LevelId}");
+            }
 
             OnLevelCompleted?.Invoke();
             Debug.Log($"[LevelFlowController] Level '{levelData.LevelId}' COMPLETED!");

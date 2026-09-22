@@ -24,11 +24,15 @@ namespace HouseFlow.Objective
         /// <summary>Fired when the primary objective is satisfied.</summary>
         public event Action OnPrimaryObjectiveCompleted;
 
+        /// <summary>Fired when an optional objective is satisfied. Argument is (objective, index).</summary>
+        public event Action<ObjectiveBase, int> OnOptionalObjectiveCompleted;
+
         // ─────────────────────────────────────────────────────────────
         //  State
         // ─────────────────────────────────────────────────────────────
 
         private ObjectiveBase primaryObjective;
+        private readonly System.Collections.Generic.List<ObjectiveBase> optionalObjectives = new System.Collections.Generic.List<ObjectiveBase>();
 
         // ─────────────────────────────────────────────────────────────
         //  Public Properties
@@ -40,12 +44,28 @@ namespace HouseFlow.Objective
         /// <summary>Exposes the primary objective for debug/UI read access.</summary>
         public ObjectiveBase PrimaryObjective  => primaryObjective;
 
+        /// <summary>Exposes the optional objectives for debug/UI read access.</summary>
+        public System.Collections.Generic.IReadOnlyList<ObjectiveBase> OptionalObjectives => optionalObjectives;
+
+        public int CompletedOptionalObjectiveCount
+        {
+            get
+            {
+                int count = 0;
+                for (int i = 0; i < optionalObjectives.Count; i++)
+                {
+                    if (optionalObjectives[i].IsComplete) count++;
+                }
+                return count;
+            }
+        }
+
         // ─────────────────────────────────────────────────────────────
         //  API
         // ─────────────────────────────────────────────────────────────
 
         /// <summary>
-        /// Creates and initialises the primary objective from the given LevelData and layout.
+        /// Creates and initialises the primary and optional objectives from the given LevelData and layout.
         /// Must be called after the layout prefab is instantiated.
         /// </summary>
         public void Initialize(LevelData levelData, LevelRoot layout)
@@ -56,6 +76,7 @@ namespace HouseFlow.Objective
                 return;
             }
 
+            // 1. Primary Objective
             ObjectiveDefinition def = levelData.PrimaryObjective;
             if (def == null)
             {
@@ -64,10 +85,31 @@ namespace HouseFlow.Objective
             }
 
             primaryObjective = CreateObjective(def.objectiveType);
-            if (primaryObjective == null) return;
+            if (primaryObjective != null)
+            {
+                primaryObjective.OnCompleted += HandlePrimaryObjectiveCompleted;
+                primaryObjective.Initialize(def, layout);
+            }
 
-            primaryObjective.OnCompleted += HandlePrimaryObjectiveCompleted;
-            primaryObjective.Initialize(def, layout);
+            // 2. Optional Objectives
+            optionalObjectives.Clear();
+            if (levelData.OptionalObjectives != null)
+            {
+                for (int i = 0; i < levelData.OptionalObjectives.Length; i++)
+                {
+                    var optDef = levelData.OptionalObjectives[i];
+                    if (optDef == null) continue;
+
+                    var optObj = CreateObjective(optDef.objectiveType);
+                    if (optObj != null)
+                    {
+                        int index = i;
+                        optObj.OnCompleted += () => HandleOptionalObjectiveCompleted(optObj, index);
+                        optObj.Initialize(optDef, layout);
+                        optionalObjectives.Add(optObj);
+                    }
+                }
+            }
         }
 
         /// <summary>Resets the objective system to its initial state for a level restart.</summary>
@@ -77,6 +119,17 @@ namespace HouseFlow.Objective
 
             if (primaryObjective != null)
                 primaryObjective.OnCompleted += HandlePrimaryObjectiveCompleted;
+
+            for (int i = 0; i < optionalObjectives.Count; i++)
+            {
+                var opt = optionalObjectives[i];
+                opt?.Reset();
+                if (opt != null)
+                {
+                    int index = i;
+                    opt.OnCompleted += () => HandleOptionalObjectiveCompleted(opt, index);
+                }
+            }
         }
 
         // ─────────────────────────────────────────────────────────────
@@ -91,8 +144,8 @@ namespace HouseFlow.Objective
                     return new DeliverFluidObjective();
 
                 default:
-                    Debug.LogError($"[ObjectiveSystem] Unsupported objective type: {type}. " +
-                                   "Implement a new ObjectiveBase subclass for this type.", this);
+                    Debug.LogWarning($"[ObjectiveSystem] Objective type {type} is currently not active in runtime. " +
+                                     "Ensure corresponding ObjectiveBase implementation is registered.", this);
                     return null;
             }
         }
@@ -105,6 +158,12 @@ namespace HouseFlow.Objective
         {
             Debug.Log("[ObjectiveSystem] Primary objective completed!");
             OnPrimaryObjectiveCompleted?.Invoke();
+        }
+
+        private void HandleOptionalObjectiveCompleted(ObjectiveBase obj, int index)
+        {
+            Debug.Log($"[ObjectiveSystem] Optional objective #{index} completed!");
+            OnOptionalObjectiveCompleted?.Invoke(obj, index);
         }
 
         // ─────────────────────────────────────────────────────────────

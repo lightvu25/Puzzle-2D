@@ -19,6 +19,29 @@ public class ProfileData
     public List<int> attemptLevelKeys   = new List<int>();
     public List<int> attemptLevelValues = new List<int>();
 
+    // ── HOUSEFLOW Progression ─────────────────────────────────────────────
+    public List<string> unlockedLevelIDs  = new List<string>();
+    public List<string> completedLevelIDs = new List<string>();
+    public List<string> levelStarKeys     = new List<string>();
+    public List<int>    levelStarValues   = new List<int>();
+
+    // ── HOUSEFLOW Economy ─────────────────────────────────────────────────
+    public int coins;
+    public int gems;
+    public int showcaseAcclaim;
+
+    // ── HOUSEFLOW Meta & Inventory ────────────────────────────────────────
+    public List<ToolInventoryEntry> toolInventory = new List<ToolInventoryEntry>();
+    public List<string> unlockedHouseFeatureIDs = new List<string>();
+    public List<string> ownedCosmeticIDs = new List<string>();
+    public List<EquippedCosmeticEntry> equippedCosmetics = new List<EquippedCosmeticEntry>();
+    public bool noAdsPurchased;
+    public List<string> purchasedProductIDs = new List<string>();
+    public List<string> purchasedShopItemIDs = new List<string>();
+    public long lastVisitorTipClaimUtcTicks;
+    public long lastDailyRewardClaimUtcTicks;
+    // ──────────────────────────────────────────────────────────────────────
+
     public int GetLevelAttempts(int levelIndex)
     {
         int idx = attemptLevelKeys.IndexOf(levelIndex);
@@ -78,5 +101,35 @@ public class ProfileData
             partialSkillIDs.Add(skillID);
             partialSkillAmounts.Add(amount);
         }
+    }
+}
+
+[System.Serializable]
+public class ToolInventoryEntry
+{
+    public string toolId;
+    public int quantity;
+
+    public ToolInventoryEntry() { }
+
+    public ToolInventoryEntry(string toolId, int quantity)
+    {
+        this.toolId = toolId;
+        this.quantity = quantity;
+    }
+}
+
+[System.Serializable]
+public class EquippedCosmeticEntry
+{
+    public string category;
+    public string cosmeticId;
+
+    public EquippedCosmeticEntry() { }
+
+    public EquippedCosmeticEntry(string category, string cosmeticId)
+    {
+        this.category = category;
+        this.cosmeticId = cosmeticId;
     }
 }

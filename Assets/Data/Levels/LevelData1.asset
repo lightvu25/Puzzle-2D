@@ -12,25 +12,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a964c4d0ba9e872468021ba89e083af0, type: 3}
   m_Name: LevelData1
   m_EditorClassIdentifier: Assembly-CSharp::HouseFlow.Level.LevelData
-  levelId: 
-  displayName: 
-  description: 
+  levelId: level_001
+  displayName: 'Stage 1: Main Valve'
+  description: Tap the valve to release water and guide it into the drainage basin.
   world: 1
   tier: 1
-  difficulty: 1
-  layoutPrefab: {fileID: 0}
+  difficulty: 0
+  layoutPrefab: {fileID: 6618120991261916165, guid: 44bb6c7aab4f9734ba2df25e370fd885, type: 3}
   physicsConfig:
     gravityScale: 1
     particleMass: 0.1
     particleLinearDrag: 0.5
     particleAngularDrag: 0.05
+    ambientTemperature: 20
+    boilingTemperature: 100
+    defaultFluidCoolingRate: 5
+    steamGravityScale: -0.2
+    steamMass: 0.02
+    steamLinearDrag: 1.5
+    steamLifetimeSec: 6
+    ductFrictionFactor: 0.05
+    airDissipationDistance: 3.5
   primaryObjective:
     objectiveType: 0
-    targetId: 
+    targetId: main_drain
     fluidType: 0
-    requiredParticleCount: 0
-  optionalObjectives:
-  - objectiveType: 0
-    targetId: 
-    fluidType: 0
-    requiredParticleCount: 0
+    requiredParticleCount: 5
+  optionalObjectives: []
