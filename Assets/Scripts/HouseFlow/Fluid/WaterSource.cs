@@ -54,6 +54,15 @@ namespace HouseFlow.Fluid
         private float             emissionTimer;
         private int               totalEmitted;
 
+        /// <summary>
+        /// Live particles emitted by this source, oldest first. Used to enforce
+        /// LevelPhysicsConfig.maxActiveParticles via steal-oldest recycling.
+        /// Entries may be returned to the pool by other systems (dead zones,
+        /// steam lifetime, level reset) and are pruned on emit.
+        /// </summary>
+        private readonly System.Collections.Generic.List<FluidParticle> liveParticles =
+            new System.Collections.Generic.List<FluidParticle>();
+
         // ─────────────────────────────────────────────────────────────
         //  Public Properties
         // ─────────────────────────────────────────────────────────────
@@ -120,16 +129,41 @@ namespace HouseFlow.Fluid
 
         private void EmitParticle()
         {
+            // Prune particles already reclaimed by other systems (dead zone,
+            // steam lifetime, level reset) so the cap reflects live count only.
+            for (int i = liveParticles.Count - 1; i >= 0; i--)
+            {
+                var tracked = liveParticles[i];
+                if (tracked == null || !tracked.gameObject.activeSelf)
+                    liveParticles.RemoveAt(i);
+            }
+
+            // Enforce the per-level live-particle budget: recycle the oldest
+            // live particles until there is room for a new spawn — this bounds
+            // the concurrent count, not just queue growth.
+            int maxActive = currentPhysicsConfig.maxActiveParticles;
+            if (maxActive > 0)
+            {
+                while (liveParticles.Count >= maxActive)
+                {
+                    var oldest = liveParticles[0];
+                    liveParticles.RemoveAt(0);
+                    if (oldest != null && oldest.gameObject.activeSelf)
+                        oldest.ReturnToPool();
+                }
+            }
+
             Vector3 offset  = (Vector3)(Random.insideUnitCircle * spawnRadius);
             Vector3 spawnPos = spawnPoint.position + offset;
 
-            GameObject obj = ObjectPoolManager.SpawnObject(fluidParticlePrefab, spawnPos, Quaternion.identity, ObjectPoolManager.PoolType.GameObject);
+            GameObject obj = ObjectPoolManager.SpawnObject(fluidParticlePrefab, spawnPos, Quaternion.identity, ObjectPoolManager.PoolType.ParticleSystem);
             if (obj == null) return;
 
             FluidParticle particle = obj.GetComponent<FluidParticle>();
             if (particle != null)
             {
                 particle.Spawn(currentPhysicsConfig, fluidType);
+                liveParticles.Add(particle);
             }
 
             Vector2 dir = emissionDirection.sqrMagnitude > 0f
@@ -156,6 +190,7 @@ namespace HouseFlow.Fluid
             emissionEnabled = startsEmitting;
             emissionTimer   = 0f;
             totalEmitted    = 0;
+            liveParticles.Clear(); // LevelRoot.ResetAll already returns actives to the pool
         }
 
         // ─────────────────────────────────────────────────────────────

@@ -31,6 +31,7 @@ MonoBehaviour:
     steamMass: 0.02
     steamLinearDrag: 1.5
     steamLifetimeSec: 6
+    maxActiveParticles: 150
     ductFrictionFactor: 0.05
     airDissipationDistance: 3.5
   primaryObjective:

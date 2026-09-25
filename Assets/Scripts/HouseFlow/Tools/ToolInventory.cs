@@ -16,6 +16,10 @@ namespace HouseFlow.Tools
         /// <summary>Fired whenever a tool's inventory quantity changes (toolId, newTotal).</summary>
         public event Action<string, int> OnToolQuantityChanged;
 
+        [Header("Starter Loadout")]
+        [Tooltip("Granted once to brand-new installs (no existing save file). Data-driven starter configuration.")]
+        [SerializeField] private ToolInventoryEntry[] starterTools;
+
         // In-memory lookup cache
         private readonly Dictionary<string, int> toolQuantities = new Dictionary<string, int>();
 
@@ -115,6 +119,34 @@ namespace HouseFlow.Tools
                         toolQuantities[entry.toolId] = Math.Max(0, entry.quantity);
                     }
                 }
+            }
+
+            if (!SaveManager.HasSavedProfile())
+            {
+                GrantStarterTools();
+            }
+        }
+
+        /// <summary>
+        /// Applies the configured starter loadout. Only invoked when no save file
+        /// exists, so it can never overwrite or duplicate a returning player's inventory.
+        /// </summary>
+        private void GrantStarterTools()
+        {
+            if (starterTools == null) return;
+
+            bool granted = false;
+            foreach (var entry in starterTools)
+            {
+                if (entry == null || string.IsNullOrEmpty(entry.toolId) || entry.quantity <= 0) continue;
+                toolQuantities[entry.toolId] = GetToolCount(entry.toolId) + entry.quantity;
+                granted = true;
+            }
+
+            if (granted)
+            {
+                SaveToProfile();
+                Debug.Log("[ToolInventory] Granted starter tool loadout to new profile.");
             }
         }
 

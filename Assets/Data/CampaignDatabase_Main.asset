@@ -19,3 +19,9 @@ MonoBehaviour:
     requiredCompletedLevelsToUnlock: 0
     levels:
     - {fileID: 11400000, guid: adcf81f1848289b48bb665b4298d17ee, type: 2}
+    - {fileID: 11400000, guid: 526bad10c3965a8428e54838796f2038, type: 2}
+  - worldNumber: 2
+    worldName: 'World 2: Circuit Breakers'
+    description: The Master Plumber's Pantry & Laundry Cellar.
+    requiredCompletedLevelsToUnlock: 1
+    levels: []

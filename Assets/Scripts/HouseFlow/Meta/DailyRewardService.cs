@@ -63,6 +63,26 @@ namespace HouseFlow.Meta
         }
 
         /// <summary>
+        /// Returns the streak day the next claim would grant, without mutating state.
+        /// Mirrors UpdateStreakOnClaim so UI can preview the pending reward.
+        /// </summary>
+        public int GetUpcomingStreakDay()
+        {
+            if (lastClaimUtcTicks == 0) return 1;
+
+            var lastClaimDate = new DateTime(lastClaimUtcTicks, DateTimeKind.Utc).Date;
+            int daysDifference = (DateTime.UtcNow.Date - lastClaimDate).Days;
+
+            if (daysDifference == 1)
+                return (currentStreakDay % 7) + 1;
+
+            if (daysDifference <= 0)
+                return (currentStreakDay % 7) + 1; // already claimed today; next claim is tomorrow
+
+            return 1; // missed day or longer gap resets the streak
+        }
+
+        /// <summary>
         /// Claims today's daily login reward if eligible.
         /// </summary>
         public bool ClaimDailyReward()
@@ -158,10 +178,12 @@ namespace HouseFlow.Meta
             if (profile != null)
             {
                 lastClaimUtcTicks = profile.lastDailyRewardClaimUtcTicks;
+                currentStreakDay = profile.dailyRewardStreakDay > 0 ? profile.dailyRewardStreakDay : 1;
             }
             else
             {
                 lastClaimUtcTicks = 0;
+                currentStreakDay = 1;
             }
         }
 
@@ -169,6 +191,7 @@ namespace HouseFlow.Meta
         {
             ProfileData profile = SaveManager.loadProfile() ?? new ProfileData();
             profile.lastDailyRewardClaimUtcTicks = lastClaimUtcTicks;
+            profile.dailyRewardStreakDay = currentStreakDay;
             SaveManager.saveProfile(profile);
         }
 

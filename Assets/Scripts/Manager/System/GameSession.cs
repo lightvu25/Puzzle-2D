@@ -23,7 +23,10 @@ public class GameSession : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        if (Application.isPlaying)
+        {
+            DontDestroyOnLoad(gameObject);
+        }
 
         Initialize();
     }

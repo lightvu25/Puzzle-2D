@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using HouseFlow.Level;
 using HouseFlow.Objective;
 using HouseFlow.Progression;
+using HouseFlow.Economy;
 
 namespace HouseFlow.UI
 {
@@ -19,10 +20,17 @@ namespace HouseFlow.UI
 
         [Header("HUD Header")]
         [SerializeField] private Text levelTitleText;
+        [SerializeField] private Text primaryObjectiveDescText;
+        [SerializeField] private Text optionalObjectiveDescText;
         [SerializeField] private Text objectiveProgressText;
         [SerializeField] private Slider objectiveProgressBar;
         [SerializeField] private Button restartButton;
         [SerializeField] private Button mapButton;
+
+        [Header("Currencies")]
+        [SerializeField] private Text coinsText;
+        [SerializeField] private Text gemsText;
+        [SerializeField] private Text acclaimText;
 
         [Header("Level Completed Overlay")]
         [SerializeField] private GameObject completionPanel;
@@ -45,10 +53,10 @@ namespace HouseFlow.UI
         private void Awake()
         {
             if (flowController == null)
-                flowController = FindFirstObjectByType<LevelFlowController>();
+                flowController = FindAnyObjectByType<LevelFlowController>();
 
             if (objectiveSystem == null)
-                objectiveSystem = FindFirstObjectByType<ObjectiveSystem>();
+                objectiveSystem = FindAnyObjectByType<ObjectiveSystem>();
 
             WireButtons();
         }
@@ -63,8 +71,20 @@ namespace HouseFlow.UI
                 flowController.OnStateChanged += HandleStateChanged;
             }
 
+            if (EconomyManager.Instance != null)
+            {
+                EconomyManager.Instance.OnCoinsChanged += UpdateCoins;
+                EconomyManager.Instance.OnGemsChanged += UpdateGems;
+                EconomyManager.Instance.OnShowcaseAcclaimChanged += UpdateAcclaim;
+            }
+
             HideOverlays();
             RefreshHUD();
+
+            // The panel must start active in the scene so Awake/Start execute;
+            // reconcile visibility with the current flow state immediately.
+            if (flowController != null)
+                HandleStateChanged(flowController.CurrentState);
         }
 
         private void OnDestroy()
@@ -75,6 +95,13 @@ namespace HouseFlow.UI
                 flowController.OnLevelCompleted -= HandleLevelCompleted;
                 flowController.OnLevelFailed -= HandleLevelFailed;
                 flowController.OnStateChanged -= HandleStateChanged;
+            }
+
+            if (EconomyManager.Instance != null)
+            {
+                EconomyManager.Instance.OnCoinsChanged -= UpdateCoins;
+                EconomyManager.Instance.OnGemsChanged -= UpdateGems;
+                EconomyManager.Instance.OnShowcaseAcclaimChanged -= UpdateAcclaim;
             }
         }
 
@@ -113,6 +140,7 @@ namespace HouseFlow.UI
 
         private void HandleLevelStarted()
         {
+            gameObject.SetActive(true);
             HideOverlays();
             RefreshHUD();
         }
@@ -153,7 +181,12 @@ namespace HouseFlow.UI
         {
             if (state == LevelState.Playing)
             {
+                gameObject.SetActive(true);
                 HideOverlays();
+            }
+            else if (state == LevelState.Idle)
+            {
+                gameObject.SetActive(false);
             }
         }
 
@@ -168,8 +201,40 @@ namespace HouseFlow.UI
                 }
             }
 
+            if (EconomyManager.Instance != null)
+            {
+                UpdateCoins(EconomyManager.Instance.Coins, 0);
+                UpdateGems(EconomyManager.Instance.Gems, 0);
+                UpdateAcclaim(EconomyManager.Instance.ShowcaseAcclaim, 0);
+            }
+
+            if (flowController != null && flowController.CurrentLevelData != null)
+            {
+                if (primaryObjectiveDescText != null)
+                {
+                    var def = flowController.CurrentLevelData.PrimaryObjective;
+                    primaryObjectiveDescText.text = $"Deliver {def.requiredParticleCount} {def.fluidType}";
+                }
+                
+                if (optionalObjectiveDescText != null && flowController.CurrentLevelData.OptionalObjectives != null && objectiveSystem != null)
+                {
+                    string optionalText = "";
+                    for (int i = 0; i < flowController.CurrentLevelData.OptionalObjectives.Length; i++)
+                    {
+                        var optDef = flowController.CurrentLevelData.OptionalObjectives[i];
+                        bool isCompleted = objectiveSystem.OptionalObjectives != null && i < objectiveSystem.OptionalObjectives.Count && objectiveSystem.OptionalObjectives[i].IsComplete;
+                        optionalText += (isCompleted ? "[X] " : "[ ] ") + $"Deliver {optDef.requiredParticleCount} {optDef.fluidType}\n";
+                    }
+                    optionalObjectiveDescText.text = optionalText;
+                }
+            }
+
             UpdateObjectiveProgress();
         }
+
+        private void UpdateCoins(int amount, int delta) { if (coinsText != null) coinsText.text = amount.ToString(); }
+        private void UpdateGems(int amount, int delta) { if (gemsText != null) gemsText.text = amount.ToString(); }
+        private void UpdateAcclaim(int amount, int delta) { if (acclaimText != null) acclaimText.text = amount.ToString(); }
 
         private void UpdateObjectiveProgress()
         {

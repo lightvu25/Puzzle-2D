@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using HouseFlow.Level;
 using HouseFlow.Progression;
+using HouseFlow.Analytics;
 
 namespace HouseFlow.UI
 {
@@ -39,21 +40,29 @@ namespace HouseFlow.UI
         [Header("System References")]
         [SerializeField] private LevelFlowController flowController;
 
+        public event Action OnMapClosed;
+
         private CampaignDatabase database;
         private int currentWorldIndex = 0;
+        private bool subscribedToFlow;
         private readonly List<LevelNodeWidget> spawnedLevelWidgets = new List<LevelNodeWidget>();
 
         // ─────────────────────────────────────────────────────────────
         //  Unity Lifecycle
         // ─────────────────────────────────────────────────────────────
 
+        private void OnEnable()
+        {
+            // Subscribe here rather than relying on Start alone: this panel is
+            // inactive at scene load and is closed within the same synchronous
+            // call chain that opened it (OnLevelNodeSelected -> StartLevel ->
+            // CloseMap), so Start can be cancelled before it ever runs.
+            SubscribeToFlow();
+        }
+
         private void Start()
         {
-            if (flowController == null)
-                flowController = FindFirstObjectByType<LevelFlowController>();
-
-            if (flowController != null)
-                flowController.OnReturnToMapRequested += OpenMap;
+            SubscribeToFlow();
 
             if (ProgressionManager.Instance != null)
                 database = ProgressionManager.Instance.Database;
@@ -69,8 +78,19 @@ namespace HouseFlow.UI
 
         private void OnDestroy()
         {
-            if (flowController != null)
+            if (subscribedToFlow && flowController != null)
                 flowController.OnReturnToMapRequested -= OpenMap;
+        }
+
+        private void SubscribeToFlow()
+        {
+            if (subscribedToFlow) return;
+            if (flowController == null)
+                flowController = FindAnyObjectByType<LevelFlowController>();
+            if (flowController == null) return;
+
+            flowController.OnReturnToMapRequested += OpenMap;
+            subscribedToFlow = true;
         }
 
         // ─────────────────────────────────────────────────────────────
@@ -89,6 +109,7 @@ namespace HouseFlow.UI
             if (worldMapPanel != null) worldMapPanel.SetActive(false);
             if (levelSelectPanel != null) levelSelectPanel.SetActive(false);
             gameObject.SetActive(false);
+            OnMapClosed?.Invoke();
         }
 
         public void ShowWorldMap()
@@ -112,6 +133,12 @@ namespace HouseFlow.UI
             if (worldMapPanel != null) worldMapPanel.SetActive(false);
             if (levelSelectPanel != null) levelSelectPanel.SetActive(true);
 
+            AnalyticsService.Track(AnalyticsEvents.WorldOpened, new Dictionary<string, object>
+            {
+                ["world_index"] = worldIndex,
+                ["world_name"]  = world.worldName
+            });
+
             PopulateLevels(world);
         }
 
@@ -129,10 +156,11 @@ namespace HouseFlow.UI
             // Populate worlds
             if (worldButtonContainer != null && worldButtonPrefab != null)
             {
-                foreach (Transform child in worldButtonContainer)
+                for (int i = worldButtonContainer.childCount - 1; i >= 0; i--)
                 {
-                    if (child.gameObject != worldButtonPrefab.gameObject)
-                        Destroy(child.gameObject);
+                    var child = worldButtonContainer.GetChild(i).gameObject;
+                    if (child != worldButtonPrefab.gameObject)
+                        SafeDestroy(child);
                 }
 
                 for (int i = 0; i < database.Worlds.Count; i++)
@@ -164,11 +192,13 @@ namespace HouseFlow.UI
 
             if (levelGridContainer == null || levelNodePrefab == null) return;
 
-            // Clear existing spawned widgets
-            foreach (var w in spawnedLevelWidgets)
+            // Clear ALL existing children — defensive against stale nodes baked
+            // into the scene file or left behind by a previous refresh cycle.
+            for (int i = levelGridContainer.childCount - 1; i >= 0; i--)
             {
-                if (w != null && w.gameObject != levelNodePrefab.gameObject)
-                    Destroy(w.gameObject);
+                var child = levelGridContainer.GetChild(i).gameObject;
+                if (child != levelNodePrefab.gameObject)
+                    SafeDestroy(child);
             }
             spawnedLevelWidgets.Clear();
 
@@ -197,9 +227,9 @@ namespace HouseFlow.UI
                 GameSession.Instance.pendingPuzzleLevel = level;
             }
 
-            CloseMap();
-
-            // If FlowController exists in current scene, launch directly
+            // Start the level BEFORE closing the map: OnMapClosed listeners
+            // (e.g. MainMenuUI) check the flow state, and it must no longer be
+            // Idle when the event fires or the menu would re-open during gameplay.
             if (flowController != null)
             {
                 flowController.StartLevel(level);
@@ -208,6 +238,17 @@ namespace HouseFlow.UI
             {
                 SceneManager.LoadScene(gameplaySceneName);
             }
+
+            CloseMap();
+        }
+
+        private static void SafeDestroy(GameObject go)
+        {
+            if (go == null) return;
+            if (Application.isPlaying)
+                Destroy(go);
+            else
+                DestroyImmediate(go);
         }
     }
 }

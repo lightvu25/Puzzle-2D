@@ -68,7 +68,10 @@ namespace HouseFlow.Level
             if (currentLevelRoot == null)
             {
                 Debug.LogError($"[LevelLoader] Layout Prefab '{levelData.LayoutPrefab.name}' is missing a LevelRoot component on its root GameObject.", this);
-                Destroy(currentLayoutInstance);
+                if (Application.isPlaying)
+                    Destroy(currentLayoutInstance);
+                else
+                    DestroyImmediate(currentLayoutInstance);
                 currentLayoutInstance = null;
                 return null;
             }
@@ -85,7 +88,11 @@ namespace HouseFlow.Level
         {
             if (currentLayoutInstance != null)
             {
-                Destroy(currentLayoutInstance);
+                if (Application.isPlaying)
+                    Destroy(currentLayoutInstance);
+                else
+                    DestroyImmediate(currentLayoutInstance);
+
                 currentLayoutInstance = null;
                 currentLevelRoot      = null;
                 currentLevelData      = null;

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d29d5a909a73cfb4bb6e254ae35d8fbb, type: 3}
+  m_Name: HouseProgressionDatabase_Main
+  m_EditorClassIdentifier: Assembly-CSharp::HouseFlow.House.HouseProgressionDatabase
+  features:
+  - {fileID: 11400000, guid: 2c19b4c589703fc429c1cbf4ef586f80, type: 2}
+  - {fileID: 11400000, guid: 4388f418d961dde4ab080eb3230fe3dd, type: 2}

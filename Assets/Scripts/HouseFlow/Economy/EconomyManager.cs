@@ -168,7 +168,7 @@ namespace HouseFlow.Economy
 
         public void LoadFromProfile()
         {
-            ProfileData profile = SaveManager.loadProfile();
+            ProfileData profile = GameSession.Instance?.currentProfile ?? SaveManager.loadProfile();
             if (profile != null)
             {
                 coins = Math.Max(0, profile.coins);
@@ -185,11 +185,18 @@ namespace HouseFlow.Economy
 
         private void SaveToProfile()
         {
+            // Always load fresh from disk: GameSession.currentProfile can be a stale
+            // snapshot that would silently revert fields written by other services.
             ProfileData profile = SaveManager.loadProfile() ?? new ProfileData();
             profile.coins = coins;
             profile.gems = gems;
             profile.showcaseAcclaim = showcaseAcclaim;
             SaveManager.saveProfile(profile);
+
+            if (GameSession.Instance != null)
+            {
+                GameSession.Instance.currentProfile = profile;
+            }
         }
 
         /// <summary>

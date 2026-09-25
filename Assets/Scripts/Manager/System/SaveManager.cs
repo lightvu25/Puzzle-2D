@@ -29,6 +29,9 @@ public static class SaveManager
         return new ProfileData();
     }
 
+    /// <summary>Returns true if a persisted profile file exists on disk.</summary>
+    public static bool HasSavedProfile() => File.Exists(profilePath);
+
     public static RunData loadRun()
     {
         if (File.Exists(runPath))

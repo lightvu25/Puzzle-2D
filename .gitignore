@@ -13,6 +13,9 @@
 /[Aa]ssets/Plugins/Editor/JetBrains*
 
 .vs/
+.ai/
+.claude/
+AgentScripts/
 
 ExportedObj/
 .consulo/

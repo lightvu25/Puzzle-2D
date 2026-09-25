@@ -53,6 +53,9 @@ namespace HouseFlow.Level
         /// <summary>Fires when the player requests to return to the map / level selection.</summary>
         public event Action OnReturnToMapRequested;
 
+        /// <summary>Fires when the active level is restarted/reset via a restart control.</summary>
+        public event Action OnLevelRestarted;
+
         // ─────────────────────────────────────────────────────────────
         //  State
         // ─────────────────────────────────────────────────────────────
@@ -73,6 +76,9 @@ namespace HouseFlow.Level
             ValidateReferences();
         }
 
+        [Tooltip("If true, automatically starts the assigned level on Start without waiting for menu selection.")]
+        [SerializeField] private bool autoStartLevel = false;
+
         private void Start()
         {
             // If the Main Menu passed a specific level via the global GameSession, use it.
@@ -80,12 +86,18 @@ namespace HouseFlow.Level
             {
                 levelData = GameSession.Instance.pendingPuzzleLevel;
                 GameSession.Instance.pendingPuzzleLevel = null; // Clear it after reading
+                StartLevel(levelData);
+                return;
             }
 
-            if (levelData != null)
+            if (autoStartLevel && levelData != null)
+            {
                 StartLevel(levelData);
+            }
             else
-                Debug.LogWarning("[LevelFlowController] No LevelData assigned. Call StartLevel() manually.", this);
+            {
+                currentState = LevelState.Idle;
+            }
         }
 
         // ─────────────────────────────────────────────────────────────
@@ -156,6 +168,7 @@ namespace HouseFlow.Level
             objectiveSystem.OnPrimaryObjectiveCompleted += HandleObjectiveCompleted;
 
             SetState(LevelState.Playing);
+            OnLevelRestarted?.Invoke();
             Debug.Log($"[LevelFlowController] Level '{levelData.LevelId}' reset.");
         }
 

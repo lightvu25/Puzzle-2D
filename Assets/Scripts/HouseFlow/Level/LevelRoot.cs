@@ -103,19 +103,27 @@ namespace HouseFlow.Level
 
         public void InitializePhysics(LevelPhysicsConfig config)
         {
+            EnsureInitialized();
             currentConfig = config;
-            foreach (var source in waterSources)
+
+            if (waterSources != null)
             {
-                source.InitializeSource(config);
+                foreach (var source in waterSources)
+                {
+                    if (source != null)
+                        source.InitializeSource(config);
+                }
             }
             
             // Initialize static thermal bodies (like Boilers and Bimetallic Strips)
-            foreach (var tb in thermalBodies)
+            if (thermalBodies != null)
             {
-                // Note: FluidParticles re-initialize their own ThermalBody on Spawn()
-                if (tb.GetComponent<FluidParticle>() == null)
+                foreach (var tb in thermalBodies)
                 {
-                    tb.Initialize(config.ambientTemperature, config.defaultFluidCoolingRate);
+                    if (tb != null && tb.GetComponent<FluidParticle>() == null)
+                    {
+                        tb.Initialize(config.ambientTemperature, config.defaultFluidCoolingRate);
+                    }
                 }
             }
         }

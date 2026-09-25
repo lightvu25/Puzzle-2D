@@ -40,6 +40,8 @@ public class ProfileData
     public List<string> purchasedShopItemIDs = new List<string>();
     public long lastVisitorTipClaimUtcTicks;
     public long lastDailyRewardClaimUtcTicks;
+    public int dailyRewardStreakDay;
+    public bool tutorialCompleted;
     // ──────────────────────────────────────────────────────────────────────
 
     public int GetLevelAttempts(int levelIndex)

@@ -18,7 +18,7 @@ public class ObjectPoolManager : MonoBehaviour
     public static List<PooledObjectInfo> ObjectPools = new List<PooledObjectInfo>();
     
     // Parent folder for cleaner hierarchy
-    private GameObject objectPoolEmptyHolder;
+    private static GameObject objectPoolEmptyHolder;
 
     private static GameObject particlesEmpty;
     private static GameObject gameObjectsEmpty;
@@ -34,7 +34,7 @@ public class ObjectPoolManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            SetupEmpties();
+            EnsureEmpties();
         }
         else
         {
@@ -42,27 +42,52 @@ public class ObjectPoolManager : MonoBehaviour
         }
     }
 
-    private void SetupEmpties()
+    /// <summary>
+    /// Recreates any missing pool-holder objects. Holder references can go
+    /// Unity-null after scene reloads (they are scene objects referenced by
+    /// static fields), so this is validated on every spawn — pooled objects
+    /// must never end up unparented at the scene root.
+    /// </summary>
+    private static void EnsureEmpties()
     {
-        objectPoolEmptyHolder = new GameObject("Pooled Objects");
+        if (objectPoolEmptyHolder == null)
+            objectPoolEmptyHolder = new GameObject("Pooled Objects");
 
-        particlesEmpty = new GameObject("Particles");
-        particlesEmpty.transform.SetParent(objectPoolEmptyHolder.transform);
+        if (particlesEmpty == null)
+        {
+            particlesEmpty = new GameObject("Particles");
+            particlesEmpty.transform.SetParent(objectPoolEmptyHolder.transform);
+        }
 
-        gameObjectsEmpty = new GameObject("GameObjects");
-        gameObjectsEmpty.transform.SetParent(objectPoolEmptyHolder.transform);
+        if (gameObjectsEmpty == null)
+        {
+            gameObjectsEmpty = new GameObject("GameObjects");
+            gameObjectsEmpty.transform.SetParent(objectPoolEmptyHolder.transform);
+        }
 
-        lootEmpty = new GameObject("Loot");
-        lootEmpty.transform.SetParent(objectPoolEmptyHolder.transform);
+        if (lootEmpty == null)
+        {
+            lootEmpty = new GameObject("Loot");
+            lootEmpty.transform.SetParent(objectPoolEmptyHolder.transform);
+        }
 
-        enemiesEmpty = new GameObject("Enemies");
-        enemiesEmpty.transform.SetParent(objectPoolEmptyHolder.transform);
+        if (enemiesEmpty == null)
+        {
+            enemiesEmpty = new GameObject("Enemies");
+            enemiesEmpty.transform.SetParent(objectPoolEmptyHolder.transform);
+        }
 
-        uiEmpty = new GameObject("UI");
-        uiEmpty.transform.SetParent(objectPoolEmptyHolder.transform);
+        if (uiEmpty == null)
+        {
+            uiEmpty = new GameObject("UI");
+            uiEmpty.transform.SetParent(objectPoolEmptyHolder.transform);
+        }
 
-        projectilesEmpty = new GameObject("Projectiles");
-        projectilesEmpty.transform.SetParent(objectPoolEmptyHolder.transform);
+        if (projectilesEmpty == null)
+        {
+            projectilesEmpty = new GameObject("Projectiles");
+            projectilesEmpty.transform.SetParent(objectPoolEmptyHolder.transform);
+        }
     }
 
     public static GameObject SpawnObject(GameObject objectToSpawn, Vector3 spawnPosition, Quaternion spawnRotation, PoolType poolType = PoolType.None)
@@ -89,21 +114,29 @@ public class ObjectPoolManager : MonoBehaviour
         }
 
         GameObject objectToUse = pool.pooledObjects.FirstOrDefault(x => x != null && !x.activeSelf);
-        
+        Transform parent = null;
+
+        if (poolType != PoolType.None)
+        {
+            EnsureEmpties();
+            parent = GetParentTransform(poolType);
+        }
+
         if (objectToUse == null)
         {
-            objectToUse = Instantiate(objectToSpawn);
+            // Instantiate directly under the pool holder so a pooled object can
+            // never exist unparented at the scene root, even for one frame.
+            objectToUse = parent != null
+                ? Instantiate(objectToSpawn, parent)
+                : Instantiate(objectToSpawn);
             objectToUse.name = objectToSpawn.name;
             pool.pooledObjects.Add(objectToUse);
-            
-            if (Instance != null)
-            {
-                Transform parent = GetParentTransform(poolType);
-                if (parent != null)
-                {
-                    objectToUse.transform.SetParent(parent);
-                }
-            }
+        }
+        else if (parent != null && objectToUse.transform.parent != parent)
+        {
+            // Heal objects that lost their pool parent (e.g. spawned while the
+            // holder was missing during a scene/domain reload).
+            objectToUse.transform.SetParent(parent);
         }
 
         objectToUse.transform.position = spawnPosition;

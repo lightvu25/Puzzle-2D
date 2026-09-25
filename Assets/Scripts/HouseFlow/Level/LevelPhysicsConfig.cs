@@ -56,6 +56,14 @@ namespace HouseFlow.Level
         [Min(0f)]
         public float steamLifetimeSec;
 
+        [Header("Budget")]
+        [Tooltip("Maximum number of live fluid particles each WaterSource may keep in play. " +
+                 "When the cap is reached the oldest live particle is recycled (returned to the " +
+                 "pool and immediately respawned) — zero allocation, bounded physics cost. " +
+                 "Set to 0 for unlimited (legacy behaviour).")]
+        [Min(0)]
+        public int maxActiveParticles;
+
         [Header("Pneumatics")]
         [Tooltip("Duct friction factor μ used in the GDD formula: v_out = v_in × (1 - μ × L/D). " +
                  "Higher values reduce exit velocity over longer/narrower ducts. GDD-implied default: 0.05")]
@@ -83,6 +91,7 @@ namespace HouseFlow.Level
             steamMass               = 0.02f,
             steamLinearDrag         = 1.5f,
             steamLifetimeSec        = 6.0f,   // GDD Appendix A: lifetime 6.0s
+            maxActiveParticles      = 150,    // hard cap per source; enough headroom for delivery objectives
             ductFrictionFactor      = 0.05f,  // GDD-implied default μ
             airDissipationDistance  = 3.5f,   // GDD Appendix A: 3.5m / 350dp
         };
