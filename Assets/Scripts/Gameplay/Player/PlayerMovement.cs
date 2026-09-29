@@ -67,6 +67,7 @@ public class PlayerMovement : MonoBehaviour
     private ContactFilter2D wallFilter;
     private readonly RaycastHit2D[] castHits = new RaycastHit2D[8];
     private readonly RaycastHit2D[] probeHits = new RaycastHit2D[8];
+    private readonly Collider2D[] overlapResults = new Collider2D[8];
 
     private Vector2 moveDirection;
     private Vector2 pendingDirection;
@@ -147,6 +148,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (inputLocked || rb == null) return;
 
+        // If a wall collider materialized around us (async composite
+        // generation, bad snap), push out — otherwise every direction probe
+        // sees zero clearance and the player soft-locks forever.
+        DepenetrateFromWalls();
+
         // Consume a queued direction: reversal is always allowed, any other
         // direction is taken as soon as enough clearance exists ahead.
         if (pendingDirection != Vector2.zero)
@@ -191,6 +197,12 @@ public class PlayerMovement : MonoBehaviour
                 rb.MovePosition(stopHit.point + moveDirection * 0.01f);
                 return;
             }
+
+            // A zero-distance hit means we're already inside a wall (e.g. a
+            // composite collider's shape generated a few frames late, or a
+            // bad teleport). Push out instead of freezing at d=0 forever.
+            if (wallDistance <= 0.001f && DepenetrateFromWalls())
+                return;
 
             // Wall reached within this step: travel up to it and stop.
             rb.MovePosition(rb.position + moveDirection * Mathf.Max(0f, wallDistance - 0.001f));
@@ -271,6 +283,32 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         return nearest;
+    }
+
+    /// <summary>
+    /// If the body is already overlapped with a wall collider, pushes it out
+    /// along the separation normal and returns true. Prevents a permanent
+    /// soft-lock when a wall's collider materializes after the player has
+    /// already entered its cells.
+    /// </summary>
+    private bool DepenetrateFromWalls()
+    {
+        int count = Physics2D.OverlapBox(bodyCollider.bounds.center, bodyCollider.bounds.size, 0f, wallFilter, overlapResults);
+        bool moved = false;
+        for (int i = 0; i < count; i++)
+        {
+            Collider2D other = overlapResults[i];
+            if (other == null || other == bodyCollider) continue;
+
+            ColliderDistance2D d = bodyCollider.Distance(other);
+            if (!d.isOverlapped) continue;
+
+            // distance is negative while overlapped; normal points from us
+            // toward the wall, so normal * distance moves us away from it.
+            rb.MovePosition(rb.position + d.normal * d.distance);
+            moved = true;
+        }
+        return moved;
     }
 
     /// <summary>True when the player can start moving in the given direction.</summary>

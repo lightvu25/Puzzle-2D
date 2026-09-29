@@ -54,16 +54,20 @@ public class PlayerSquashStretch : MonoBehaviour
     private void Awake()
     {
         // Auto-resolve the visual child (a SpriteRenderer below the root)
-        // when the field isn't wired in the Inspector.
-        if (visualTransform == null)
+        // when the field isn't wired in the Inspector. Never accept the root
+        // itself or any transform carrying a collider — scaling physics
+        // geometry wedges the player into wall seams.
+        if (visualTransform == null
+            || visualTransform == transform
+            || visualTransform.GetComponent<Collider2D>() != null)
         {
             var sr = GetComponentInChildren<SpriteRenderer>();
-            if (sr != null) visualTransform = sr.transform;
+            visualTransform = sr != null && sr.transform != transform ? sr.transform : null;
         }
 
         if (visualTransform == null)
         {
-            Debug.LogWarning("[PlayerSquashStretch] No visual child found — component disabled.", this);
+            Debug.LogWarning("[PlayerSquashStretch] No safe visual child found (needs a SpriteRenderer that isn't the physics root) — component disabled.", this);
             enabled = false;
             return;
         }

@@ -2920,7 +2920,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.5, y: 4, z: -10}
+  m_LocalPosition: {x: 0.5, y: -1.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12434,7 +12434,7 @@ Transform:
   m_GameObject: {fileID: 1780404327}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.5, y: 4, z: -10}
+  m_LocalPosition: {x: 0.5, y: -1.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12813,7 +12813,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.9, y: 0.9}
   m_EdgeRadius: 0
 --- !u!50 &1862284270
 Rigidbody2D:
@@ -13028,7 +13028,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb7c29352d5b89e4f9e62f987dfc341e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSquashStretch
-  visualTransform: {fileID: 1862284268}
+  visualTransform: {fileID: 912154559}
   movingWidthPx: 20
   movingHeightPx: 28
   impactWidthPx: 28
@@ -14402,7 +14402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 093c45c56693ca44ab64609598cb4c01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HouseFlow.Level.LevelLoader
-  initialLevelData: {fileID: 11400000, guid: 4ac78453fd9bdd54391787545743c253, type: 2}
+  initialLevelData: {fileID: 11400000, guid: 85262b18575e8ec4f8a64773b0c9b39d, type: 2}
   layoutParent: {fileID: 1159499848}
 --- !u!114 &2025158782
 MonoBehaviour:
@@ -14418,7 +14418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HouseFlow.Level.LevelFlowController
   levelLoader: {fileID: 2025158781}
   objectiveSystem: {fileID: 2025158780}
-  levelData: {fileID: 11400000, guid: 4ac78453fd9bdd54391787545743c253, type: 2}
+  levelData: {fileID: 11400000, guid: 85262b18575e8ec4f8a64773b0c9b39d, type: 2}
   autoStartLevel: 1
   hazardResponse: 1
 --- !u!114 &2025158783
