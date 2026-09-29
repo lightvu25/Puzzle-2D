@@ -1,0 +1,222 @@
+{
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Data/CampaignDatabase.cs": [
+  "Data/CampaignDatabase_Main.asset"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Input/InputConfig.cs": [
+  "Data/Input.asset"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/House/HouseProgressionDatabase.cs": [
+  "Data/House/HouseProgressionDatabase_Main.asset"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/House/HouseFeatureDefinition.cs": [
+  "Data/House/House_Kitchen.asset",
+  "Data/House/House_Porch.asset"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Data/LevelData.cs": [
+  "Data/Levels/LevelData1.asset",
+  "Data/Levels/LevelData2.asset"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Shop/ShopDatabase.cs": [
+  "Data/Shop/ShopDatabase_Main.asset"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Shop/ShopItemDefinition.cs": [
+  "Data/Shop/ShopItem_CoinStash.asset",
+  "Data/Shop/ShopItem_FixIt.asset",
+  "Data/Shop/ShopItem_StarterPack.asset",
+  "Data/Shop/ShopItem_Vacuum.asset"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Tools/ToolDefinition.cs": [
+  "Data/Tools/Tool_BlueprintHint.asset",
+  "Data/Tools/Tool_FixIt.asset",
+  "Data/Tools/Tool_Magnet.asset",
+  "Data/Tools/Tool_Vacuum.asset"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Gameplay/Fluid/WaterSource.cs": [
+  "Prefabs/Levels/LayoutLevel.prefab",
+  "Prefabs/Mechanical/Boiler.prefab"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Level/LevelRoot.cs": [
+  "Prefabs/Levels/LayoutLevel.prefab"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Gameplay/Fluid/FluidTarget.cs": [
+  "Prefabs/Levels/LayoutLevel.prefab"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Level/DeadZone.cs": [
+  "Prefabs/Levels/LayoutLevel.prefab"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Gameplay/Mechanical/Valve.cs": [
+  "Prefabs/Levels/LayoutLevel.prefab"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Gameplay/Thermal/ThermalBody.cs": [
+  "Prefabs/Mechanical/Boiler.prefab",
+  "Prefabs/Mechanical/ThermalDoor.prefab"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Gameplay/Thermal/Boiler.cs": [
+  "Prefabs/Mechanical/Boiler.prefab"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Gameplay/Thermal/HeatSource.cs": [
+  "Prefabs/Mechanical/Burner.prefab"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Gameplay/Thermal/CoolingSource.cs": [
+  "Prefabs/Mechanical/Chill Plate.prefab"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Gameplay/Airflow/AirflowSource.cs": [
+  "Prefabs/Mechanical/Fan.prefab"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Gameplay/Thermal/BimetallicStrip.cs": [
+  "Prefabs/Mechanical/ThermalDoor.prefab"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Gameplay/Fluid/FluidParticle.cs": [
+  "Prefabs/Particles/FluidParticle.prefab"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/UI/Campaign/LevelNodeWidget.cs": [
+  "Prefabs/UI/LevelNodeWidget.prefab"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Rewards/RewardService.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Economy/EconomyManager.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Level/LevelLoader.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Core/Managers/ObjectPoolManager.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Tools/Impl/BlueprintHintTool.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Rewards/DailyRewardService.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/UI/Shop/ShopUI.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Monetization/IAPManager.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Analytics/AnalyticsEventObserver.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Progression/ProgressionManager.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/UI/House/CosmeticsUI.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/UI/Rewards/VisitorTipUI.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/House/HouseProgressionManager.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Audio/SoundManager.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Monetization/MockIAPService.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Monetization/AdRewardService.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/UI/Gameplay/GameplayHUD.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Level/LevelFlowController.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Core/Managers/GameFeelManager.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Core/Managers/MetaProgressionManager.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Core/Managers/GameDataManager.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Core/Managers/GameManagerVisual.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/UI/Rewards/DailyRewardUI.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Input/GameInput.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/UI/UIManager.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/UI/Rewards/RewardOverlayUI.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Tools/Impl/MagnetTool.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Tools/Impl/FixItTool.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Tools/ToolInventory.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Core/Managers/EventManager.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/UI/Gameplay/ToolTrayUI.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Shop/ShopManager.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/UI/Campaign/CampaignMapUI.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/House/Cosmetics/CosmeticEquipService.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Core/Managers/LoadingScene.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Core/Managers/TickManager.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Monetization/MockRewardedAdService.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Core/Managers/GameManager.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Core/Managers/GameSession.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Audio/MusicManager.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/UI/MainMenu/MainMenuUI.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/UI/House/HouseUI.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/House/Cosmetics/CosmeticInventory.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Tools/Impl/VacuumTool.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Rewards/VisitorTipService.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/UI/Tutorial/TutorialUI.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Core/Managers/RunManager.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Analytics/AnalyticsService.cs": [
+  "Scenes/GameScene.unity"
+ ],
+ "D:/UnityProject/Puzzle 2D/Assets/Scripts/Objectives/ObjectiveSystem.cs": [
+  "Scenes/GameScene.unity"
+ ]
+}

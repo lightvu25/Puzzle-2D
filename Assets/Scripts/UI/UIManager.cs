@@ -97,8 +97,7 @@ public class UIManager : MonoBehaviour
         var mapping = panelMappings.Find(m => m.panelType == type);
         if (mapping != null && mapping.freezeTime)
         {
-            if (TimeManager.Instance != null) TimeManager.Instance.PauseTime("UIManager");
-            else Time.timeScale = 0f;
+            Time.timeScale = 0f;
         }
     }
 
@@ -108,8 +107,7 @@ public class UIManager : MonoBehaviour
         {
             panelsDict[currentActivePanel].Hide();
             currentActivePanel = UIPanelType.None;
-            if (TimeManager.Instance != null) TimeManager.Instance.ResumeTime("UIManager");
-            else Time.timeScale = 1f;
+            Time.timeScale = 1f;
             lastPanelCloseFrame = Time.frameCount;
         }
     }

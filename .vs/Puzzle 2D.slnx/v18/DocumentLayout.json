@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "D:\\UnityProject\\Puzzle 2D\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|d:\\unityproject\\puzzle 2d\\assets\\scripts\\manager\\system\\loadingscene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\manager\\system\\loadingscene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|d:\\unityproject\\puzzle 2d\\assets\\scripts\\core\\managers\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\core\\managers\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|d:\\unityproject\\puzzle 2d\\assets\\scripts\\houseflow\\level\\levelflowcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\houseflow\\level\\levelflowcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|d:\\unityproject\\puzzle 2d\\assets\\scripts\\ui\\number\\numberpopup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\number\\numberpopup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|d:\\unityproject\\puzzle 2d\\assets\\scripts\\core\\managers\\gamesession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\core\\managers\\gamesession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,40 +23,28 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "LevelFlowController.cs",
-              "DocumentMoniker": "D:\\UnityProject\\Puzzle 2D\\Assets\\Scripts\\HouseFlow\\Level\\LevelFlowController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\HouseFlow\\Level\\LevelFlowController.cs",
-              "ToolTip": "D:\\UnityProject\\Puzzle 2D\\Assets\\Scripts\\HouseFlow\\Level\\LevelFlowController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\HouseFlow\\Level\\LevelFlowController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAIBJwAIAAAAAAAAAAAAAAA==",
+              "Title": "GameSession.cs",
+              "DocumentMoniker": "D:\\UnityProject\\Puzzle 2D\\Assets\\Scripts\\Core\\Managers\\GameSession.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Core\\Managers\\GameSession.cs",
+              "ToolTip": "D:\\UnityProject\\Puzzle 2D\\Assets\\Scripts\\Core\\Managers\\GameSession.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Core\\Managers\\GameSession.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-20T16:55:14.733Z",
+              "WhenOpened": "2026-09-29T05:07:28.762Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "LoadingScene.cs",
-              "DocumentMoniker": "D:\\UnityProject\\Puzzle 2D\\Assets\\Scripts\\Manager\\System\\LoadingScene.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Manager\\System\\LoadingScene.cs",
-              "ToolTip": "D:\\UnityProject\\Puzzle 2D\\Assets\\Scripts\\Manager\\System\\LoadingScene.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Manager\\System\\LoadingScene.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAkAAAAAAAAAA==",
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "D:\\UnityProject\\Puzzle 2D\\Assets\\Scripts\\Core\\Managers\\GameManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Core\\Managers\\GameManager.cs",
+              "ToolTip": "D:\\UnityProject\\Puzzle 2D\\Assets\\Scripts\\Core\\Managers\\GameManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Core\\Managers\\GameManager.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAowEgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-19T06:12:49.471Z",
+              "WhenOpened": "2026-09-29T04:50:47.205Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "NumberPopup.cs",
-              "DocumentMoniker": "D:\\UnityProject\\Puzzle 2D\\Assets\\Scripts\\UI\\Number\\NumberPopup.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\Number\\NumberPopup.cs",
-              "ToolTip": "D:\\UnityProject\\Puzzle 2D\\Assets\\Scripts\\UI\\Number\\NumberPopup.cs",
-              "RelativeToolTip": "Assets\\Scripts\\UI\\Number\\NumberPopup.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-17T10:36:43.114Z"
             }
           ]
         }

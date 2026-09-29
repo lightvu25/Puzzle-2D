@@ -24,7 +24,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <NoWarn>0169;USG0001</NoWarn>
-    <DefineConstants>UNITY_6000_4_0;UNITY_6000_4;UNITY_6000;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_2022_1_OR_NEWER;UNITY_2022_2_OR_NEWER;UNITY_2022_3_OR_NEWER;UNITY_2023_1_OR_NEWER;UNITY_2023_2_OR_NEWER;UNITY_2023_3_OR_NEWER;UNITY_6000_0_OR_NEWER;UNITY_6000_1_OR_NEWER;UNITY_6000_2_OR_NEWER;UNITY_6000_3_OR_NEWER;UNITY_6000_4_OR_NEWER;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_AUDIO_SCRIPTABLE_PIPELINE;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_UNITY_CONSENT;ENABLE_UNITY_CLOUD_IDENTIFIERS;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_EDITOR_GAME_SERVICES;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_GENERATE_NATIVE_PLUGINS_FOR_ASSEMBLIES_API;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_ENGINE_CODE_STRIPPING;ENABLE_ONSCREEN_KEYBOARD;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;ENABLE_MARSHALLING_TESTS;ENABLE_VIDEO;ENABLE_NAVIGATION_OFFMESHLINK_TO_NAVMESHLINK;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;ENABLE_ACCESSIBILITY_SCREEN_READER;ENABLE_ACCESSIBILITY_SETTINGS;TEXTCORE_1_0_OR_NEWER;EDITOR_ONLY_NAVMESH_BUILDER_DEPRECATED;PLATFORM_ANDROID;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_CLOUD_SERVICES_ENGINE_DIAGNOSTICS;ENABLE_FIREBASE_IDENTIFIERS;UNITY_CAN_SHOW_SPLASH_SCREEN;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO;ENABLE_SPATIALTRACKING;ENABLE_ETC_COMPRESSION;PLATFORM_EXTENDS_VULKAN_DEVICE;PLATFORM_HAS_MULTIPLE_SWAPCHAINS;UNITY_ANDROID_SUPPORTS_SHADOWFILES;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;PLATFORM_EXTENDS_VULKAN_PIPELINE_CACHE;PLATFORM_SUPPORTS_SPLIT_GRAPHICS_JOBS;PLATFORM_HAS_ADDITIONAL_API_CHECKS;PLATFORM_HAS_GRAPHICS_JOBS_SUPPORT_CHECK_OVERRIDE;PLATFORM_IMPLEMENTS_INSIGHTS_ANR;PLATFORM_SUPPORTS_INSIGHTS_DEVICE_INFO;ENABLE_ANDROID_ADVERTISING_IDS;PLATFORM_HAS_BUGGY_MSAA_RESOLVE;ENABLE_ANDROID_APP_SET_ID;ENABLE_INSIGHTS_PLATFORM_SPECIFIC_RESOURCES;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_STANDARD_2_0;NET_STANDARD;NET_STANDARD_2_1;NETSTANDARD;NETSTANDARD2_1;ENABLE_PROFILER;ENABLE_PROFILER_ASSISTANT_INTEGRATION;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;TEXTCORE_TEXT_ENGINE_1_5_OR_NEWER;TEXTCORE_FONT_ENGINE_1_6_OR_NEWER;DOTWEEN;UNITY_MCP_READY;UNITY_MCP_DEPS_6;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>UNITY_6000_4_0;UNITY_6000_4;UNITY_6000;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_2022_1_OR_NEWER;UNITY_2022_2_OR_NEWER;UNITY_2022_3_OR_NEWER;UNITY_2023_1_OR_NEWER;UNITY_2023_2_OR_NEWER;UNITY_2023_3_OR_NEWER;UNITY_6000_0_OR_NEWER;UNITY_6000_1_OR_NEWER;UNITY_6000_2_OR_NEWER;UNITY_6000_3_OR_NEWER;UNITY_6000_4_OR_NEWER;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_AUDIO_SCRIPTABLE_PIPELINE;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_UNITY_CONSENT;ENABLE_UNITY_CLOUD_IDENTIFIERS;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_EDITOR_GAME_SERVICES;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_GENERATE_NATIVE_PLUGINS_FOR_ASSEMBLIES_API;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_ENGINE_CODE_STRIPPING;ENABLE_ONSCREEN_KEYBOARD;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;ENABLE_MARSHALLING_TESTS;ENABLE_VIDEO;ENABLE_NAVIGATION_OFFMESHLINK_TO_NAVMESHLINK;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;ENABLE_ACCESSIBILITY_SCREEN_READER;ENABLE_ACCESSIBILITY_SETTINGS;TEXTCORE_1_0_OR_NEWER;EDITOR_ONLY_NAVMESH_BUILDER_DEPRECATED;PLATFORM_ANDROID;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_CLOUD_SERVICES_ENGINE_DIAGNOSTICS;ENABLE_FIREBASE_IDENTIFIERS;UNITY_CAN_SHOW_SPLASH_SCREEN;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO;ENABLE_SPATIALTRACKING;ENABLE_ETC_COMPRESSION;PLATFORM_EXTENDS_VULKAN_DEVICE;PLATFORM_HAS_MULTIPLE_SWAPCHAINS;UNITY_ANDROID_SUPPORTS_SHADOWFILES;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;PLATFORM_EXTENDS_VULKAN_PIPELINE_CACHE;PLATFORM_SUPPORTS_SPLIT_GRAPHICS_JOBS;PLATFORM_HAS_ADDITIONAL_API_CHECKS;PLATFORM_HAS_GRAPHICS_JOBS_SUPPORT_CHECK_OVERRIDE;PLATFORM_IMPLEMENTS_INSIGHTS_ANR;PLATFORM_SUPPORTS_INSIGHTS_DEVICE_INFO;ENABLE_ANDROID_ADVERTISING_IDS;PLATFORM_HAS_BUGGY_MSAA_RESOLVE;ENABLE_ANDROID_APP_SET_ID;ENABLE_INSIGHTS_PLATFORM_SPECIFIC_RESOURCES;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_STANDARD_2_0;NET_STANDARD;NET_STANDARD_2_1;NETSTANDARD;NETSTANDARD2_1;ENABLE_PROFILER;ENABLE_PROFILER_ASSISTANT_INTEGRATION;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;TEXTCORE_TEXT_ENGINE_1_5_OR_NEWER;TEXTCORE_FONT_ENGINE_1_6_OR_NEWER;DOTWEEN;UNITY_MCP_READY;UNITY_MCP_DEPS_6;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
@@ -50,183 +50,177 @@
     <Analyzer Include="D:\UnityProject\Puzzle 2D\Library\PackageCache\com.unity.pipeline@ab05e9cd7f74\Runtime\Analyzers\IlInterpreterAnalyzer.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\HouseFlow\House\HouseProgressionDatabase.cs" />
+    <Compile Include="Assets\Scripts\Monetization\IAPManager.cs" />
+    <Compile Include="Assets\Scripts\Rewards\VisitorTipService.cs" />
+    <Compile Include="Assets\Scripts\Core\Managers\ObjectPoolManager.cs" />
     <Compile Include="Assets\ThirdParty\DOTween\Modules\DOTweenModuleEPOOutline.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Mechanical\AirflowSource.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Shop\ShopCostType.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Meta\VisitorTipService.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Tools\ToolDefinition.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\UI\ToolTrayUI.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Level\DeadZone.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Level\LevelDifficulty.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\UI\HouseUI.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Rewards\RewardBundle.cs" />
-    <Compile Include="Assets\Scripts\Core\Interface\PlayerAttack.cs" />
-    <Compile Include="Assets\Scripts\UI\Tooltip\UITooltipManager.cs" />
-    <Compile Include="Assets\Scripts\Manager\System\ReturnToPool.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Monetization\AdRewardService.cs" />
-    <Compile Include="Assets\Scripts\Manager\System\GameSession.cs" />
-    <Compile Include="Assets\Scripts\Manager\System\CutsceneLockPlayer.cs" />
-    <Compile Include="Assets\Scripts\Manager\System\SceneLoader.cs" />
-    <Compile Include="Assets\Scripts\Dialogue\DialogueBubbleSizing.cs" />
-    <Compile Include="Assets\Scripts\Manager\System\SoundManager.cs" />
-    <Compile Include="Assets\Scripts\Manager\System\TickManager.cs" />
-    <Compile Include="Assets\Scripts\Manager\System\GameManager.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Analytics\AnalyticsService.cs" />
-    <Compile Include="Assets\Scripts\Data\MapModifier.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Progression\ProgressionManager.cs" />
-    <Compile Include="Assets\Scripts\Core\Interface\IInteractable.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Fluid\FluidParticle.cs" />
-    <Compile Include="Assets\Scripts\Manager\Gameplay\GameFeelManager.cs" />
-    <Compile Include="Assets\Scripts\Core\Interface\PlayerInteract.cs" />
-    <Compile Include="Assets\Scripts\Manager\System\GameInput.Mobile.cs" />
-    <Compile Include="Assets\Scripts\Audio\RandomPitchAudio.cs" />
-    <Compile Include="Assets\Scripts\Core\Interface\PlayerStats.cs" />
-    <Compile Include="Assets\Scripts\UI\Tooltip\ITooltipDataProvider.cs" />
-    <Compile Include="Assets\Scripts\Data\MemoryNodeData.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Tools\Impl\VacuumTool.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Electricity\PowerSource.cs" />
-    <Compile Include="Assets\Scripts\Core\Interface\PlayerCombat.cs" />
-    <Compile Include="Assets\Scripts\Manager\System\InputActions.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\UI\RewardOverlayUI.cs" />
-    <Compile Include="Assets\Scripts\Manager\Gameplay\EventManager.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Tools\ToolInventory.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Monetization\RewardedAdPlacement.cs" />
+    <Compile Include="Assets\Scripts\Analytics\AnalyticsEvents.cs" />
+    <Compile Include="Assets\Scripts\Firebase\FirebaseBootstrap.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\VelocityTier.cs" />
+    <Compile Include="Assets\Scripts\Objectives\ObjectiveSystem.cs" />
+    <Compile Include="Assets\Scripts\Shop\ShopDatabase.cs" />
+    <Compile Include="Assets\Scripts\Core\Utilities\ReturnToPool.cs" />
+    <Compile Include="Assets\Scripts\Monetization\MockIAPService.cs" />
+    <Compile Include="Assets\Scripts\Core\Services\SaveManager.cs" />
+    <Compile Include="Assets\Scripts\Core\Interfaces\IUIPanel.cs" />
+    <Compile Include="Assets\Scripts\Core\Managers\GameSession.cs" />
+    <Compile Include="Assets\Scripts\Rewards\RewardType.cs" />
+    <Compile Include="Assets\Scripts\Dev\AutoPlayTest.cs" />
+    <Compile Include="Assets\Scripts\Core\Interfaces\IInteractable.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Tiles\ICrushable.cs" />
+    <Compile Include="Assets\Scripts\Objectives\ReachExitObjective.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Hazard.cs" />
+    <Compile Include="Assets\Scripts\Data\CampaignDatabase.cs" />
+    <Compile Include="Assets\Scripts\UI\Tutorial\TutorialUI.cs" />
+    <Compile Include="Assets\Scripts\Firebase\FirebaseCloudSaveProvider.cs" />
+    <Compile Include="Assets\Scripts\Firebase\FirebaseService.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Tiles\BrittleFloor.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioPitchUtility.cs" />
-    <Compile Include="Assets\Scripts\Core\Gameplay\TimeRewind.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Cosmetics\CosmeticEquipService.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\UI\LevelNodeWidget.cs" />
+    <Compile Include="Assets\Scripts\Input\GameInput.Mobile.cs" />
+    <Compile Include="Assets\Scripts\Economy\EconomyManager.cs" />
     <Compile Include="Assets\ThirdParty\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Tools\IPhysicsHistoryProvider.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Objective\DeliverFluidObjective.cs" />
-    <Compile Include="Assets\Scripts\Manager\System\LoadingScene.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Thermal\HeatSource.cs" />
-    <Compile Include="Assets\Scripts\Manager\System\GameLevel.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Analytics\AnalyticsEvents.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Meta\DailyRewardService.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\House\HouseProgressionManager.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\UI\CosmeticsUI.cs" />
-    <Compile Include="Assets\Scripts\Audio\UIAudioManager.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Thermal\CoolingSource.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Analytics\AnalyticsEventObserver.cs" />
-    <Compile Include="Assets\Scripts\Core\Interface\PlayerMovement.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Level\LevelLoader.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Electricity\ElectricTerminal.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Objective\ObjectiveBase.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Analytics\MockAnalyticsProvider.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Analytics\IAnalyticsService.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Analytics\AnalyticsEventRecord.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Shop\ShopDatabase.cs" />
-    <Compile Include="Assets\Scripts\Manager\System\MusicManager.cs" />
+    <Compile Include="Assets\Scripts\UI\Shop\ShopUI.cs" />
+    <Compile Include="Assets\Scripts\Input\GameInput.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\PlayerSpawnPoint.cs" />
+    <Compile Include="Assets\Scripts\Level\LevelRoot.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Player\PlayerImpactFeedback.cs" />
+    <Compile Include="Assets\Scripts\Core\Utilities\CinemachineCameraZoom2D.cs" />
+    <Compile Include="Assets\Scripts\Monetization\IAPResult.cs" />
+    <Compile Include="Assets\Scripts\UI\Rewards\VisitorTipUI.cs" />
+    <Compile Include="Assets\Scripts\Audio\MusicManager.cs" />
+    <Compile Include="Assets\Scripts\Rewards\RewardCalculator.cs" />
+    <Compile Include="Assets\Scripts\Objectives\CollectPickupsObjective.cs" />
     <Compile Include="Assets\ThirdParty\DOTween\Modules\DOTweenModulePhysics.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\UI\ShopUI.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Mechanical\BimetallicStrip.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Electricity\ElectricPump.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Level\LevelPhysicsConfig.cs" />
-    <Compile Include="Assets\Scripts\Data\ItemBaseData.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Monetization\MockIAPService.cs" />
+    <Compile Include="Assets\Scripts\Analytics\AnalyticsEventObserver.cs" />
+    <Compile Include="Assets\Scripts\Core\Managers\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Dev\FirebaseSmokeTest.cs" />
     <Compile Include="Assets\Scripts\UI\UIPanelType.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Thermal\IThermalReceiver.cs" />
-    <Compile Include="Assets\Scripts\Core\Interface\BaseLevelGenerator.cs" />
+    <Compile Include="Assets\Scripts\Core\Managers\CutsceneManager.cs" />
     <Compile Include="Assets\ThirdParty\DOTween\Modules\DOTweenModuleAudio.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Mechanical\Boiler.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Monetization\IIAPService.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Monetization\IAPResult.cs" />
-    <Compile Include="Assets\Scripts\Dialogue\DialogueBubbleView.cs" />
-    <Compile Include="Assets\Scripts\Core\Interface\RuntimeTilemapMerger.cs" />
-    <Compile Include="Assets\Scripts\UI\UIDragHandler.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Monetization\MockRewardedAdService.cs" />
-    <Compile Include="Assets\Scripts\Dialogue\DialogueSequenceCursor.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Rewards\RewardType.cs" />
+    <Compile Include="Assets\Scripts\Firebase\IAuthService.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Tiles\DeflectionWedge.cs" />
+    <Compile Include="Assets\Scripts\Level\LevelLoader.cs" />
+    <Compile Include="Assets\Scripts\Rewards\RewardBundle.cs" />
+    <Compile Include="Assets\Scripts\Monetization\IRewardedAdService.cs" />
+    <Compile Include="Assets\Scripts\Level\LevelDifficulty.cs" />
     <Compile Include="Assets\ThirdParty\DOTween\Modules\DOTweenModuleSprite.cs" />
-    <Compile Include="Assets\Scripts\Manager\System\CutsceneManager.cs" />
-    <Compile Include="Assets\Scripts\UI\UILineDrawer.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Cosmetics\CosmeticInventory.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Tools\ToolType.cs" />
-    <Compile Include="Assets\Scripts\Core\Gameplay\PointInTime.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Cosmetics\CosmeticCategory.cs" />
-    <Compile Include="Assets\Scripts\Manager\Gameplay\RunManager.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\UI\GameplayHUD.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Analytics\IAnalyticsProvider.cs" />
-    <Compile Include="Assets\Scripts\Dialogue\DialogueConversation.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Level\LevelData.cs" />
-    <Compile Include="Assets\Scripts\Data\GameDataManager.cs" />
+    <Compile Include="Assets\Scripts\Firebase\ICloudSaveProvider.cs" />
+    <Compile Include="Assets\Scripts\Monetization\RewardedAdPlacement.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Tiles\CrackedBlock.cs" />
+    <Compile Include="Assets\Scripts\UI\Rewards\RewardOverlayUI.cs" />
+    <Compile Include="Assets\Scripts\Core\Utilities\CinemachineCameraShake2D.cs" />
+    <Compile Include="Assets\Scripts\Monetization\IIAPService.cs" />
+    <Compile Include="Assets\Scripts\Objectives\ObjectiveBase.cs" />
+    <Compile Include="Assets\Scripts\Rewards\DailyRewardService.cs" />
+    <Compile Include="Assets\Scripts\Shop\ShopCostType.cs" />
+    <Compile Include="Assets\Scripts\Progression\ProgressionManager.cs" />
     <Compile Include="Assets\ThirdParty\DOTween\Modules\DOTweenModuleUtils.cs" />
-    <Compile Include="Assets\Scripts\UI\UIZoomable.cs" />
+    <Compile Include="Assets\Scripts\Level\LevelFlowController.cs" />
     <Compile Include="Assets\ThirdParty\DOTween\Modules\DOTweenModuleUI.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Fluid\FluidType.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Rewards\RewardCalculator.cs" />
-    <Compile Include="Assets\Scripts\Manager\System\ObjectPoolManager.cs" />
-    <Compile Include="Assets\Scripts\Core\Interface\CinemachineCameraZoom2D.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\UI\MainMenuUI.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Objective\ObjectiveSystem.cs" />
-    <Compile Include="Assets\Scripts\UI\UIAudioHandler.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Monetization\IRewardedAdService.cs" />
-    <Compile Include="Assets\Scripts\Audio\EntityAudioManager.cs" />
-    <Compile Include="Assets\Scripts\Dialogue\DialogueInteractable.cs" />
-    <Compile Include="Assets\Scripts\Manager\System\GameInput.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Objective\ObjectiveType.cs" />
+    <Compile Include="Assets\Scripts\Objectives\ObjectiveType.cs" />
+    <Compile Include="Assets\Scripts\Monetization\AdRewardService.cs" />
+    <Compile Include="Assets\Scripts\Monetization\RewardedAdResult.cs" />
+    <Compile Include="Assets\Scripts\UI\Gameplay\GameplayHUD.cs" />
+    <Compile Include="Assets\Scripts\Rewards\RewardItem.cs" />
     <Compile Include="Assets\Scripts\Data\ProfileData.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\UI\CampaignMapUI.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Tools\Impl\FixItTool.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Rewards\RewardItem.cs" />
-    <Compile Include="Assets\Scripts\Core\Interface\MetaProgressionManager.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Monetization\RewardedAdResult.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Level\LevelRoot.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Mechanical\IAirflowProvider.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Fluid\WaterSource.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Economy\EconomyManager.cs" />
-    <Compile Include="Assets\Scripts\Dialogue\DialogueController.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Cosmetics\CosmeticDefinition.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Rewards\RewardService.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Level\LevelState.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Mechanical\PneumaticGate.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Objective\ObjectiveDefinition.cs" />
-    <Compile Include="Assets\Scripts\Core\Interface\MindPlayerMovement.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Electricity\ElectricSwitch.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Shop\ShopManager.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Mechanical\Valve.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\UI\VisitorTipUI.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\UI\TutorialUI.cs" />
-    <Compile Include="Assets\Scripts\UI\Number\NumberPopup.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Player\PlayerSquashStretch.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\LevelExit.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Tiles\MazeTile.cs" />
+    <Compile Include="Assets\Scripts\Shop\ShopItemDefinition.cs" />
+    <Compile Include="Assets\Scripts\Firebase\FirebaseAuthService.cs" />
+    <Compile Include="Assets\Scripts\Level\LevelState.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Tiles\BrakeTile.cs" />
+    <Compile Include="Assets\Scripts\UI\Campaign\LevelNodeWidget.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Player\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\Analytics\IAnalyticsService.cs" />
+    <Compile Include="Assets\Scripts\Data\LevelData.cs" />
     <Compile Include="Assets\Scripts\UI\UIPanelAnimator.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Shop\ShopItemDefinition.cs" />
-    <Compile Include="Assets\Scripts\Manager\System\GameManagerVisual.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Monetization\IAPManager.cs" />
-    <Compile Include="Assets\Scripts\Audio\EventAudioPlayer.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Level\HouseflowDebugUI.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Tools\Impl\MagnetTool.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Fluid\FluidTarget.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Electricity\CircuitBreaker.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Tools\ITroubleshooterTool.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Tools\Impl\RewindTool.cs" />
-    <Compile Include="Assets\Scripts\UI\Tooltip\UITooltipTrigger.cs" />
-    <Compile Include="Assets\Scripts\Data\RunData.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Level\LevelFlowController.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\House\HouseFeatureDefinition.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Tools\Impl\BlueprintHintTool.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Mechanical\DuctSegment.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\UI\DailyRewardUI.cs" />
-    <Compile Include="Assets\Scripts\Manager\System\SaveManager.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Thermal\ThermalBody.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Progression\CampaignDatabase.cs" />
+    <Compile Include="Assets\Scripts\Core\Managers\GameDataManager.cs" />
+    <Compile Include="Assets\Scripts\UI\MainMenu\MainMenuUI.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Player\PlayerLineTrail.cs" />
+    <Compile Include="Assets\Scripts\Input\InputActions.cs" />
+    <Compile Include="Assets\Scripts\Monetization\MockRewardedAdService.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Collectible.cs" />
+    <Compile Include="Assets\Scripts\Analytics\MockAnalyticsProvider.cs" />
+    <Compile Include="Assets\Scripts\Analytics\AnalyticsEventRecord.cs" />
+    <Compile Include="Assets\Scripts\Shop\ShopManager.cs" />
+    <Compile Include="Assets\Scripts\Audio\SoundManager.cs" />
+    <Compile Include="Assets\Scripts\Analytics\AnalyticsService.cs" />
+    <Compile Include="Assets\Scripts\UI\Rewards\DailyRewardUI.cs" />
     <Compile Include="Assets\Scripts\UI\UIManager.cs" />
-    <Compile Include="Assets\Scripts\Manager\System\TimeManager.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Mechanical\CounterweightBladder.cs" />
+    <Compile Include="Assets\Scripts\Rewards\RewardService.cs" />
+    <Compile Include="Assets\Scripts\Input\InputConfig.cs" />
+    <Compile Include="Assets\Scripts\UI\Campaign\CampaignMapUI.cs" />
+    <Compile Include="Assets\Scripts\Analytics\IAnalyticsProvider.cs" />
     <Compile Include="Assets\ThirdParty\DOTween\Modules\DOTweenModulePhysics2D.cs" />
-    <Compile Include="Assets\Scripts\Data\InputConfig.cs" />
-    <Compile Include="Assets\Scripts\Dialogue\DialogueSpeaker.cs" />
-    <Compile Include="Assets\Scripts\Core\Interface\IUIPanel.cs" />
-    <Compile Include="Assets\Scripts\HouseFlow\Mechanical\Balloon.cs" />
+    <Compile Include="Assets\Scripts\Objectives\ObjectiveDefinition.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Firebase\Plugins\iOS\Firebase.Messaging.dll" />
+    <None Include="Assets\Firebase\Plugins\x86_64\FirebaseCppInstallations.dll" />
+    <None Include="Assets\Firebase\Plugins\x86_64\FirebaseCppFirestore.dll" />
+    <None Include="Assets\Firebase\Plugins\Firebase.Messaging.dll" />
     <None Include="Assets\Shaders\Hit\HitFlashSprite.shader" />
+    <None Include="Assets\Firebase\Plugins\iOS\Firebase.AppCheck.dll" />
+    <None Include="Assets\Firebase\Plugins\Firebase.Analytics.dll" />
+    <None Include="Assets\GoogleMobileAds\GoogleMobileAds.Common.dll" />
+    <None Include="Assets\Firebase\Plugins\x86_64\FirebaseCppDatabase.dll" />
     <None Include="Assets\ThirdParty\DOTween\DOTween.XML" />
+    <None Include="Assets\GoogleMobileAds\GoogleMobileAds.Ump.iOS.dll" />
+    <None Include="Assets\Firebase\Plugins\iOS\Firebase.Analytics.dll" />
+    <None Include="Assets\GoogleMobileAds\GoogleMobileAds.dll" />
+    <None Include="Assets\Firebase\Plugins\x86_64\FirebaseCppStorage.dll" />
+    <None Include="Assets\Firebase\Plugins\Firebase.App.dll" />
+    <None Include="Assets\GoogleMobileAds\GoogleMobileAds.iOS.dll" />
+    <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-firestore-unity\maven-metadata.xml" />
+    <None Include="Assets\Firebase\Plugins\x86_64\FirebaseCppAppCheck.dll" />
+    <None Include="Assets\Firebase\Plugins\x86_64\FirebaseCppAnalytics.dll" />
+    <None Include="Assets\Firebase\Plugins\iOS\Firebase.RemoteConfig.dll" />
+    <None Include="Assets\Firebase\Plugins\x86_64\FirebaseCppAuth.dll" />
+    <None Include="Assets\Firebase\Plugins\iOS\Firebase.Firestore.dll" />
+    <None Include="Assets\Firebase\Plugins\x86_64\FirebaseCppMessaging.dll" />
+    <None Include="Assets\Firebase\Plugins\Firebase.TaskExtension.dll" />
     <None Include="Assets\Audio\Sounds\Free Fantasy SFX Pack By TomMusic\Free Fantasy SFX Pack By TomMusic\ReadMe.txt" />
+    <None Include="Assets\GoogleMobileAds\GoogleMobileAds.Core.dll" />
+    <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-app-unity\maven-metadata.xml" />
+    <None Include="Assets\Firebase\Plugins\iOS\Firebase.Installations.dll" />
+    <None Include="Assets\GoogleMobileAds\link.xml" />
+    <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-messaging-unity\maven-metadata.xml" />
     <None Include="Assets\Audio\Sounds\Shapeforms Audio Free Sound Effects\Shapeforms Audio Free Sound Effects\Future UI Preview\Future UI info.txt" />
+    <None Include="Assets\Firebase\Plugins\Firebase.Auth.dll" />
+    <None Include="Assets\Firebase\Plugins\Firebase.Installations.dll" />
+    <None Include="Assets\GoogleMobileAds\GoogleMobileAds.Ump.Unity.dll" />
+    <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-installations-unity\maven-metadata.xml" />
+    <None Include="Assets\Firebase\Plugins\Firebase.Database.dll" />
+    <None Include="Assets\GoogleMobileAds\GoogleMobileAds.Ump.dll" />
+    <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-config-unity\maven-metadata.xml" />
+    <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-analytics-unity\maven-metadata.xml" />
+    <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-auth-unity\maven-metadata.xml" />
+    <None Include="Assets\Firebase\Plugins\iOS\Firebase.Auth.dll" />
+    <None Include="Assets\GoogleMobileAds\GoogleMobileAds_version-11.5.0_manifest.txt" />
+    <None Include="Assets\Firebase\Plugins\Firebase.Crashlytics.dll" />
     <None Include="Assets\Audio\Sounds\Shapeforms Audio Free Sound Effects\Shapeforms Audio Free Sound Effects\20 Percent Off Coupon.txt" />
     <None Include="Assets\ThirdParty\DOTween\DOTween.dll" />
     <None Include="Assets\ThirdParty\DOTween\readme.txt" />
+    <None Include="Assets\GoogleMobileAds\GoogleMobileAds.Unity.dll" />
+    <None Include="Assets\Firebase\Plugins\Firebase.Firestore.dll" />
+    <None Include="Assets\Firebase\Plugins\Firebase.AppCheck.dll" />
+    <None Include="Assets\Firebase\Plugins\iOS\Firebase.Crashlytics.dll" />
+    <None Include="Assets\Firebase\Plugins\x86_64\FirebaseCppApp-13_17_0.dll" />
+    <None Include="Assets\Firebase\Plugins\iOS\Firebase.Database.dll" />
+    <None Include="Assets\Firebase\Plugins\Firebase.Platform.dll" />
+    <None Include="Assets\Firebase\Plugins\x86_64\FirebaseCppRemoteConfig.dll" />
+    <None Include="Assets\GoogleMobileAds\GoogleMobileAds.Android.dll" />
+    <None Include="Assets\Firebase\Plugins\Firebase.RemoteConfig.dll" />
+    <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-crashlytics-unity\maven-metadata.xml" />
+    <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-database-unity\maven-metadata.xml" />
+    <None Include="Assets\Firebase\Plugins\Firebase.Storage.dll" />
+    <None Include="Assets\Firebase\Plugins\Google.MiniJson.dll" />
+    <None Include="Assets\Firebase\Plugins\iOS\Firebase.Storage.dll" />
+    <None Include="Assets\Firebase\Plugins\iOS\Firebase.App.dll" />
+    <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-storage-unity\maven-metadata.xml" />
+    <None Include="Assets\GoogleMobileAds\GoogleMobileAds.Ump.Android.dll" />
+    <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-appcheck-unity\maven-metadata.xml" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -765,6 +759,10 @@
       <HintPath>Assets\Plugins\NuGet\Microsoft.AspNetCore.SignalR.Protocols.Json.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Firebase.Messaging">
+      <HintPath>Assets\Firebase\Plugins\Firebase.Messaging.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Microsoft.AspNetCore.SignalR.Client">
       <HintPath>Assets\Plugins\NuGet\Microsoft.AspNetCore.SignalR.Client.dll</HintPath>
       <Private>False</Private>
@@ -773,8 +771,20 @@
       <HintPath>Assets\Plugins\NuGet\System.Diagnostics.DiagnosticSource.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Firebase.AppCheck">
+      <HintPath>Assets\Firebase\Plugins\Firebase.AppCheck.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Microsoft.AspNetCore.Connections.Abstractions">
       <HintPath>Assets\Plugins\NuGet\Microsoft.AspNetCore.Connections.Abstractions.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Firebase.Analytics">
+      <HintPath>Assets\Firebase\Plugins\Firebase.Analytics.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="GoogleMobileAds.Common">
+      <HintPath>Assets\GoogleMobileAds\GoogleMobileAds.Common.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.AspNetCore.Http.Connections.Client">
@@ -805,12 +815,20 @@
       <HintPath>Assets\Plugins\NuGet\System.Collections.Immutable.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="GoogleMobileAds">
+      <HintPath>Assets\GoogleMobileAds\GoogleMobileAds.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System.Reflection.Metadata">
       <HintPath>Assets\Plugins\NuGet\System.Reflection.Metadata.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.IO.Pipelines">
       <HintPath>Assets\Plugins\NuGet\System.IO.Pipelines.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Firebase.App">
+      <HintPath>Assets\Firebase\Plugins\Firebase.App.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.Extensions.Logging.Abstractions">
@@ -829,20 +847,44 @@
       <HintPath>Assets\Plugins\NuGet\System.Text.Encodings.Web.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Firebase.RemoteConfig">
+      <HintPath>Assets\Firebase\Plugins\Firebase.RemoteConfig.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Microsoft.Extensions.Diagnostics.Abstractions">
       <HintPath>Assets\Plugins\NuGet\Microsoft.Extensions.Diagnostics.Abstractions.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Firebase.Firestore">
+      <HintPath>Assets\Firebase\Plugins\Firebase.Firestore.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityPipeline.Microsoft.CodeAnalysis.CSharp">
       <HintPath>Library\PackageCache\com.unity.pipeline@ab05e9cd7f74\Runtime\Plugins\CodeAnalysis\UnityPipeline.Microsoft.CodeAnalysis.CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Firebase.TaskExtension">
+      <HintPath>Assets\Firebase\Plugins\Firebase.TaskExtension.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="GoogleMobileAds.Core">
+      <HintPath>Assets\GoogleMobileAds\GoogleMobileAds.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="McpPlugin">
       <HintPath>Assets\Plugins\NuGet\McpPlugin.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Firebase.Installations">
+      <HintPath>Assets\Firebase\Plugins\Firebase.Installations.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeAnalysis.CSharp">
       <HintPath>Assets\Plugins\NuGet\Microsoft.CodeAnalysis.CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Firebase.Auth">
+      <HintPath>Assets\Firebase\Plugins\Firebase.Auth.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="ReflectorNet">
@@ -869,8 +911,20 @@
       <HintPath>Assets\Plugins\NuGet\Microsoft.Extensions.Options.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="GoogleMobileAds.Ump.Unity">
+      <HintPath>Assets\GoogleMobileAds\GoogleMobileAds.Ump.Unity.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System.Text.Encoding.CodePages">
       <HintPath>Assets\Plugins\NuGet\System.Text.Encoding.CodePages.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Firebase.Database">
+      <HintPath>Assets\Firebase\Plugins\Firebase.Database.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="GoogleMobileAds.Ump">
+      <HintPath>Assets\GoogleMobileAds\GoogleMobileAds.Ump.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="R3">
@@ -897,12 +951,20 @@
       <HintPath>Assets\Plugins\NuGet\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Firebase.Crashlytics">
+      <HintPath>Assets\Firebase\Plugins\Firebase.Crashlytics.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="DOTween">
       <HintPath>Assets\ThirdParty\DOTween\DOTween.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityPipeline.System.Runtime.CompilerServices.Unsafe">
       <HintPath>Library\PackageCache\com.unity.pipeline@ab05e9cd7f74\Runtime\Plugins\CodeAnalysis\UnityPipeline.System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="GoogleMobileAds.Unity">
+      <HintPath>Assets\GoogleMobileAds\GoogleMobileAds.Unity.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.AspNetCore.SignalR.Client.Core">
@@ -933,6 +995,10 @@
       <HintPath>Assets\Plugins\NuGet\Microsoft.Extensions.FileProviders.Abstractions.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Firebase.Platform">
+      <HintPath>Assets\Firebase\Plugins\Firebase.Platform.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Microsoft.Extensions.Hosting.Abstractions">
       <HintPath>Assets\Plugins\NuGet\Microsoft.Extensions.Hosting.Abstractions.dll</HintPath>
       <Private>False</Private>
@@ -945,8 +1011,16 @@
       <HintPath>Assets\Plugins\NuGet\Microsoft.Extensions.Logging.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Firebase.Storage">
+      <HintPath>Assets\Firebase\Plugins\Firebase.Storage.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System.Threading.Channels">
       <HintPath>Assets\Plugins\NuGet\System.Threading.Channels.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Google.MiniJson">
+      <HintPath>Assets\Firebase\Plugins\Google.MiniJson.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.AspNetCore.SignalR.Common">
@@ -1469,12 +1543,16 @@
       <HintPath>D:\Unity\6000.4.0f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.RenderPipelines.Core.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
+    <Reference Include="Unity.Settings.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Settings.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.2D.Common.Path.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.2D.Common.Path.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
@@ -1501,6 +1579,10 @@
       <HintPath>Library\ScriptAssemblies\Unity.Rendering.LightTransport.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Services.Core">
+      <HintPath>Library\ScriptAssemblies\Unity.Services.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
       <Private>False</Private>
@@ -1521,10 +1603,6 @@
       <HintPath>Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.001.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.Splines.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Splines.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.2D.Editor.Overrides">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.2D.Editor.Overrides.dll</HintPath>
       <Private>False</Private>
@@ -1539,6 +1617,10 @@
     </Reference>
     <Reference Include="Unity.Timeline">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Splines.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Splines.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Pipeline.IlInterpreter">
@@ -1593,6 +1675,10 @@
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Services.Core.Components">
+      <HintPath>Library\ScriptAssemblies\Unity.Services.Core.Components.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Mathematics.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
       <Private>False</Private>
@@ -1617,16 +1703,20 @@
       <HintPath>Library\ScriptAssemblies\Unity.Pipeline.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Services.Authentication">
+      <HintPath>Library\ScriptAssemblies\Unity.Services.Authentication.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.Pipeline.Attributes">
-      <HintPath>Library\ScriptAssemblies\Unity.Pipeline.Attributes.dll</HintPath>
+    <Reference Include="Unity.Services.Core.Analytics">
+      <HintPath>Library\ScriptAssemblies\Unity.Services.Core.Analytics.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.2D.Aseprite.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.2D.Aseprite.Editor.dll</HintPath>
+    <Reference Include="Unity.Pipeline.Attributes">
+      <HintPath>Library\ScriptAssemblies\Unity.Pipeline.Attributes.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.InternalAPIEditorBridge.ShaderGraph.Editor">
@@ -1655,6 +1745,14 @@
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Extras.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.2D.Tilemap.Extras.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.2D.Aseprite.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Aseprite.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Services.Authentication.PlayerAccounts">
+      <HintPath>Library\ScriptAssemblies\Unity.Services.Authentication.PlayerAccounts.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Extras">
@@ -1729,6 +1827,10 @@
       <HintPath>Library\ScriptAssemblies\Unity.Multiplayer.Center.Common.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Services.Core.Environments">
+      <HintPath>Library\ScriptAssemblies\Unity.Services.Core.Environments.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Burst">
       <HintPath>Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
       <Private>False</Private>
@@ -1793,10 +1895,6 @@
       <HintPath>Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.Settings.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Settings.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.Splines">
       <HintPath>Library\ScriptAssemblies\Unity.Splines.dll</HintPath>
       <Private>False</Private>
@@ -1811,6 +1909,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="GoogleMobileAds.Editor.csproj" />
+    <ProjectReference Include="Firebase.Functions.csproj" />
+    <ProjectReference Include="Firebase.App.Internal.csproj" />
+    <ProjectReference Include="FirebaseMessagingActivityGenerator.csproj" />
+    <ProjectReference Include="Firebase.FirebaseAI.csproj" />
   </ItemGroup>
   <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
   <ItemGroup>

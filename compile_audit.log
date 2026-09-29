@@ -1,0 +1,20 @@
+[Licensing::Module] Trying to connect to existing licensing client channel...
+Built from '6000.4/staging' branch; Version is '6000.4.0f1 (8cf496087c8f) revision 9237654'; Using compiler version '194234433'; Build Type 'Release'
+OS: 'Windows 11  (10.0.26200) CoreSingleLanguage' Language: 'en' Physical Memory: 16085 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
+System  architecture: x64
+Process architecture: x64
+Date: 2026-09-28T06:07:45Z
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-VuQuang" at "2026-09-28T06:07:45.5272837Z"
+
+COMMAND LINE ARGUMENTS:
+D:\Unity\6000.4.0f1\Editor\Unity.exe
+-batchmode
+-quit
+-projectPath
+D:\UnityProject\Puzzle 2D
+-logFile
+D:\UnityProject\Puzzle 2D\compile_audit.log
+Successfully changed project path to: D:\UnityProject\Puzzle 2D
+D:/UnityProject/Puzzle 2D
+Exiting without the bug reporter. Application will terminate with return code 1

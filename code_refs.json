@@ -1,0 +1,1859 @@
+{
+ "AnalyticsEventObserver": {
+  "file": "Analytics/AnalyticsEventObserver.cs",
+  "refs": 0,
+  "by": []
+ },
+ "AnalyticsEventRecord": {
+  "file": "Analytics/AnalyticsEventRecord.cs",
+  "refs": 4,
+  "by": [
+   "Analytics/MockAnalyticsProvider.cs"
+  ]
+ },
+ "AnalyticsEvents": {
+  "file": "Analytics/AnalyticsEvents.cs",
+  "refs": 23,
+  "by": [
+   "Analytics/AnalyticsEventObserver.cs",
+   "Analytics/AnalyticsService.cs",
+   "UI/Campaign/CampaignMapUI.cs",
+   "UI/Gameplay/ToolTrayUI.cs",
+   "UI/Rewards/RewardOverlayUI.cs",
+   "UI/Shop/ShopUI.cs"
+  ]
+ },
+ "AnalyticsService": {
+  "file": "Analytics/AnalyticsService.cs",
+  "refs": 24,
+  "by": [
+   "Analytics/AnalyticsEventObserver.cs",
+   "Analytics/IAnalyticsProvider.cs",
+   "Analytics/IAnalyticsService.cs",
+   "UI/Campaign/CampaignMapUI.cs",
+   "UI/Gameplay/ToolTrayUI.cs",
+   "UI/Rewards/RewardOverlayUI.cs",
+   "UI/Shop/ShopUI.cs"
+  ]
+ },
+ "IAnalyticsProvider": {
+  "file": "Analytics/IAnalyticsProvider.cs",
+  "refs": 5,
+  "by": [
+   "Analytics/AnalyticsService.cs",
+   "Analytics/MockAnalyticsProvider.cs"
+  ]
+ },
+ "IAnalyticsService": {
+  "file": "Analytics/IAnalyticsService.cs",
+  "refs": 3,
+  "by": [
+   "Analytics/AnalyticsService.cs"
+  ]
+ },
+ "MockAnalyticsProvider": {
+  "file": "Analytics/MockAnalyticsProvider.cs",
+  "refs": 4,
+  "by": [
+   "Analytics/AnalyticsEventRecord.cs",
+   "Analytics/AnalyticsService.cs"
+  ]
+ },
+ "AudioPitchUtility": {
+  "file": "Audio/AudioPitchUtility.cs",
+  "refs": 3,
+  "by": [
+   "Audio/EntityAudioManager.cs",
+   "Audio/RandomPitchAudio.cs",
+   "Audio/SoundManager.cs"
+  ]
+ },
+ "SoundEntry": {
+  "file": "Audio/EntityAudioManager.cs",
+  "refs": 0,
+  "by": []
+ },
+ "EntityAudioManager": {
+  "file": "Audio/EntityAudioManager.cs",
+  "refs": 0,
+  "by": []
+ },
+ "EventAudioPlayer": {
+  "file": "Audio/EventAudioPlayer.cs",
+  "refs": 0,
+  "by": []
+ },
+ "MusicTrack": {
+  "file": "Audio/MusicManager.cs",
+  "refs": 0,
+  "by": []
+ },
+ "SceneMusicEntry": {
+  "file": "Audio/MusicManager.cs",
+  "refs": 0,
+  "by": []
+ },
+ "MusicManager": {
+  "file": "Audio/MusicManager.cs",
+  "refs": 3,
+  "by": [
+   "Audio/UIAudioManager.cs"
+  ]
+ },
+ "RandomPitchAudio": {
+  "file": "Audio/RandomPitchAudio.cs",
+  "refs": 0,
+  "by": []
+ },
+ "SoundManager": {
+  "file": "Audio/SoundManager.cs",
+  "refs": 17,
+  "by": [
+   "Audio/EntityAudioManager.cs",
+   "Audio/EventAudioPlayer.cs",
+   "Audio/RandomPitchAudio.cs",
+   "Audio/UIAudioManager.cs",
+   "UI/UIAudioHandler.cs"
+  ]
+ },
+ "UIAudioManager": {
+  "file": "Audio/UIAudioManager.cs",
+  "refs": 0,
+  "by": []
+ },
+ "IInteractable": {
+  "file": "Core/Interfaces/IInteractable.cs",
+  "refs": 13,
+  "by": [
+   "Dialogue/DialogueInteractable.cs",
+   "Gameplay/Airflow/PneumaticGate.cs",
+   "Gameplay/Electricity/CircuitBreaker.cs",
+   "Gameplay/Electricity/ElectricSwitch.cs",
+   "Gameplay/Mechanical/Valve.cs",
+   "Level/LevelFlowController.cs",
+   "UI/Tutorial/TutorialUI.cs",
+   "UI/UIManager.cs"
+  ]
+ },
+ "IUIPanel": {
+  "file": "Core/Interfaces/IUIPanel.cs",
+  "refs": 10,
+  "by": [
+   "Dialogue/DialogueController.cs",
+   "UI/Gameplay/HouseflowDebugUI.cs",
+   "UI/UIManager.cs"
+  ]
+ },
+ "CutsceneLockPlayer": {
+  "file": "Core/Managers/CutsceneLockPlayer.cs",
+  "refs": 0,
+  "by": []
+ },
+ "CutsceneManager": {
+  "file": "Core/Managers/CutsceneManager.cs",
+  "refs": 7,
+  "by": [
+   "Core/Managers/GameManager.cs",
+   "Core/Managers/GameSession.cs",
+   "Player/MindPlayerMovement.cs",
+   "Player/PlayerAttack.cs",
+   "Player/PlayerMovement.cs"
+  ]
+ },
+ "CanvasSortingState": {
+  "file": "Core/Managers/CutsceneManager.cs",
+  "refs": 0,
+  "by": []
+ },
+ "RendererSortingState": {
+  "file": "Core/Managers/CutsceneManager.cs",
+  "refs": 0,
+  "by": []
+ },
+ "EventChoice": {
+  "file": "Core/Managers/EventManager.cs",
+  "refs": 0,
+  "by": []
+ },
+ "EventManager": {
+  "file": "Core/Managers/EventManager.cs",
+  "refs": 0,
+  "by": []
+ },
+ "GameDataManager": {
+  "file": "Core/Managers/GameDataManager.cs",
+  "refs": 3,
+  "by": [
+   "Core/Managers/GameManager.cs"
+  ]
+ },
+ "GameFeelImpactType": {
+  "file": "Core/Managers/GameFeelManager.cs",
+  "refs": 0,
+  "by": []
+ },
+ "GameFeelShakePreset": {
+  "file": "Core/Managers/GameFeelManager.cs",
+  "refs": 0,
+  "by": []
+ },
+ "GameFeelManager": {
+  "file": "Core/Managers/GameFeelManager.cs",
+  "refs": 0,
+  "by": []
+ },
+ "GameManager": {
+  "file": "Core/Managers/GameManager.cs",
+  "refs": 0,
+  "by": []
+ },
+ "GameManagerVisual": {
+  "file": "Core/Managers/GameManagerVisual.cs",
+  "refs": 0,
+  "by": []
+ },
+ "GameSession": {
+  "file": "Core/Managers/GameSession.cs",
+  "refs": 34,
+  "by": [
+   "Core/Managers/GameDataManager.cs",
+   "Core/Managers/GameManager.cs",
+   "Economy/EconomyManager.cs",
+   "Level/LevelFlowController.cs",
+   "Progression/ProgressionManager.cs",
+   "UI/Campaign/CampaignMapUI.cs"
+  ]
+ },
+ "LoadingScene": {
+  "file": "Core/Managers/LoadingScene.cs",
+  "refs": 0,
+  "by": []
+ },
+ "MetaProgressionManager": {
+  "file": "Core/Managers/MetaProgressionManager.cs",
+  "refs": 6,
+  "by": [
+   "Core/Managers/GameSession.cs"
+  ]
+ },
+ "ObjectPoolManager": {
+  "file": "Core/Managers/ObjectPoolManager.cs",
+  "refs": 15,
+  "by": [
+   "Core/Utilities/ReturnToPool.cs",
+   "Dialogue/DialogueController.cs",
+   "Gameplay/Fluid/FluidParticle.cs",
+   "Gameplay/Fluid/WaterSource.cs",
+   "Level/DeadZone.cs",
+   "Level/LevelRoot.cs",
+   "UI/NumberPopup.cs"
+  ]
+ },
+ "PoolType": {
+  "file": "Core/Managers/ObjectPoolManager.cs",
+  "refs": 2,
+  "by": [
+   "Dialogue/DialogueController.cs",
+   "Gameplay/Fluid/WaterSource.cs"
+  ]
+ },
+ "PooledObjectInfo": {
+  "file": "Core/Managers/ObjectPoolManager.cs",
+  "refs": 0,
+  "by": []
+ },
+ "RunManager": {
+  "file": "Core/Managers/RunManager.cs",
+  "refs": 0,
+  "by": []
+ },
+ "TickManager": {
+  "file": "Core/Managers/TickManager.cs",
+  "refs": 0,
+  "by": []
+ },
+ "TimeManager": {
+  "file": "Core/Managers/TimeManager.cs",
+  "refs": 17,
+  "by": [
+   "Core/Managers/CutsceneManager.cs",
+   "Core/Managers/GameFeelManager.cs",
+   "Core/Managers/GameManager.cs",
+   "Dialogue/DialogueController.cs",
+   "UI/UIManager.cs"
+  ]
+ },
+ "SaveManager": {
+  "file": "Core/Services/SaveManager.cs",
+  "refs": 49,
+  "by": [
+   "Core/Managers/GameDataManager.cs",
+   "Core/Managers/GameSession.cs",
+   "Economy/EconomyManager.cs",
+   "House/Cosmetics/CosmeticEquipService.cs",
+   "House/Cosmetics/CosmeticInventory.cs",
+   "House/HouseProgressionManager.cs",
+   "Monetization/IAPManager.cs",
+   "Progression/ProgressionManager.cs",
+   "Rewards/DailyRewardService.cs",
+   "Rewards/VisitorTipService.cs",
+   "Shop/ShopManager.cs",
+   "Tools/ToolInventory.cs",
+   "UI/Tutorial/TutorialUI.cs"
+  ]
+ },
+ "SceneLoader": {
+  "file": "Core/Services/SceneLoader.cs",
+  "refs": 0,
+  "by": []
+ },
+ "Scene": {
+  "file": "Core/Services/SceneLoader.cs",
+  "refs": 8,
+  "by": [
+   "Analytics/AnalyticsService.cs",
+   "Audio/MusicManager.cs",
+   "Core/Managers/GameManager.cs",
+   "Core/Managers/LoadingScene.cs",
+   "Dialogue/DialogueController.cs",
+   "UI/Campaign/CampaignMapUI.cs"
+  ]
+ },
+ "CinemachineCameraZoom2D": {
+  "file": "Core/Utilities/CinemachineCameraZoom2D.cs",
+  "refs": 0,
+  "by": []
+ },
+ "PointInTime": {
+  "file": "Core/Utilities/PointInTime.cs",
+  "refs": 4,
+  "by": [
+   "Core/Utilities/TimeRewind.cs"
+  ]
+ },
+ "ReturnToPool": {
+  "file": "Core/Utilities/ReturnToPool.cs",
+  "refs": 6,
+  "by": [
+   "Gameplay/Fluid/FluidParticle.cs",
+   "Gameplay/Fluid/WaterSource.cs",
+   "Level/DeadZone.cs",
+   "Level/LevelRoot.cs"
+  ]
+ },
+ "RuntimeTilemapMerger": {
+  "file": "Core/Utilities/RuntimeTilemapMerger.cs",
+  "refs": 0,
+  "by": []
+ },
+ "TimeRewind": {
+  "file": "Core/Utilities/TimeRewind.cs",
+  "refs": 0,
+  "by": []
+ },
+ "WorldData": {
+  "file": "Data/CampaignDatabase.cs",
+  "refs": 2,
+  "by": [
+   "Progression/ProgressionManager.cs",
+   "UI/Campaign/CampaignMapUI.cs"
+  ]
+ },
+ "CampaignDatabase": {
+  "file": "Data/CampaignDatabase.cs",
+  "refs": 5,
+  "by": [
+   "Progression/ProgressionManager.cs",
+   "UI/Campaign/CampaignMapUI.cs"
+  ]
+ },
+ "ItemCategory": {
+  "file": "Data/ItemBaseData.cs",
+  "refs": 6,
+  "by": [
+   "Data/RunData.cs"
+  ]
+ },
+ "to": {
+  "file": "Data/ItemBaseData.cs",
+  "refs": 255,
+  "by": [
+   "Analytics/AnalyticsEventObserver.cs",
+   "Analytics/AnalyticsService.cs",
+   "Analytics/MockAnalyticsProvider.cs",
+   "Audio/EntityAudioManager.cs",
+   "Audio/EventAudioPlayer.cs",
+   "Audio/MusicManager.cs",
+   "Audio/RandomPitchAudio.cs",
+   "Core/Managers/CutsceneLockPlayer.cs",
+   "Core/Managers/CutsceneManager.cs",
+   "Core/Managers/EventManager.cs",
+   "Core/Managers/GameManager.cs",
+   "Core/Managers/LoadingScene.cs",
+   "Core/Managers/RunManager.cs",
+   "Core/Utilities/ReturnToPool.cs",
+   "Data/CampaignDatabase.cs",
+   "Data/LevelData.cs",
+   "Data/LevelPhysicsConfig.cs",
+   "Dialogue/DialogueController.cs",
+   "Economy/EconomyManager.cs",
+   "Editor/LevelDataValidator.cs",
+   "Gameplay/Airflow/AirflowSource.cs",
+   "Gameplay/Airflow/Balloon.cs",
+   "Gameplay/Airflow/CounterweightBladder.cs",
+   "Gameplay/Airflow/DuctSegment.cs",
+   "Gameplay/Airflow/PneumaticGate.cs",
+   "Gameplay/Electricity/CircuitBreaker.cs",
+   "Gameplay/Electricity/ElectricPump.cs",
+   "Gameplay/Electricity/ElectricSwitch.cs",
+   "Gameplay/Electricity/ElectricTerminal.cs",
+   "Gameplay/Electricity/PowerSource.cs",
+   "Gameplay/Fluid/FluidParticle.cs",
+   "Gameplay/Fluid/FluidTarget.cs",
+   "Gameplay/Fluid/WaterSource.cs",
+   "Gameplay/Mechanical/Valve.cs",
+   "Gameplay/Thermal/BimetallicStrip.cs",
+   "Gameplay/Thermal/Boiler.cs",
+   "Gameplay/Thermal/CoolingSource.cs",
+   "Gameplay/Thermal/HeatSource.cs",
+   "Gameplay/Thermal/IThermalReceiver.cs",
+   "Gameplay/Thermal/ThermalBody.cs",
+   "House/Cosmetics/CosmeticDefinition.cs",
+   "House/HouseFeatureDefinition.cs",
+   "Input/InputConfig.cs",
+   "Level/DeadZone.cs",
+   "Level/LevelFlowController.cs",
+   "Level/LevelLoader.cs",
+   "Level/LevelRoot.cs",
+   "Monetization/AdRewardService.cs",
+   "Monetization/IRewardedAdService.cs",
+   "Objectives/DeliverFluidObjective.cs",
+   "Objectives/ObjectiveBase.cs",
+   "Objectives/ObjectiveDefinition.cs",
+   "Objectives/ObjectiveSystem.cs",
+   "Objectives/ObjectiveType.cs",
+   "Rewards/DailyRewardService.cs",
+   "Rewards/RewardCalculator.cs",
+   "Rewards/RewardService.cs",
+   "Rewards/VisitorTipService.cs",
+   "Shop/ShopManager.cs",
+   "Tools/IPhysicsHistoryProvider.cs",
+   "Tools/Impl/BlueprintHintTool.cs",
+   "Tools/Impl/MagnetTool.cs",
+   "Tools/Impl/RewindTool.cs",
+   "Tools/Impl/VacuumTool.cs",
+   "Tools/ToolInventory.cs",
+   "Tools/ToolType.cs",
+   "UI/Gameplay/HouseflowDebugUI.cs",
+   "UI/Gameplay/ToolTrayUI.cs",
+   "UI/MainMenu/MainMenuUI.cs",
+   "UI/Rewards/RewardOverlayUI.cs",
+   "UI/Rewards/VisitorTipUI.cs",
+   "UI/Shop/ShopUI.cs",
+   "UI/Tooltip/ITooltipDataProvider.cs",
+   "UI/Tooltip/UITooltipManager.cs",
+   "UI/Tooltip/UITooltipTrigger.cs",
+   "UI/Tutorial/TutorialUI.cs",
+   "UI/UIManager.cs"
+  ]
+ },
+ "ItemBaseData": {
+  "file": "Data/ItemBaseData.cs",
+  "refs": 4,
+  "by": [
+   "Data/RunData.cs",
+   "UI/Tooltip/ITooltipDataProvider.cs",
+   "UI/Tooltip/UITooltipManager.cs",
+   "UI/Tooltip/UITooltipTrigger.cs"
+  ]
+ },
+ "LevelData": {
+  "file": "Data/LevelData.cs",
+  "refs": 62,
+  "by": [
+   "Analytics/AnalyticsEventObserver.cs",
+   "Core/Managers/GameSession.cs",
+   "Core/Managers/LoadingScene.cs",
+   "Data/CampaignDatabase.cs",
+   "Editor/LevelDataValidator.cs",
+   "Level/LevelFlowController.cs",
+   "Level/LevelLoader.cs",
+   "Level/LevelRoot.cs",
+   "Objectives/DeliverFluidObjective.cs",
+   "Objectives/ObjectiveBase.cs",
+   "Objectives/ObjectiveDefinition.cs",
+   "Objectives/ObjectiveSystem.cs",
+   "Progression/ProgressionManager.cs",
+   "Rewards/RewardCalculator.cs",
+   "UI/Campaign/CampaignMapUI.cs",
+   "UI/Campaign/LevelNodeWidget.cs",
+   "UI/Gameplay/HouseflowDebugUI.cs",
+   "UI/Rewards/RewardOverlayUI.cs",
+   "UI/Tutorial/TutorialUI.cs"
+  ]
+ },
+ "LevelPhysicsConfig": {
+  "file": "Data/LevelPhysicsConfig.cs",
+  "refs": 12,
+  "by": [
+   "Data/LevelData.cs",
+   "Gameplay/Airflow/DuctSegment.cs",
+   "Gameplay/Fluid/FluidParticle.cs",
+   "Gameplay/Fluid/WaterSource.cs",
+   "Level/LevelRoot.cs"
+  ]
+ },
+ "MapModifier": {
+  "file": "Data/MapModifier.cs",
+  "refs": 4,
+  "by": [
+   "Core/Managers/GameManager.cs",
+   "Data/MemoryNodeData.cs"
+  ]
+ },
+ "ModifierType": {
+  "file": "Data/MapModifier.cs",
+  "refs": 3,
+  "by": [
+   "Core/Managers/GameManager.cs"
+  ]
+ },
+ "MemoryNodeData": {
+  "file": "Data/MemoryNodeData.cs",
+  "refs": 3,
+  "by": [
+   "Core/Managers/GameManager.cs",
+   "Core/Managers/GameSession.cs",
+   "Data/MapModifier.cs"
+  ]
+ },
+ "ProfileData": {
+  "file": "Data/ProfileData.cs",
+  "refs": 44,
+  "by": [
+   "Core/Managers/GameDataManager.cs",
+   "Core/Managers/GameSession.cs",
+   "Core/Services/SaveManager.cs",
+   "Economy/EconomyManager.cs",
+   "House/Cosmetics/CosmeticDefinition.cs",
+   "House/Cosmetics/CosmeticEquipService.cs",
+   "House/Cosmetics/CosmeticInventory.cs",
+   "House/HouseFeatureDefinition.cs",
+   "House/HouseProgressionManager.cs",
+   "Monetization/IAPManager.cs",
+   "Progression/ProgressionManager.cs",
+   "Rewards/DailyRewardService.cs",
+   "Rewards/VisitorTipService.cs",
+   "Shop/ShopManager.cs",
+   "Tools/ToolInventory.cs",
+   "UI/Tutorial/TutorialUI.cs"
+  ]
+ },
+ "ToolInventoryEntry": {
+  "file": "Data/ProfileData.cs",
+  "refs": 4,
+  "by": [
+   "Tools/ToolInventory.cs"
+  ]
+ },
+ "EquippedCosmeticEntry": {
+  "file": "Data/ProfileData.cs",
+  "refs": 3,
+  "by": [
+   "House/Cosmetics/CosmeticEquipService.cs"
+  ]
+ },
+ "RunData": {
+  "file": "Data/RunData.cs",
+  "refs": 8,
+  "by": [
+   "Core/Managers/GameSession.cs",
+   "Core/Managers/RunManager.cs",
+   "Core/Services/SaveManager.cs"
+  ]
+ },
+ "DialogueBubbleSize": {
+  "file": "Dialogue/DialogueBubbleSizing.cs",
+  "refs": 1,
+  "by": [
+   "Dialogue/DialogueBubbleView.cs"
+  ]
+ },
+ "DialogueBubbleSizing": {
+  "file": "Dialogue/DialogueBubbleSizing.cs",
+  "refs": 1,
+  "by": [
+   "Dialogue/DialogueBubbleView.cs"
+  ]
+ },
+ "DialogueBubbleView": {
+  "file": "Dialogue/DialogueBubbleView.cs",
+  "refs": 3,
+  "by": [
+   "Dialogue/DialogueController.cs"
+  ]
+ },
+ "DialogueController": {
+  "file": "Dialogue/DialogueController.cs",
+  "refs": 3,
+  "by": [
+   "Dialogue/DialogueInteractable.cs"
+  ]
+ },
+ "DialogueSpeakerRole": {
+  "file": "Dialogue/DialogueConversation.cs",
+  "refs": 2,
+  "by": [
+   "Dialogue/DialogueController.cs"
+  ]
+ },
+ "DialogueLine": {
+  "file": "Dialogue/DialogueConversation.cs",
+  "refs": 4,
+  "by": [
+   "Dialogue/DialogueSequenceCursor.cs"
+  ]
+ },
+ "DialogueConversation": {
+  "file": "Dialogue/DialogueConversation.cs",
+  "refs": 3,
+  "by": [
+   "Dialogue/DialogueController.cs",
+   "Dialogue/DialogueInteractable.cs"
+  ]
+ },
+ "DialogueInteractable": {
+  "file": "Dialogue/DialogueInteractable.cs",
+  "refs": 0,
+  "by": []
+ },
+ "DialogueSequenceCursor": {
+  "file": "Dialogue/DialogueSequenceCursor.cs",
+  "refs": 3,
+  "by": [
+   "Dialogue/DialogueController.cs"
+  ]
+ },
+ "DialogueSpeaker": {
+  "file": "Dialogue/DialogueSpeaker.cs",
+  "refs": 13,
+  "by": [
+   "Dialogue/DialogueBubbleView.cs",
+   "Dialogue/DialogueController.cs",
+   "Dialogue/DialogueInteractable.cs"
+  ]
+ },
+ "EconomyManager": {
+  "file": "Economy/EconomyManager.cs",
+  "refs": 41,
+  "by": [
+   "Level/LevelFlowController.cs",
+   "Rewards/RewardService.cs",
+   "Rewards/VisitorTipService.cs",
+   "Shop/ShopManager.cs",
+   "UI/Gameplay/GameplayHUD.cs",
+   "UI/House/CosmeticsUI.cs",
+   "UI/House/HouseUI.cs",
+   "UI/Rewards/DailyRewardUI.cs",
+   "UI/Rewards/VisitorTipUI.cs",
+   "UI/Shop/ShopUI.cs"
+  ]
+ },
+ "LevelDataValidator": {
+  "file": "Editor/LevelDataValidator.cs",
+  "refs": 0,
+  "by": []
+ },
+ "CheckResult": {
+  "file": "Editor/LevelDataValidator.cs",
+  "refs": 0,
+  "by": []
+ },
+ "ValidationCheck": {
+  "file": "Editor/LevelDataValidator.cs",
+  "refs": 0,
+  "by": []
+ },
+ "FirebaseInit": {
+  "file": "Firebase/FirebaseInit.cs",
+  "refs": 0,
+  "by": []
+ },
+ "AirflowSource": {
+  "file": "Gameplay/Airflow/AirflowSource.cs",
+  "refs": 12,
+  "by": [
+   "Gameplay/Airflow/Balloon.cs",
+   "Gameplay/Airflow/DuctSegment.cs",
+   "Gameplay/Airflow/IAirflowProvider.cs",
+   "Gameplay/Mechanical/Valve.cs",
+   "Level/LevelRoot.cs"
+  ]
+ },
+ "Balloon": {
+  "file": "Gameplay/Airflow/Balloon.cs",
+  "refs": 3,
+  "by": [
+   "Level/LevelRoot.cs"
+  ]
+ },
+ "CounterweightBladder": {
+  "file": "Gameplay/Airflow/CounterweightBladder.cs",
+  "refs": 5,
+  "by": [
+   "Editor/LevelDataValidator.cs",
+   "Level/LevelRoot.cs"
+  ]
+ },
+ "DuctSegment": {
+  "file": "Gameplay/Airflow/DuctSegment.cs",
+  "refs": 8,
+  "by": [
+   "Editor/LevelDataValidator.cs",
+   "Gameplay/Airflow/IAirflowProvider.cs",
+   "Gameplay/Airflow/PneumaticGate.cs",
+   "Level/LevelRoot.cs"
+  ]
+ },
+ "IAirflowProvider": {
+  "file": "Gameplay/Airflow/IAirflowProvider.cs",
+  "refs": 11,
+  "by": [
+   "Gameplay/Airflow/AirflowSource.cs",
+   "Gameplay/Airflow/CounterweightBladder.cs",
+   "Gameplay/Airflow/DuctSegment.cs"
+  ]
+ },
+ "PneumaticGate": {
+  "file": "Gameplay/Airflow/PneumaticGate.cs",
+  "refs": 7,
+  "by": [
+   "Editor/LevelDataValidator.cs",
+   "Gameplay/Airflow/DuctSegment.cs",
+   "Level/LevelRoot.cs"
+  ]
+ },
+ "CircuitBreaker": {
+  "file": "Gameplay/Electricity/CircuitBreaker.cs",
+  "refs": 3,
+  "by": [
+   "Level/LevelRoot.cs"
+  ]
+ },
+ "ElectricPump": {
+  "file": "Gameplay/Electricity/ElectricPump.cs",
+  "refs": 4,
+  "by": [
+   "Editor/LevelDataValidator.cs",
+   "Level/LevelRoot.cs"
+  ]
+ },
+ "ElectricSwitch": {
+  "file": "Gameplay/Electricity/ElectricSwitch.cs",
+  "refs": 5,
+  "by": [
+   "Gameplay/Electricity/ElectricPump.cs",
+   "Gameplay/Electricity/ElectricTerminal.cs",
+   "Level/LevelRoot.cs"
+  ]
+ },
+ "ElectricTerminal": {
+  "file": "Gameplay/Electricity/ElectricTerminal.cs",
+  "refs": 5,
+  "by": [
+   "Editor/LevelDataValidator.cs",
+   "Gameplay/Electricity/ElectricPump.cs",
+   "Level/LevelRoot.cs"
+  ]
+ },
+ "PowerSource": {
+  "file": "Gameplay/Electricity/PowerSource.cs",
+  "refs": 7,
+  "by": [
+   "Gameplay/Electricity/CircuitBreaker.cs",
+   "Gameplay/Electricity/ElectricPump.cs",
+   "Gameplay/Electricity/ElectricSwitch.cs",
+   "Gameplay/Electricity/ElectricTerminal.cs",
+   "Level/LevelRoot.cs"
+  ]
+ },
+ "FluidParticle": {
+  "file": "Gameplay/Fluid/FluidParticle.cs",
+  "refs": 30,
+  "by": [
+   "Gameplay/Electricity/CircuitBreaker.cs",
+   "Gameplay/Electricity/ElectricPump.cs",
+   "Gameplay/Electricity/ElectricTerminal.cs",
+   "Gameplay/Fluid/FluidTarget.cs",
+   "Gameplay/Fluid/WaterSource.cs",
+   "Gameplay/Thermal/ThermalBody.cs",
+   "Level/DeadZone.cs",
+   "Level/LevelRoot.cs",
+   "Tools/Impl/MagnetTool.cs",
+   "Tools/Impl/VacuumTool.cs",
+   "UI/Gameplay/HouseflowDebugUI.cs"
+  ]
+ },
+ "FluidTarget": {
+  "file": "Gameplay/Fluid/FluidTarget.cs",
+  "refs": 23,
+  "by": [
+   "Data/LevelData.cs",
+   "Editor/LevelDataValidator.cs",
+   "Gameplay/Fluid/FluidParticle.cs",
+   "Level/LevelRoot.cs",
+   "Objectives/DeliverFluidObjective.cs",
+   "Objectives/ObjectiveDefinition.cs",
+   "Tools/Impl/BlueprintHintTool.cs",
+   "Tools/Impl/VacuumTool.cs"
+  ]
+ },
+ "in": {
+  "file": "Gameplay/Fluid/FluidType.cs",
+  "refs": 200,
+  "by": [
+   "Analytics/AnalyticsEventObserver.cs",
+   "Analytics/AnalyticsService.cs",
+   "Analytics/IAnalyticsProvider.cs",
+   "Analytics/MockAnalyticsProvider.cs",
+   "Audio/EntityAudioManager.cs",
+   "Audio/MusicManager.cs",
+   "Core/Managers/CutsceneManager.cs",
+   "Core/Managers/EventManager.cs",
+   "Core/Managers/GameDataManager.cs",
+   "Core/Managers/GameManager.cs",
+   "Core/Managers/GameSession.cs",
+   "Core/Managers/RunManager.cs",
+   "Core/Managers/TimeManager.cs",
+   "Data/CampaignDatabase.cs",
+   "Data/ItemBaseData.cs",
+   "Data/LevelData.cs",
+   "Data/LevelPhysicsConfig.cs",
+   "Data/MemoryNodeData.cs",
+   "Dialogue/DialogueController.cs",
+   "Economy/EconomyManager.cs",
+   "Editor/LevelDataValidator.cs",
+   "Gameplay/Airflow/AirflowSource.cs",
+   "Gameplay/Airflow/Balloon.cs",
+   "Gameplay/Airflow/PneumaticGate.cs",
+   "Gameplay/Electricity/ElectricPump.cs",
+   "Gameplay/Electricity/ElectricSwitch.cs",
+   "Gameplay/Electricity/ElectricTerminal.cs",
+   "Gameplay/Fluid/FluidParticle.cs",
+   "Gameplay/Fluid/WaterSource.cs",
+   "Gameplay/Mechanical/Valve.cs",
+   "Gameplay/Thermal/BimetallicStrip.cs",
+   "Gameplay/Thermal/Boiler.cs",
+   "Gameplay/Thermal/CoolingSource.cs",
+   "Gameplay/Thermal/HeatSource.cs",
+   "House/Cosmetics/CosmeticCategory.cs",
+   "House/Cosmetics/CosmeticDefinition.cs",
+   "House/Cosmetics/CosmeticEquipService.cs",
+   "House/Cosmetics/CosmeticInventory.cs",
+   "House/HouseFeatureDefinition.cs",
+   "House/HouseProgressionManager.cs",
+   "Input/GameInput.Mobile.cs",
+   "Level/LevelFlowController.cs",
+   "Level/LevelLoader.cs",
+   "Level/LevelRoot.cs",
+   "Monetization/AdRewardService.cs",
+   "Monetization/IAPManager.cs",
+   "Monetization/RewardedAdPlacement.cs",
+   "Objectives/DeliverFluidObjective.cs",
+   "Objectives/ObjectiveBase.cs",
+   "Objectives/ObjectiveDefinition.cs",
+   "Objectives/ObjectiveSystem.cs",
+   "Rewards/RewardService.cs",
+   "Shop/ShopItemDefinition.cs",
+   "Shop/ShopManager.cs",
+   "Tools/IPhysicsHistoryProvider.cs",
+   "Tools/Impl/FixItTool.cs",
+   "Tools/Impl/MagnetTool.cs",
+   "Tools/Impl/RewindTool.cs",
+   "Tools/Impl/VacuumTool.cs",
+   "Tools/ToolDefinition.cs",
+   "Tools/ToolInventory.cs",
+   "UI/Campaign/CampaignMapUI.cs",
+   "UI/Campaign/LevelNodeWidget.cs",
+   "UI/Gameplay/GameplayHUD.cs",
+   "UI/Gameplay/HouseflowDebugUI.cs",
+   "UI/Gameplay/ToolTrayUI.cs",
+   "UI/House/CosmeticsUI.cs",
+   "UI/House/HouseUI.cs",
+   "UI/Rewards/DailyRewardUI.cs",
+   "UI/Rewards/VisitorTipUI.cs",
+   "UI/Shop/ShopUI.cs",
+   "UI/Tooltip/UITooltipManager.cs",
+   "UI/UIManager.cs",
+   "UI/UIZoomable.cs"
+  ]
+ },
+ "FluidType": {
+  "file": "Gameplay/Fluid/FluidType.cs",
+  "refs": 32,
+  "by": [
+   "Gameplay/Electricity/CircuitBreaker.cs",
+   "Gameplay/Electricity/ElectricTerminal.cs",
+   "Gameplay/Fluid/FluidParticle.cs",
+   "Gameplay/Fluid/FluidTarget.cs",
+   "Gameplay/Fluid/WaterSource.cs",
+   "Objectives/ObjectiveDefinition.cs"
+  ]
+ },
+ "WaterSource": {
+  "file": "Gameplay/Fluid/WaterSource.cs",
+  "refs": 16,
+  "by": [
+   "Data/LevelData.cs",
+   "Data/LevelPhysicsConfig.cs",
+   "Editor/LevelDataValidator.cs",
+   "Gameplay/Electricity/ElectricPump.cs",
+   "Gameplay/Fluid/FluidParticle.cs",
+   "Gameplay/Mechanical/Valve.cs",
+   "Gameplay/Thermal/Boiler.cs",
+   "Level/LevelRoot.cs"
+  ]
+ },
+ "Valve": {
+  "file": "Gameplay/Mechanical/Valve.cs",
+  "refs": 13,
+  "by": [
+   "Data/LevelData.cs",
+   "Gameplay/Fluid/WaterSource.cs",
+   "Level/LevelFlowController.cs",
+   "Level/LevelRoot.cs",
+   "Tools/Impl/BlueprintHintTool.cs",
+   "Tools/Impl/RewindTool.cs",
+   "UI/Tutorial/TutorialUI.cs"
+  ]
+ },
+ "BimetallicStrip": {
+  "file": "Gameplay/Thermal/BimetallicStrip.cs",
+  "refs": 1,
+  "by": [
+   "Level/LevelRoot.cs"
+  ]
+ },
+ "Boiler": {
+  "file": "Gameplay/Thermal/Boiler.cs",
+  "refs": 1,
+  "by": [
+   "Level/LevelRoot.cs"
+  ]
+ },
+ "CoolingSource": {
+  "file": "Gameplay/Thermal/CoolingSource.cs",
+  "refs": 5,
+  "by": [
+   "Gameplay/Fluid/FluidParticle.cs",
+   "Level/LevelRoot.cs"
+  ]
+ },
+ "HeatSource": {
+  "file": "Gameplay/Thermal/HeatSource.cs",
+  "refs": 5,
+  "by": [
+   "Gameplay/Fluid/FluidParticle.cs",
+   "Gameplay/Thermal/IThermalReceiver.cs",
+   "Level/LevelRoot.cs"
+  ]
+ },
+ "IThermalReceiver": {
+  "file": "Gameplay/Thermal/IThermalReceiver.cs",
+  "refs": 12,
+  "by": [
+   "Gameplay/Thermal/CoolingSource.cs",
+   "Gameplay/Thermal/HeatSource.cs",
+   "Gameplay/Thermal/ThermalBody.cs"
+  ]
+ },
+ "ThermalBody": {
+  "file": "Gameplay/Thermal/ThermalBody.cs",
+  "refs": 14,
+  "by": [
+   "Gameplay/Airflow/Balloon.cs",
+   "Gameplay/Fluid/FluidParticle.cs",
+   "Gameplay/Thermal/BimetallicStrip.cs",
+   "Gameplay/Thermal/Boiler.cs",
+   "Level/LevelRoot.cs"
+  ]
+ },
+ "HouseFeatureDefinition": {
+  "file": "House/HouseFeatureDefinition.cs",
+  "refs": 10,
+  "by": [
+   "Analytics/AnalyticsEventObserver.cs",
+   "House/HouseProgressionDatabase.cs",
+   "House/HouseProgressionManager.cs",
+   "UI/House/HouseUI.cs"
+  ]
+ },
+ "HouseProgressionDatabase": {
+  "file": "House/HouseProgressionDatabase.cs",
+  "refs": 4,
+  "by": [
+   "House/HouseProgressionManager.cs",
+   "UI/House/HouseUI.cs"
+  ]
+ },
+ "HouseProgressionManager": {
+  "file": "House/HouseProgressionManager.cs",
+  "refs": 6,
+  "by": [
+   "Analytics/AnalyticsEventObserver.cs",
+   "UI/House/HouseUI.cs"
+  ]
+ },
+ "CosmeticCategory": {
+  "file": "House/Cosmetics/CosmeticCategory.cs",
+  "refs": 16,
+  "by": [
+   "Analytics/AnalyticsEventObserver.cs",
+   "House/Cosmetics/CosmeticDefinition.cs",
+   "House/Cosmetics/CosmeticEquipService.cs",
+   "UI/House/CosmeticsUI.cs"
+  ]
+ },
+ "CosmeticDefinition": {
+  "file": "House/Cosmetics/CosmeticDefinition.cs",
+  "refs": 8,
+  "by": [
+   "House/Cosmetics/CosmeticEquipService.cs",
+   "UI/House/CosmeticsUI.cs"
+  ]
+ },
+ "CosmeticEquipService": {
+  "file": "House/Cosmetics/CosmeticEquipService.cs",
+  "refs": 6,
+  "by": [
+   "Analytics/AnalyticsEventObserver.cs",
+   "UI/House/CosmeticsUI.cs"
+  ]
+ },
+ "CosmeticInventory": {
+  "file": "House/Cosmetics/CosmeticInventory.cs",
+  "refs": 13,
+  "by": [
+   "House/Cosmetics/CosmeticEquipService.cs",
+   "Rewards/RewardService.cs",
+   "Shop/ShopManager.cs",
+   "UI/House/CosmeticsUI.cs"
+  ]
+ },
+ "GameInput": {
+  "file": "Input/GameInput.cs",
+  "refs": 73,
+  "by": [
+   "Core/Managers/CutsceneLockPlayer.cs",
+   "Core/Managers/CutsceneManager.cs",
+   "Core/Managers/GameManager.cs",
+   "Dialogue/DialogueController.cs",
+   "Input/GameInput.Mobile.cs",
+   "Input/InputConfig.cs",
+   "Level/LevelFlowController.cs",
+   "UI/Tutorial/TutorialUI.cs"
+  ]
+ },
+ "MobileInputAction": {
+  "file": "Input/GameInput.Mobile.cs",
+  "refs": 28,
+  "by": [
+   "Input/GameInput.cs",
+   "Input/InputConfig.cs"
+  ]
+ },
+ "appears": {
+  "file": "Input/InputActions.cs",
+  "refs": 1,
+  "by": [
+   "Audio/MusicManager.cs"
+  ]
+ },
+ "InputActions": {
+  "file": "Input/InputActions.cs",
+  "refs": 2,
+  "by": [
+   "Input/GameInput.cs"
+  ]
+ },
+ "PlayerActions": {
+  "file": "Input/InputActions.cs",
+  "refs": 0,
+  "by": []
+ },
+ "InputConfig": {
+  "file": "Input/InputConfig.cs",
+  "refs": 3,
+  "by": [
+   "Input/GameInput.cs"
+  ]
+ },
+ "ControlScheme": {
+  "file": "Input/InputConfig.cs",
+  "refs": 2,
+  "by": [
+   "Input/GameInput.cs"
+  ]
+ },
+ "for": {
+  "file": "Level/BaseLevelGenerator.cs",
+  "refs": 154,
+  "by": [
+   "Analytics/AnalyticsEventObserver.cs",
+   "Analytics/AnalyticsEventRecord.cs",
+   "Analytics/AnalyticsService.cs",
+   "Analytics/IAnalyticsProvider.cs",
+   "Analytics/IAnalyticsService.cs",
+   "Analytics/MockAnalyticsProvider.cs",
+   "Audio/AudioPitchUtility.cs",
+   "Audio/EntityAudioManager.cs",
+   "Audio/MusicManager.cs",
+   "Audio/RandomPitchAudio.cs",
+   "Audio/SoundManager.cs",
+   "Core/Managers/CutsceneManager.cs",
+   "Core/Managers/EventManager.cs",
+   "Core/Managers/GameFeelManager.cs",
+   "Core/Managers/GameManager.cs",
+   "Core/Managers/ObjectPoolManager.cs",
+   "Core/Managers/RunManager.cs",
+   "Core/Managers/TimeManager.cs",
+   "Core/Utilities/ReturnToPool.cs",
+   "Data/CampaignDatabase.cs",
+   "Data/ItemBaseData.cs",
+   "Data/LevelData.cs",
+   "Data/LevelPhysicsConfig.cs",
+   "Data/RunData.cs",
+   "Economy/EconomyManager.cs",
+   "Editor/LevelDataValidator.cs",
+   "Gameplay/Airflow/AirflowSource.cs",
+   "Gameplay/Airflow/PneumaticGate.cs",
+   "Gameplay/Electricity/ElectricSwitch.cs",
+   "Gameplay/Electricity/ElectricTerminal.cs",
+   "Gameplay/Fluid/FluidParticle.cs",
+   "Gameplay/Fluid/FluidTarget.cs",
+   "Gameplay/Fluid/WaterSource.cs",
+   "Gameplay/Mechanical/Valve.cs",
+   "Gameplay/Thermal/CoolingSource.cs",
+   "Gameplay/Thermal/HeatSource.cs",
+   "Gameplay/Thermal/IThermalReceiver.cs",
+   "Gameplay/Thermal/ThermalBody.cs",
+   "House/Cosmetics/CosmeticDefinition.cs",
+   "House/HouseFeatureDefinition.cs",
+   "Input/GameInput.Mobile.cs",
+   "Input/InputConfig.cs",
+   "Level/DeadZone.cs",
+   "Level/LevelDifficulty.cs",
+   "Level/LevelFlowController.cs",
+   "Level/LevelLoader.cs",
+   "Level/LevelRoot.cs",
+   "Monetization/AdRewardService.cs",
+   "Monetization/IAPManager.cs",
+   "Monetization/IRewardedAdService.cs",
+   "Monetization/MockIAPService.cs",
+   "Monetization/MockRewardedAdService.cs",
+   "Monetization/RewardedAdPlacement.cs",
+   "Objectives/ObjectiveBase.cs",
+   "Objectives/ObjectiveSystem.cs",
+   "Player/PlayerInteract.cs",
+   "Rewards/RewardBundle.cs",
+   "Rewards/RewardCalculator.cs",
+   "Rewards/RewardService.cs",
+   "Rewards/VisitorTipService.cs",
+   "Shop/ShopCostType.cs",
+   "Shop/ShopItemDefinition.cs",
+   "Shop/ShopManager.cs",
+   "Tools/IPhysicsHistoryProvider.cs",
+   "Tools/ITroubleshooterTool.cs",
+   "Tools/Impl/MagnetTool.cs",
+   "Tools/ToolDefinition.cs",
+   "UI/Campaign/CampaignMapUI.cs",
+   "UI/Gameplay/GameplayHUD.cs",
+   "UI/Gameplay/HouseflowDebugUI.cs",
+   "UI/Gameplay/ToolTrayUI.cs",
+   "UI/House/CosmeticsUI.cs",
+   "UI/House/HouseUI.cs",
+   "UI/Rewards/DailyRewardUI.cs",
+   "UI/Rewards/RewardOverlayUI.cs",
+   "UI/Shop/ShopUI.cs",
+   "UI/Tooltip/UITooltipTrigger.cs",
+   "UI/Tutorial/TutorialUI.cs",
+   "UI/UILineDrawer.cs",
+   "UI/UIManager.cs",
+   "UI/UIZoomable.cs"
+  ]
+ },
+ "BaseLevelGenerator": {
+  "file": "Level/BaseLevelGenerator.cs",
+  "refs": 3,
+  "by": [
+   "Core/Managers/GameManager.cs"
+  ]
+ },
+ "DeadZone": {
+  "file": "Level/DeadZone.cs",
+  "refs": 0,
+  "by": []
+ },
+ "GameLevel": {
+  "file": "Level/GameLevel.cs",
+  "refs": 0,
+  "by": []
+ },
+ "LevelDifficulty": {
+  "file": "Level/LevelDifficulty.cs",
+  "refs": 3,
+  "by": [
+   "Data/LevelData.cs"
+  ]
+ },
+ "LevelFlowController": {
+  "file": "Level/LevelFlowController.cs",
+  "refs": 27,
+  "by": [
+   "Analytics/AnalyticsEventObserver.cs",
+   "Core/Managers/LoadingScene.cs",
+   "Gameplay/Airflow/PneumaticGate.cs",
+   "Level/LevelLoader.cs",
+   "Level/LevelRoot.cs",
+   "Objectives/ObjectiveSystem.cs",
+   "UI/Campaign/CampaignMapUI.cs",
+   "UI/Gameplay/GameplayHUD.cs",
+   "UI/Gameplay/HouseflowDebugUI.cs",
+   "UI/Gameplay/ToolTrayUI.cs",
+   "UI/MainMenu/MainMenuUI.cs",
+   "UI/Rewards/RewardOverlayUI.cs",
+   "UI/Tutorial/TutorialUI.cs"
+  ]
+ },
+ "LevelLoader": {
+  "file": "Level/LevelLoader.cs",
+  "refs": 6,
+  "by": [
+   "Level/LevelFlowController.cs",
+   "Level/LevelRoot.cs"
+  ]
+ },
+ "LevelRoot": {
+  "file": "Level/LevelRoot.cs",
+  "refs": 52,
+  "by": [
+   "Data/LevelData.cs",
+   "Editor/LevelDataValidator.cs",
+   "Gameplay/Airflow/AirflowSource.cs",
+   "Gameplay/Airflow/Balloon.cs",
+   "Gameplay/Airflow/CounterweightBladder.cs",
+   "Gameplay/Airflow/DuctSegment.cs",
+   "Gameplay/Airflow/PneumaticGate.cs",
+   "Gameplay/Electricity/ElectricSwitch.cs",
+   "Gameplay/Electricity/PowerSource.cs",
+   "Gameplay/Fluid/FluidTarget.cs",
+   "Gameplay/Fluid/WaterSource.cs",
+   "Gameplay/Mechanical/Valve.cs",
+   "Gameplay/Thermal/ThermalBody.cs",
+   "Level/LevelFlowController.cs",
+   "Level/LevelLoader.cs",
+   "Objectives/DeliverFluidObjective.cs",
+   "Objectives/ObjectiveBase.cs",
+   "Objectives/ObjectiveSystem.cs",
+   "Tools/ITroubleshooterTool.cs",
+   "Tools/Impl/BlueprintHintTool.cs",
+   "Tools/Impl/FixItTool.cs",
+   "Tools/Impl/MagnetTool.cs",
+   "Tools/Impl/RewindTool.cs",
+   "Tools/Impl/VacuumTool.cs",
+   "UI/Gameplay/HouseflowDebugUI.cs"
+  ]
+ },
+ "LevelState": {
+  "file": "Level/LevelState.cs",
+  "refs": 37,
+  "by": [
+   "Analytics/AnalyticsEventObserver.cs",
+   "Level/LevelFlowController.cs",
+   "UI/Gameplay/GameplayHUD.cs",
+   "UI/MainMenu/MainMenuUI.cs",
+   "UI/Rewards/RewardOverlayUI.cs",
+   "UI/Tutorial/TutorialUI.cs"
+  ]
+ },
+ "AdRewardService": {
+  "file": "Monetization/AdRewardService.cs",
+  "refs": 13,
+  "by": [
+   "Analytics/AnalyticsEventObserver.cs",
+   "Rewards/VisitorTipService.cs",
+   "UI/Rewards/RewardOverlayUI.cs",
+   "UI/Rewards/VisitorTipUI.cs"
+  ]
+ },
+ "IAPManager": {
+  "file": "Monetization/IAPManager.cs",
+  "refs": 8,
+  "by": [
+   "Shop/ShopManager.cs",
+   "UI/Shop/ShopUI.cs"
+  ]
+ },
+ "IAPResultStatus": {
+  "file": "Monetization/IAPResult.cs",
+  "refs": 5,
+  "by": [
+   "Monetization/MockIAPService.cs"
+  ]
+ },
+ "IAPResult": {
+  "file": "Monetization/IAPResult.cs",
+  "refs": 8,
+  "by": [
+   "Monetization/IAPManager.cs",
+   "Monetization/IIAPService.cs",
+   "Monetization/MockIAPService.cs"
+  ]
+ },
+ "IIAPService": {
+  "file": "Monetization/IIAPService.cs",
+  "refs": 6,
+  "by": [
+   "Monetization/IAPManager.cs",
+   "Monetization/MockIAPService.cs"
+  ]
+ },
+ "IRewardedAdService": {
+  "file": "Monetization/IRewardedAdService.cs",
+  "refs": 6,
+  "by": [
+   "Monetization/AdRewardService.cs",
+   "Monetization/MockRewardedAdService.cs"
+  ]
+ },
+ "MockIAPService": {
+  "file": "Monetization/MockIAPService.cs",
+  "refs": 2,
+  "by": [
+   "Monetization/IAPManager.cs"
+  ]
+ },
+ "MockRewardedAdService": {
+  "file": "Monetization/MockRewardedAdService.cs",
+  "refs": 2,
+  "by": [
+   "Monetization/AdRewardService.cs"
+  ]
+ },
+ "RewardedAdPlacement": {
+  "file": "Monetization/RewardedAdPlacement.cs",
+  "refs": 24,
+  "by": [
+   "Analytics/AnalyticsEventObserver.cs",
+   "Monetization/AdRewardService.cs",
+   "Monetization/IRewardedAdService.cs",
+   "Monetization/MockRewardedAdService.cs",
+   "Monetization/RewardedAdResult.cs",
+   "Rewards/VisitorTipService.cs",
+   "UI/Rewards/RewardOverlayUI.cs",
+   "UI/Rewards/VisitorTipUI.cs"
+  ]
+ },
+ "AdResultStatus": {
+  "file": "Monetization/RewardedAdResult.cs",
+  "refs": 6,
+  "by": [
+   "Monetization/MockRewardedAdService.cs"
+  ]
+ },
+ "RewardedAdResult": {
+  "file": "Monetization/RewardedAdResult.cs",
+  "refs": 8,
+  "by": [
+   "Monetization/IRewardedAdService.cs",
+   "Monetization/MockRewardedAdService.cs"
+  ]
+ },
+ "DeliverFluidObjective": {
+  "file": "Objectives/DeliverFluidObjective.cs",
+  "refs": 2,
+  "by": [
+   "Objectives/ObjectiveSystem.cs",
+   "UI/Gameplay/HouseflowDebugUI.cs"
+  ]
+ },
+ "ObjectiveBase": {
+  "file": "Objectives/ObjectiveBase.cs",
+  "refs": 13,
+  "by": [
+   "Objectives/DeliverFluidObjective.cs",
+   "Objectives/ObjectiveSystem.cs",
+   "UI/Gameplay/HouseflowDebugUI.cs"
+  ]
+ },
+ "ObjectiveDefinition": {
+  "file": "Objectives/ObjectiveDefinition.cs",
+  "refs": 13,
+  "by": [
+   "Data/LevelData.cs",
+   "Gameplay/Fluid/FluidTarget.cs",
+   "Objectives/DeliverFluidObjective.cs",
+   "Objectives/ObjectiveBase.cs",
+   "Objectives/ObjectiveSystem.cs"
+  ]
+ },
+ "ObjectiveSystem": {
+  "file": "Objectives/ObjectiveSystem.cs",
+  "refs": 9,
+  "by": [
+   "Level/LevelFlowController.cs",
+   "Objectives/ObjectiveDefinition.cs",
+   "UI/Gameplay/GameplayHUD.cs",
+   "UI/Gameplay/HouseflowDebugUI.cs"
+  ]
+ },
+ "ObjectiveType": {
+  "file": "Objectives/ObjectiveType.cs",
+  "refs": 4,
+  "by": [
+   "Editor/LevelDataValidator.cs",
+   "Objectives/ObjectiveDefinition.cs",
+   "Objectives/ObjectiveSystem.cs"
+  ]
+ },
+ "MindPlayerMovement": {
+  "file": "Player/MindPlayerMovement.cs",
+  "refs": 0,
+  "by": []
+ },
+ "PlayerAttack": {
+  "file": "Player/PlayerAttack.cs",
+  "refs": 0,
+  "by": []
+ },
+ "PlayerCombat": {
+  "file": "Player/PlayerCombat.cs",
+  "refs": 0,
+  "by": []
+ },
+ "PlayerInteract": {
+  "file": "Player/PlayerInteract.cs",
+  "refs": 7,
+  "by": [
+   "Core/Managers/GameManagerVisual.cs",
+   "Dialogue/DialogueController.cs"
+  ]
+ },
+ "State": {
+  "file": "Player/PlayerInteract.cs",
+  "refs": 29,
+  "by": [
+   "Editor/LevelDataValidator.cs",
+   "Gameplay/Airflow/AirflowSource.cs",
+   "Gameplay/Airflow/Balloon.cs",
+   "Gameplay/Airflow/CounterweightBladder.cs",
+   "Gameplay/Airflow/DuctSegment.cs",
+   "Gameplay/Airflow/PneumaticGate.cs",
+   "Gameplay/Electricity/CircuitBreaker.cs",
+   "Gameplay/Electricity/ElectricPump.cs",
+   "Gameplay/Electricity/ElectricSwitch.cs",
+   "Gameplay/Electricity/ElectricTerminal.cs",
+   "Gameplay/Electricity/PowerSource.cs",
+   "Gameplay/Fluid/FluidParticle.cs",
+   "Gameplay/Fluid/FluidTarget.cs",
+   "Gameplay/Fluid/WaterSource.cs",
+   "Gameplay/Mechanical/Valve.cs",
+   "Gameplay/Thermal/HeatSource.cs",
+   "Gameplay/Thermal/ThermalBody.cs",
+   "Level/LevelFlowController.cs",
+   "Level/LevelLoader.cs",
+   "Level/LevelRoot.cs",
+   "Objectives/DeliverFluidObjective.cs",
+   "Objectives/ObjectiveBase.cs",
+   "Objectives/ObjectiveSystem.cs",
+   "UI/Gameplay/HouseflowDebugUI.cs"
+  ]
+ },
+ "OnCoinPickupEventArgs": {
+  "file": "Player/PlayerInteract.cs",
+  "refs": 0,
+  "by": []
+ },
+ "OnStateChangedEventArgs": {
+  "file": "Player/PlayerInteract.cs",
+  "refs": 0,
+  "by": []
+ },
+ "PlayerMovement": {
+  "file": "Player/PlayerMovement.cs",
+  "refs": 0,
+  "by": []
+ },
+ "PlayerStats": {
+  "file": "Player/PlayerStats.cs",
+  "refs": 2,
+  "by": [
+   "Core/Managers/GameSession.cs"
+  ]
+ },
+ "ProgressionManager": {
+  "file": "Progression/ProgressionManager.cs",
+  "refs": 29,
+  "by": [
+   "Analytics/AnalyticsEventObserver.cs",
+   "Level/LevelFlowController.cs",
+   "UI/Campaign/CampaignMapUI.cs",
+   "UI/Campaign/LevelNodeWidget.cs",
+   "UI/House/HouseUI.cs"
+  ]
+ },
+ "DailyRewardService": {
+  "file": "Rewards/DailyRewardService.cs",
+  "refs": 7,
+  "by": [
+   "Analytics/AnalyticsEventObserver.cs",
+   "UI/Rewards/DailyRewardUI.cs"
+  ]
+ },
+ "RewardBundle": {
+  "file": "Rewards/RewardBundle.cs",
+  "refs": 21,
+  "by": [
+   "Analytics/AnalyticsEventObserver.cs",
+   "Monetization/AdRewardService.cs",
+   "Rewards/DailyRewardService.cs",
+   "Rewards/RewardCalculator.cs",
+   "Rewards/RewardService.cs",
+   "Rewards/VisitorTipService.cs",
+   "Shop/ShopItemDefinition.cs",
+   "UI/Rewards/DailyRewardUI.cs",
+   "UI/Rewards/RewardOverlayUI.cs"
+  ]
+ },
+ "RewardCalculator": {
+  "file": "Rewards/RewardCalculator.cs",
+  "refs": 2,
+  "by": [
+   "Level/LevelFlowController.cs"
+  ]
+ },
+ "RewardItem": {
+  "file": "Rewards/RewardItem.cs",
+  "refs": 13,
+  "by": [
+   "Rewards/RewardBundle.cs",
+   "Shop/ShopItemDefinition.cs"
+  ]
+ },
+ "RewardService": {
+  "file": "Rewards/RewardService.cs",
+  "refs": 23,
+  "by": [
+   "Level/LevelFlowController.cs",
+   "Monetization/AdRewardService.cs",
+   "Rewards/DailyRewardService.cs",
+   "Rewards/RewardCalculator.cs",
+   "Rewards/VisitorTipService.cs",
+   "Shop/ShopManager.cs",
+   "UI/Rewards/DailyRewardUI.cs",
+   "UI/Rewards/RewardOverlayUI.cs"
+  ]
+ },
+ "RewardType": {
+  "file": "Rewards/RewardType.cs",
+  "refs": 31,
+  "by": [
+   "Monetization/AdRewardService.cs",
+   "Rewards/DailyRewardService.cs",
+   "Rewards/RewardBundle.cs",
+   "Rewards/RewardCalculator.cs",
+   "Rewards/RewardItem.cs",
+   "Rewards/RewardService.cs",
+   "Rewards/VisitorTipService.cs",
+   "Shop/ShopManager.cs"
+  ]
+ },
+ "VisitorTipService": {
+  "file": "Rewards/VisitorTipService.cs",
+  "refs": 7,
+  "by": [
+   "Analytics/AnalyticsEventObserver.cs",
+   "UI/Rewards/VisitorTipUI.cs"
+  ]
+ },
+ "ShopCostType": {
+  "file": "Shop/ShopCostType.cs",
+  "refs": 17,
+  "by": [
+   "Shop/ShopItemDefinition.cs",
+   "Shop/ShopManager.cs",
+   "UI/Shop/ShopUI.cs"
+  ]
+ },
+ "ShopDatabase": {
+  "file": "Shop/ShopDatabase.cs",
+  "refs": 3,
+  "by": [
+   "Shop/ShopManager.cs",
+   "UI/Shop/ShopUI.cs"
+  ]
+ },
+ "ShopItemDefinition": {
+  "file": "Shop/ShopItemDefinition.cs",
+  "refs": 16,
+  "by": [
+   "Analytics/AnalyticsEventObserver.cs",
+   "Shop/ShopDatabase.cs",
+   "Shop/ShopManager.cs",
+   "UI/Shop/ShopUI.cs"
+  ]
+ },
+ "ShopManager": {
+  "file": "Shop/ShopManager.cs",
+  "refs": 6,
+  "by": [
+   "Analytics/AnalyticsEventObserver.cs",
+   "UI/Shop/ShopUI.cs"
+  ]
+ },
+ "IPhysicsHistoryProvider": {
+  "file": "Tools/IPhysicsHistoryProvider.cs",
+  "refs": 6,
+  "by": [
+   "Tools/Impl/RewindTool.cs"
+  ]
+ },
+ "ITroubleshooterTool": {
+  "file": "Tools/ITroubleshooterTool.cs",
+  "refs": 7,
+  "by": [
+   "Tools/Impl/BlueprintHintTool.cs",
+   "Tools/Impl/FixItTool.cs",
+   "Tools/Impl/MagnetTool.cs",
+   "Tools/Impl/RewindTool.cs",
+   "Tools/Impl/VacuumTool.cs",
+   "UI/Gameplay/ToolTrayUI.cs"
+  ]
+ },
+ "ToolDefinition": {
+  "file": "Tools/ToolDefinition.cs",
+  "refs": 0,
+  "by": []
+ },
+ "ToolInventory": {
+  "file": "Tools/ToolInventory.cs",
+  "refs": 15,
+  "by": [
+   "Rewards/RewardService.cs",
+   "Tools/ToolDefinition.cs",
+   "UI/Gameplay/ToolTrayUI.cs"
+  ]
+ },
+ "ToolType": {
+  "file": "Tools/ToolType.cs",
+  "refs": 25,
+  "by": [
+   "Monetization/AdRewardService.cs",
+   "Rewards/DailyRewardService.cs",
+   "Tools/ITroubleshooterTool.cs",
+   "Tools/Impl/BlueprintHintTool.cs",
+   "Tools/Impl/FixItTool.cs",
+   "Tools/Impl/MagnetTool.cs",
+   "Tools/Impl/RewindTool.cs",
+   "Tools/Impl/VacuumTool.cs",
+   "Tools/ToolDefinition.cs",
+   "UI/Gameplay/ToolTrayUI.cs"
+  ]
+ },
+ "BlueprintHintTool": {
+  "file": "Tools/Impl/BlueprintHintTool.cs",
+  "refs": 0,
+  "by": []
+ },
+ "FixItTool": {
+  "file": "Tools/Impl/FixItTool.cs",
+  "refs": 2,
+  "by": [
+   "Rewards/DailyRewardService.cs",
+   "Tools/ToolType.cs"
+  ]
+ },
+ "MagnetTool": {
+  "file": "Tools/Impl/MagnetTool.cs",
+  "refs": 0,
+  "by": []
+ },
+ "RewindTool": {
+  "file": "Tools/Impl/RewindTool.cs",
+  "refs": 1,
+  "by": [
+   "Tools/IPhysicsHistoryProvider.cs"
+  ]
+ },
+ "VacuumTool": {
+  "file": "Tools/Impl/VacuumTool.cs",
+  "refs": 0,
+  "by": []
+ },
+ "NumberPopup": {
+  "file": "UI/NumberPopup.cs",
+  "refs": 0,
+  "by": []
+ },
+ "UIAudioHandler": {
+  "file": "UI/UIAudioHandler.cs",
+  "refs": 0,
+  "by": []
+ },
+ "UIDragHandler": {
+  "file": "UI/UIDragHandler.cs",
+  "refs": 0,
+  "by": []
+ },
+ "UILineDrawer": {
+  "file": "UI/UILineDrawer.cs",
+  "refs": 0,
+  "by": []
+ },
+ "UIManager": {
+  "file": "UI/UIManager.cs",
+  "refs": 6,
+  "by": [
+   "Dialogue/DialogueController.cs"
+  ]
+ },
+ "UIPanelMapping": {
+  "file": "UI/UIManager.cs",
+  "refs": 0,
+  "by": []
+ },
+ "UIAnimationType": {
+  "file": "UI/UIPanelAnimator.cs",
+  "refs": 0,
+  "by": []
+ },
+ "UIPanelAnimator": {
+  "file": "UI/UIPanelAnimator.cs",
+  "refs": 3,
+  "by": [
+   "UI/Tooltip/UITooltipManager.cs"
+  ]
+ },
+ "UIPanelType": {
+  "file": "UI/UIPanelType.cs",
+  "refs": 21,
+  "by": [
+   "Dialogue/DialogueController.cs",
+   "UI/UIManager.cs"
+  ]
+ },
+ "UIZoomable": {
+  "file": "UI/UIZoomable.cs",
+  "refs": 0,
+  "by": []
+ },
+ "CampaignMapUI": {
+  "file": "UI/Campaign/CampaignMapUI.cs",
+  "refs": 3,
+  "by": [
+   "UI/MainMenu/MainMenuUI.cs"
+  ]
+ },
+ "LevelNodeWidget": {
+  "file": "UI/Campaign/LevelNodeWidget.cs",
+  "refs": 4,
+  "by": [
+   "UI/Campaign/CampaignMapUI.cs"
+  ]
+ },
+ "GameplayHUD": {
+  "file": "UI/Gameplay/GameplayHUD.cs",
+  "refs": 1,
+  "by": [
+   "UI/MainMenu/MainMenuUI.cs"
+  ]
+ },
+ "HouseflowDebugUI": {
+  "file": "UI/Gameplay/HouseflowDebugUI.cs",
+  "refs": 0,
+  "by": []
+ },
+ "ToolSlot": {
+  "file": "UI/Gameplay/ToolTrayUI.cs",
+  "refs": 0,
+  "by": []
+ },
+ "ToolTrayUI": {
+  "file": "UI/Gameplay/ToolTrayUI.cs",
+  "refs": 0,
+  "by": []
+ },
+ "CosmeticsUI": {
+  "file": "UI/House/CosmeticsUI.cs",
+  "refs": 2,
+  "by": [
+   "UI/MainMenu/MainMenuUI.cs"
+  ]
+ },
+ "HouseUI": {
+  "file": "UI/House/HouseUI.cs",
+  "refs": 2,
+  "by": [
+   "UI/MainMenu/MainMenuUI.cs"
+  ]
+ },
+ "MainMenuUI": {
+  "file": "UI/MainMenu/MainMenuUI.cs",
+  "refs": 1,
+  "by": [
+   "UI/Campaign/CampaignMapUI.cs"
+  ]
+ },
+ "DailyRewardUI": {
+  "file": "UI/Rewards/DailyRewardUI.cs",
+  "refs": 2,
+  "by": [
+   "UI/MainMenu/MainMenuUI.cs"
+  ]
+ },
+ "RewardOverlayUI": {
+  "file": "UI/Rewards/RewardOverlayUI.cs",
+  "refs": 0,
+  "by": []
+ },
+ "VisitorTipUI": {
+  "file": "UI/Rewards/VisitorTipUI.cs",
+  "refs": 2,
+  "by": [
+   "UI/MainMenu/MainMenuUI.cs"
+  ]
+ },
+ "ShopUI": {
+  "file": "UI/Shop/ShopUI.cs",
+  "refs": 2,
+  "by": [
+   "UI/MainMenu/MainMenuUI.cs"
+  ]
+ },
+ "ITooltipDataProvider": {
+  "file": "UI/Tooltip/ITooltipDataProvider.cs",
+  "refs": 4,
+  "by": [
+   "UI/Tooltip/UITooltipTrigger.cs"
+  ]
+ },
+ "UITooltipManager": {
+  "file": "UI/Tooltip/UITooltipManager.cs",
+  "refs": 4,
+  "by": [
+   "UI/Tooltip/UITooltipTrigger.cs"
+  ]
+ },
+ "UITooltipTrigger": {
+  "file": "UI/Tooltip/UITooltipTrigger.cs",
+  "refs": 0,
+  "by": []
+ },
+ "TutorialUI": {
+  "file": "UI/Tutorial/TutorialUI.cs",
+  "refs": 2,
+  "by": [
+   "Analytics/AnalyticsEventObserver.cs"
+  ]
+ }
+}

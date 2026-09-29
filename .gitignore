@@ -1,3 +1,5 @@
+google-services.json
+
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
@@ -5,19 +7,34 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
-
 /[Mm]emoryCaptures/
-
 /[Rr]ecordings/
+/[Ll]ocal[Ff]iles/
+/[Uu]nused[Cc]ode/
+.utmp/
 
+sysinfo.txt
+mono_crash.*
+*.crash
+crashlytics-build.properties
+
+# Asset Store / third-party tooling
 /[Aa]ssets/Plugins/Editor/JetBrains*
+/Assets/ThirdParty/
+
+# Addressables generated content
+/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
+/[Aa]ssets/[Ss]treaming[Aa]ssets/aa.meta
+/[Aa]ssets/[Ss]treaming[Aa]ssets/aa/*
+
+# Code coverage / test results
+/[Cc]ode[Cc]overage/
+/[Tt]est[Rr]esults/
 
 .vs/
-.ai/
-.claude/
-AgentScripts/
-
-ExportedObj/
+.idea/
+.vscode/
+.fleet/
 .consulo/
 *.csproj
 *.unityproj
@@ -33,17 +50,46 @@ ExportedObj/
 *.mdb
 *.opendb
 *.VC.db
+*.sln.DotSettings.user
 
 # Unity3D generated meta files
 *.pidb.meta
 *.pdb.meta
 *.mdb.meta
 
-# Unity3D generated file on crash reports
-sysinfo.txt
+# Agent / AI tooling
+.ai/
+.claude/
+.vs/
+AgentScripts/
 
-# Builds
+docs/
+Assets/Editor Default Resources
+Assets/ExternalDependencyManager
+Assets/GeneratedLocalRepo
+Assets/GoogleMobileAds
+Assets/Firebase
+Assets/Plugins
+Assets/StreamingAssets
+Assets/ThirdParty
+
+# OS noise
+.DS_Store
+Thumbs.db
+desktop.ini
+
 *.apk
 *.aab
 *.unitypackage
 *.app
+*.ipa
+ExportedObj/
+
+# Gradle / Android Studio exported projects
+.gradle/
+local.properties
+
+*.keystore
+*.jks
+*.pem
+*.p12
