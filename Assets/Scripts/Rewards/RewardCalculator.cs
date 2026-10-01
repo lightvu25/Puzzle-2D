@@ -2,16 +2,15 @@ using UnityEngine;
 
 /// <summary>
 /// Pure calculation logic evaluating puzzle completion context into a RewardBundle.
-/// Ensures replay completions grant reduced soft currency without inflating premium gems or showcase acclaim.
+/// Ensures replay completions grant reduced soft currency without inflating premium gems.
+/// Stars are not a grantable reward — they are earned through level completion and
+/// tracked by ProgressionManager.
 /// </summary>
 public static class RewardCalculator
 {
     public const int FirstClearBaseCoins = 50;
     public const int OptionalObjectiveBonusCoins = 25;
     public const int ReplayBaseCoins = 15;
-
-    public const int FirstClearBaseAcclaim = 10;
-    public const int OptionalObjectiveBonusAcclaim = 5;
 
     public const int ThreeStarBonusGems = 1;
 
@@ -37,9 +36,6 @@ public static class RewardCalculator
             int totalCoins = FirstClearBaseCoins + (Mathf.Max(0, optionalObjectivesCompleted) * OptionalObjectiveBonusCoins);
             bundle.Add(RewardType.Coins, totalCoins);
 
-            int totalAcclaim = FirstClearBaseAcclaim + (Mathf.Max(0, optionalObjectivesCompleted) * OptionalObjectiveBonusAcclaim);
-            bundle.Add(RewardType.ShowcaseAcclaim, totalAcclaim);
-
             // Premium gem bonus for flawless first 3-star performance
             if (starsEarned >= 3)
             {
@@ -48,7 +44,7 @@ public static class RewardCalculator
         }
         else
         {
-            // Replay completion: modest soft currency only, strictly zero acclaim and zero gems
+            // Replay completion: modest soft currency only, strictly zero gems
             bundle.Add(RewardType.Coins, ReplayBaseCoins);
         }
 

@@ -50,6 +50,5 @@ public class RewardBundle
 
     public int CoinCount => GetTotal(RewardType.Coins);
     public int GemCount => GetTotal(RewardType.Gems);
-    public int AcclaimCount => GetTotal(RewardType.ShowcaseAcclaim);
 }
 

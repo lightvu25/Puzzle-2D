@@ -96,10 +96,77 @@ public class ProgressionManager : MonoBehaviour
         return idx >= 0 ? profile.levelStarValues[idx] : 0;
     }
 
+    // ─────────────────────────────────────────────────────────────
+    //  Power-up inventory
+    // ─────────────────────────────────────────────────────────────
+
+    public int GetPowerUpCount(string powerUpId)
+    {
+        if (string.IsNullOrEmpty(powerUpId)) return 0;
+        var profile = GetProfile();
+        if (profile == null || profile.powerUpIds == null) return 0;
+
+        int idx = profile.powerUpIds.IndexOf(powerUpId);
+        return idx >= 0 ? profile.powerUpCounts[idx] : 0;
+    }
+
+    public void AddPowerUp(string powerUpId, int count = 1)
+    {
+        if (string.IsNullOrEmpty(powerUpId) || count <= 0) return;
+        var profile = GetProfile();
+        if (profile == null) return;
+
+        int idx = profile.powerUpIds.IndexOf(powerUpId);
+        if (idx >= 0)
+            profile.powerUpCounts[idx] += count;
+        else
+        {
+            profile.powerUpIds.Add(powerUpId);
+            profile.powerUpCounts.Add(count);
+        }
+
+        SaveManager.saveProfile(profile);
+        OnProgressionChanged?.Invoke();
+    }
+
+    /// <summary>Spends one charge of the power-up. Returns false when none are banked.</summary>
+    public bool ConsumePowerUp(string powerUpId)
+    {
+        if (string.IsNullOrEmpty(powerUpId)) return false;
+        var profile = GetProfile();
+        if (profile == null || profile.powerUpIds == null) return false;
+
+        int idx = profile.powerUpIds.IndexOf(powerUpId);
+        if (idx < 0 || profile.powerUpCounts[idx] <= 0) return false;
+
+        profile.powerUpCounts[idx]--;
+        SaveManager.saveProfile(profile);
+        OnProgressionChanged?.Invoke();
+        return true;
+    }
+
     public int GetCompletedLevelCount()
     {
         var profile = GetProfile();
         return profile != null && profile.completedLevelIDs != null ? profile.completedLevelIDs.Count : 0;
+    }
+
+    /// <summary>
+    /// Total stars earned across all levels — the campaign's prestige metric.
+    /// Fires OnProgressionChanged whenever this value may have changed.
+    /// </summary>
+    public int TotalStars
+    {
+        get
+        {
+            var profile = GetProfile();
+            if (profile == null || profile.levelStarValues == null) return 0;
+
+            int total = 0;
+            for (int i = 0; i < profile.levelStarValues.Count; i++)
+                total += profile.levelStarValues[i];
+            return total;
+        }
     }
 
     // ─────────────────────────────────────────────────────────────

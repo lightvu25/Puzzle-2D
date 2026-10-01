@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine.Serialization;
 
 /// <summary>
 /// Serializable player profile persisted by SaveManager.
@@ -26,13 +27,20 @@ public class ProfileData
     // ── Economy ───────────────────────────────────────────────────────────
     public int coins;
     public int gems;
-    public int showcaseAcclaim;
+
+    // ── Power-up inventory ────────────────────────────────────────────────
+    public List<string> powerUpIds    = new List<string>();
+    public List<int>    powerUpCounts = new List<int>();
+
+    // ── Missions ─────────────────────────────────────────────────────────
+    public List<string> claimedMissionIds = new List<string>();
 
     // ── Purchases & Services ──────────────────────────────────────────────
     public bool noAdsPurchased;
     public List<string> purchasedProductIDs = new List<string>();
     public List<string> purchasedShopItemIDs = new List<string>();
-    public long lastVisitorTipClaimUtcTicks;
+    [FormerlySerializedAs("lastVisitorTipClaimUtcTicks")]
+    public long lastCoinBonusClaimUtcTicks;
     public long lastDailyRewardClaimUtcTicks;
     public int dailyRewardStreakDay;
     public bool tutorialCompleted;

@@ -1,7 +1,9 @@
+using TMPro;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Serialization;
 
 /// <summary>
 /// Player-facing shop screen. Renders ShopDatabase items as cards and
@@ -16,14 +18,15 @@ public class ShopUI : MonoBehaviour
     [SerializeField] private Button backButton;
 
     [Header("Currency Header")]
-    [SerializeField] private Text coinsText;
-    [SerializeField] private Text gemsText;
-    [SerializeField] private Text acclaimText;
+    [SerializeField] private TMP_Text coinsText;
+    [SerializeField] private TMP_Text gemsText;
+    [FormerlySerializedAs("acclaimText")]
+    [SerializeField] private TMP_Text starsText;
 
     [Header("Items")]
     [SerializeField] private Transform itemsContainer;
     [SerializeField] private GameObject itemCardTemplate;
-    [SerializeField] private Text feedbackText;
+    [SerializeField] private TMP_Text feedbackText;
 
     /// <summary>Fired when the player closes the shop (back button).</summary>
     public event Action OnShopClosed;
@@ -32,6 +35,7 @@ public class ShopUI : MonoBehaviour
     private EconomyManager economy;
     private ShopManager shopManager;
     private IAPManager iapManager;
+    private ProgressionManager progression;
     private bool subscribed;
 
     private void Awake()
@@ -52,6 +56,7 @@ public class ShopUI : MonoBehaviour
         if (shopManager == null) shopManager = ShopManager.Instance ?? FindAnyObjectByType<ShopManager>();
         if (economy == null) economy = EconomyManager.Instance ?? FindAnyObjectByType<EconomyManager>();
         if (iapManager == null) iapManager = IAPManager.Instance ?? FindAnyObjectByType<IAPManager>();
+        if (progression == null) progression = ProgressionManager.Instance ?? FindAnyObjectByType<ProgressionManager>();
         Subscribe();
         RefreshAll();
     }
@@ -67,8 +72,9 @@ public class ShopUI : MonoBehaviour
         {
             economy.OnCoinsChanged += HandleCoinsChanged;
             economy.OnGemsChanged += HandleGemsChanged;
-            economy.OnShowcaseAcclaimChanged += HandleAcclaimChanged;
         }
+        if (progression != null)
+            progression.OnProgressionChanged += HandleProgressionChanged;
         if (shopManager != null)
             shopManager.OnItemPurchased += HandleItemPurchased;
     }
@@ -81,8 +87,9 @@ public class ShopUI : MonoBehaviour
         {
             economy.OnCoinsChanged -= HandleCoinsChanged;
             economy.OnGemsChanged -= HandleGemsChanged;
-            economy.OnShowcaseAcclaimChanged -= HandleAcclaimChanged;
         }
+        if (progression != null)
+            progression.OnProgressionChanged -= HandleProgressionChanged;
         if (shopManager != null)
             shopManager.OnItemPurchased -= HandleItemPurchased;
     }
@@ -118,15 +125,18 @@ public class ShopUI : MonoBehaviour
 
     private void UpdateCurrencyTexts()
     {
-        if (economy == null) return;
-        if (coinsText != null) coinsText.text = economy.Coins.ToString();
-        if (gemsText != null) gemsText.text = economy.Gems.ToString();
-        if (acclaimText != null) acclaimText.text = economy.ShowcaseAcclaim.ToString();
+        if (economy != null)
+        {
+            if (coinsText != null) coinsText.text = economy.Coins.ToString();
+            if (gemsText != null) gemsText.text = economy.Gems.ToString();
+        }
+        if (starsText != null)
+            starsText.text = progression != null ? $"{progression.TotalStars} ★" : "0 ★";
     }
 
     private void HandleCoinsChanged(int oldValue, int newValue) => UpdateCurrencyTexts();
     private void HandleGemsChanged(int oldValue, int newValue) => UpdateCurrencyTexts();
-    private void HandleAcclaimChanged(int oldValue, int newValue) => UpdateCurrencyTexts();
+    private void HandleProgressionChanged() => UpdateCurrencyTexts();
     private void HandleItemPurchased(ShopItemDefinition item) => UpdateCardStates();
 
     private void RebuildItemCards()
@@ -163,7 +173,7 @@ public class ShopUI : MonoBehaviour
         var contentsText = FindChildText(card.transform, "ContentsText");
         var priceText = FindChildText(card.transform, "PriceText");
         var buyButton = card.transform.Find("BuyBtn")?.GetComponent<Button>();
-        var buyLabel = buyButton != null ? buyButton.GetComponentInChildren<Text>() : null;
+        var buyLabel = buyButton != null ? buyButton.GetComponentInChildren<TMP_Text>() : null;
 
         if (nameText != null) nameText.text = item.DisplayName;
         if (descText != null) descText.text = item.Description;
@@ -186,12 +196,12 @@ public class ShopUI : MonoBehaviour
             var id = card.name.StartsWith("ShopCard_") ? card.name.Substring(9) : card.name;
             var item = shopManager.Database.GetItemById(id);
             var buyButton = card.transform.Find("BuyBtn");
-            var label = buyButton != null ? buyButton.GetComponentInChildren<Text>() : null;
+            var label = buyButton != null ? buyButton.GetComponentInChildren<TMP_Text>() : null;
             UpdateCardLabel(item, label);
         }
     }
 
-    private void UpdateCardLabel(ShopItemDefinition item, Text label)
+    private void UpdateCardLabel(ShopItemDefinition item, TMP_Text label)
     {
         if (item == null || label == null) return;
         bool owned = item.IsOneTimePurchase && shopManager.HasPurchasedOneTime(item.ItemId);
@@ -281,10 +291,10 @@ public class ShopUI : MonoBehaviour
         return string.Join(", ", parts);
     }
 
-    private static Text FindChildText(Transform root, string childName)
+    private static TMP_Text FindChildText(Transform root, string childName)
     {
         var t = root.Find(childName);
-        return t != null ? t.GetComponent<Text>() : null;
+        return t != null ? t.GetComponent<TMP_Text>() : null;
     }
 }
 

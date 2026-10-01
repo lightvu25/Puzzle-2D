@@ -18,7 +18,7 @@ public class AnalyticsEventObserver : MonoBehaviour
     private ShopManager shopManager;
     private AdRewardService adRewardService;
     private DailyRewardService dailyRewardService;
-    private VisitorTipService visitorTipService;
+    private CoinBonusService coinBonusService;
     private TutorialUI tutorialUI;
 
     private LevelState lastLevelState = LevelState.Idle;
@@ -31,7 +31,7 @@ public class AnalyticsEventObserver : MonoBehaviour
         shopManager        = FindAnyObjectByType<ShopManager>();
         adRewardService    = FindAnyObjectByType<AdRewardService>();
         dailyRewardService = FindAnyObjectByType<DailyRewardService>();
-        visitorTipService  = FindAnyObjectByType<VisitorTipService>();
+        coinBonusService   = FindAnyObjectByType<CoinBonusService>();
         tutorialUI         = FindAnyObjectByType<TutorialUI>();
 
         Subscribe();
@@ -70,8 +70,8 @@ public class AnalyticsEventObserver : MonoBehaviour
         if (dailyRewardService != null)
             dailyRewardService.OnDailyRewardClaimed += HandleDailyRewardClaimed;
 
-        if (visitorTipService != null)
-            visitorTipService.OnVisitorTipsClaimed += HandleVisitorTipCollected;
+        if (coinBonusService != null)
+            coinBonusService.OnCoinBonusClaimed += HandleCoinBonusCollected;
 
         if (tutorialUI != null)
         {
@@ -109,8 +109,8 @@ public class AnalyticsEventObserver : MonoBehaviour
         if (dailyRewardService != null)
             dailyRewardService.OnDailyRewardClaimed -= HandleDailyRewardClaimed;
 
-        if (visitorTipService != null)
-            visitorTipService.OnVisitorTipsClaimed -= HandleVisitorTipCollected;
+        if (coinBonusService != null)
+            coinBonusService.OnCoinBonusClaimed -= HandleCoinBonusCollected;
 
         if (tutorialUI != null)
         {
@@ -220,9 +220,9 @@ public class AnalyticsEventObserver : MonoBehaviour
         });
     }
 
-    private void HandleVisitorTipCollected(int amount)
+    private void HandleCoinBonusCollected(int amount)
     {
-        AnalyticsService.Track(AnalyticsEvents.VisitorTipCollected, new Dictionary<string, object>
+        AnalyticsService.Track(AnalyticsEvents.CoinBonusCollected, new Dictionary<string, object>
         {
             ["coins"] = amount
         });

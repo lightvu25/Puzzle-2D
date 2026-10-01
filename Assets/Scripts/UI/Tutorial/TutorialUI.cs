@@ -1,3 +1,4 @@
+using TMPro;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,8 +25,8 @@ public class TutorialUI : MonoBehaviour
 
     [Header("UI References")]
     [SerializeField] private GameObject content;
-    [SerializeField] private Text instructionText;
-    [SerializeField] private Text stepText;
+    [SerializeField] private TMP_Text instructionText;
+    [SerializeField] private TMP_Text stepText;
     [SerializeField] private Button skipButton;
 
     /// <summary>Fired when the tutorial overlay begins (step 0 shown).</summary>

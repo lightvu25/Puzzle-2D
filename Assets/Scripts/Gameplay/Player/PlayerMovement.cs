@@ -62,6 +62,9 @@ public class PlayerMovement : MonoBehaviour
     /// <summary>Fired on a hard stop against a solid surface. Argument is the impact normal.</summary>
     public event Action<Vector2> OnWallImpact;
 
+    /// <summary>World-space contact point of the most recent wall impact — valid during OnWallImpact and until the next dash.</summary>
+    public Vector2 LastImpactPoint { get; private set; }
+
     private Rigidbody2D rb;
     private Collider2D bodyCollider;
     private ContactFilter2D wallFilter;
@@ -206,6 +209,7 @@ public class PlayerMovement : MonoBehaviour
 
             // Wall reached within this step: travel up to it and stop.
             rb.MovePosition(rb.position + moveDirection * Mathf.Max(0f, wallDistance - 0.001f));
+            LastImpactPoint = stopHit.point;
             OnWallImpact?.Invoke(stopHit.normal);
             StopMoving();
         }

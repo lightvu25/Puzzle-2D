@@ -46,7 +46,6 @@ public static class SaveManager
         {
             profile.coins = 0;
             profile.gems = 0;
-            profile.showcaseAcclaim = 0;
             saveProfile(profile);
             Debug.Log("[SaveManager] Economy has been reset!");
         }
@@ -62,7 +61,7 @@ public static class SaveManager
             profile.noAdsPurchased = false;
             profile.purchasedProductIDs?.Clear();
             profile.purchasedShopItemIDs?.Clear();
-            profile.lastVisitorTipClaimUtcTicks = 0;
+            profile.lastCoinBonusClaimUtcTicks = 0;
             profile.lastDailyRewardClaimUtcTicks = 0;
             profile.tutorialCompleted = false;
             saveProfile(profile);

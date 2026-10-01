@@ -1,5 +1,7 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Serialization;
 using System.Linq;
 
 /// <summary>
@@ -13,9 +15,10 @@ public class RewardOverlayUI : MonoBehaviour
     [SerializeField] private GameObject panel;
 
     [Header("Reward Displays")]
-    [SerializeField] private Text coinsText;
-    [SerializeField] private Text gemsText;
-    [SerializeField] private Text acclaimText;
+    [SerializeField] private TMP_Text coinsText;
+    [SerializeField] private TMP_Text gemsText;
+    [FormerlySerializedAs("acclaimText")]
+    [SerializeField] private TMP_Text starsText;
     
     [Header("Monetization")]
     [SerializeField] private Button doubleCoinsButton;
@@ -106,7 +109,13 @@ public class RewardOverlayUI : MonoBehaviour
             
             if (coinsText != null) coinsText.text = $"+{bundle.CoinCount}";
             if (gemsText != null) gemsText.text = $"+{bundle.GemCount}";
-            if (acclaimText != null) acclaimText.text = $"+{bundle.AcclaimCount}";
+            if (starsText != null)
+            {
+                // LastCompletedStars is the authoritative rating — star pickups
+                // drive it when placed, otherwise objective-based.
+                int stars = flowController != null ? flowController.LastCompletedStars : 1;
+                starsText.text = $"{stars} ★";
+            }
 
             if (doubleCoinsButton != null)
             {

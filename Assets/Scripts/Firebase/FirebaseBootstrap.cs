@@ -1,10 +1,5 @@
 using UnityEngine;
 
-/// <summary>
-/// Spawns the FirebaseService GameObject before the first scene loads so the
-/// Firebase layer initializes independently of any scene wiring.
-/// Infrastructure only — gameplay code never references this.
-/// </summary>
 public static class FirebaseBootstrap
 {
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]

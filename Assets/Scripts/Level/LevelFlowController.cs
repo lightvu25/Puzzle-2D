@@ -80,6 +80,16 @@ public class LevelFlowController : MonoBehaviour
     public LevelData   CurrentLevelData => levelData;
     public LevelRoot   CurrentRoot    => currentRoot;
 
+    /// <summary>
+    /// Star count awarded by the most recent completion — the authoritative
+    /// value passed to ProgressionManager. Read by result UIs instead of
+    /// recomputing the rating.
+    /// </summary>
+    public int LastCompletedStars { get; private set; }
+
+    /// <summary>Reward bundle granted by the most recent level clear (null until first completion).</summary>
+    public RewardBundle LastClearReward { get; private set; }
+
     // ─────────────────────────────────────────────────────────────
     //  Unity Lifecycle
     // ─────────────────────────────────────────────────────────────
@@ -285,6 +295,14 @@ public class LevelFlowController : MonoBehaviour
             return;
         }
 
+        // A banked Kinetic Shield absorbs one hazard hit — respawn instead of failing.
+        if (ProgressionManager.Instance != null && ProgressionManager.Instance.ConsumePowerUp(PowerUpIds.KineticShield))
+        {
+            RespawnPlayer();
+            Debug.Log($"[LevelFlowController] Kinetic Shield consumed — hazard absorbed ({hazard?.FailReason}).");
+            return;
+        }
+
         FailLevel(hazard != null ? hazard.FailReason : "Hazard");
     }
 
@@ -295,13 +313,25 @@ public class LevelFlowController : MonoBehaviour
         FreezePlayer();
         SetState(LevelState.Completed);
 
-        int stars = 1;
         int optionalCompleted = 0;
         if (objectiveSystem != null && objectiveSystem.OptionalObjectives.Count > 0)
         {
             optionalCompleted = objectiveSystem.CompletedOptionalObjectiveCount;
-            stars += optionalCompleted;
         }
+
+        // Star rating: when the layout places StarCollectibles they drive the
+        // rating (1 for reaching the exit, +1 per star pickup). Levels without
+        // star pickups keep the objective-based rating.
+        int stars;
+        if (currentRoot != null && currentRoot.TotalStarCount > 0)
+        {
+            stars = Mathf.Clamp(currentRoot.CollectedStarCount, 1, 3);
+        }
+        else
+        {
+            stars = 1 + optionalCompleted;
+        }
+        LastCompletedStars = stars;
 
         bool isFirstClear = false;
         // Record progression and stars
@@ -317,6 +347,7 @@ public class LevelFlowController : MonoBehaviour
         {
             var bundle = RewardCalculator.CalculateLevelRewards(levelData, stars, isFirstClear, optionalCompleted);
             rewardService.GrantRewardBundle(bundle, $"LevelClear_{levelData.LevelId}");
+            LastClearReward = bundle;
         }
 
         OnLevelCompleted?.Invoke();

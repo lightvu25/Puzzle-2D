@@ -36,5 +36,5 @@ public static class AnalyticsEvents
 
     // Meta
     public const string DailyRewardClaimed  = "daily_reward_claimed";
-    public const string VisitorTipCollected = "visitor_tip_collected";
+    public const string CoinBonusCollected   = "coin_bonus_collected";
 }

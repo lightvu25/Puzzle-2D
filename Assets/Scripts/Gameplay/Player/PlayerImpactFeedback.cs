@@ -35,6 +35,10 @@ public class PlayerImpactFeedback : MonoBehaviour
     [Tooltip("If false, hit-stop is disabled (GDD 'Speedrun Minimal' setting).")]
     [SerializeField] private bool hitStopEnabled = true;
 
+    [Header("Particles")]
+    [Tooltip("Pooled burst spawned at the wall contact point (WallImpactBurst prefab).")]
+    [SerializeField] private GameObject impactBurstPrefab;
+
     private PlayerMovement movement;
     private Coroutine hitStopRoutine;
     private float preHitStopTimeScale = 1f;
@@ -49,6 +53,7 @@ public class PlayerImpactFeedback : MonoBehaviour
         if (movement == null) return;
         movement.OnMoveStopped += HandleStopped;
         movement.OnRedirected += HandleRedirected;
+        movement.OnWallImpact += HandleWallImpact;
     }
 
     private void OnDisable()
@@ -57,6 +62,7 @@ public class PlayerImpactFeedback : MonoBehaviour
         {
             movement.OnMoveStopped -= HandleStopped;
             movement.OnRedirected -= HandleRedirected;
+            movement.OnWallImpact -= HandleWallImpact;
         }
         if (hitStopRoutine != null) { StopCoroutine(hitStopRoutine); hitStopRoutine = null; }
     }
@@ -88,6 +94,25 @@ public class PlayerImpactFeedback : MonoBehaviour
     {
         if (redirectShake > 0f && CinemachineCameraShake2D.Instance != null)
             CinemachineCameraShake2D.Instance.ShakeCamera(redirectShake);
+    }
+
+    /// <summary>
+    /// Spawns the impact burst at the wall contact point, cone spraying back
+    /// along the surface normal (away from the wall). Pooled via
+    /// ObjectPoolManager — ReturnToPool on the prefab recycles it when the
+    /// particles die.
+    /// </summary>
+    private void HandleWallImpact(Vector2 normal)
+    {
+        if (impactBurstPrefab == null || normal == Vector2.zero) return;
+
+        // LastImpactPoint is the exact cast contact — transform.position lags
+        // one physics step behind MovePosition at the moment this fires.
+        Vector3 contact = movement.LastImpactPoint;
+        // ParticleSystem cone emits along local +Z — LookRotation aims it
+        // along the normal so the burst stays in the XY plane.
+        Quaternion rotation = Quaternion.LookRotation((Vector3)normal);
+        ObjectPoolManager.SpawnObject(impactBurstPrefab, contact, rotation, ObjectPoolManager.PoolType.ParticleSystem);
     }
 
     /// <summary>

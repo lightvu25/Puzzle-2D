@@ -6,5 +6,8 @@ public enum RewardedAdPlacement
 {
     SecondChance,
     LevelClearCoinDoubler,
-    VisitorTipMultiplier
+    CoinBonusMultiplier,
+    BlindBoxDoubler,
+    PostGameBonus,
+    FreePower
 }

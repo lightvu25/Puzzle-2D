@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -20,13 +21,25 @@ public class CampaignMapUI : MonoBehaviour
     [Header("World Selection UI")]
     [SerializeField] private Transform worldButtonContainer;
     [SerializeField] private Button worldButtonPrefab;
-    [SerializeField] private Text selectedWorldTitleText;
+    [SerializeField] private TMP_Text selectedWorldTitleText;
 
     [Header("Level Selection UI")]
     [SerializeField] private Transform levelGridContainer;
     [SerializeField] private LevelNodeWidget levelNodePrefab;
     [SerializeField] private Button backToWorldsButton;
     [SerializeField] private Button closeMapButton;
+
+    [Header("Map Side Buttons (TotM style)")]
+    [Tooltip("Opens the blind box from the map screen. Icon image assigned in the scene.")]
+    [SerializeField] private Button openChestButton;
+    [SerializeField] private Image chestIconImage;
+    [Tooltip("Watches a rewarded ad to grant a free power-up.")]
+    [SerializeField] private Button freePowerButton;
+    [SerializeField] private Image freePowerIconImage;
+    [Tooltip("Power-up id granted by the free-power ad.")]
+    [SerializeField] private string freePowerId = PowerUpIds.KineticShield;
+    [SerializeField] private BlindBoxUI blindBoxUI;
+    [SerializeField] private AdRewardService adRewardService;
 
     [Header("Scene Transition (Optional)")]
     [Tooltip("Target puzzle scene name if loading across scenes. Leave empty for single-scene setup.")]
@@ -67,6 +80,16 @@ public class CampaignMapUI : MonoBehaviour
 
         if (closeMapButton != null)
             closeMapButton.onClick.AddListener(CloseMap);
+
+        if (openChestButton != null)
+            openChestButton.onClick.AddListener(OnOpenChest);
+        if (freePowerButton != null)
+            freePowerButton.onClick.AddListener(OnFreePower);
+
+        if (blindBoxUI == null)
+            blindBoxUI = FindAnyObjectByType<BlindBoxUI>(FindObjectsInactive.Include);
+        if (adRewardService == null)
+            adRewardService = AdRewardService.Instance != null ? AdRewardService.Instance : FindAnyObjectByType<AdRewardService>();
 
         RefreshUI();
     }
@@ -165,7 +188,7 @@ public class CampaignMapUI : MonoBehaviour
                 Button btn = Instantiate(worldButtonPrefab, worldButtonContainer);
                 btn.gameObject.SetActive(true);
 
-                Text label = btn.GetComponentInChildren<Text>();
+                TMP_Text label = btn.GetComponentInChildren<TMP_Text>();
                 bool unlocked = ProgressionManager.Instance == null || ProgressionManager.Instance.IsWorldUnlocked(world);
 
                 if (label != null)
@@ -235,6 +258,30 @@ public class CampaignMapUI : MonoBehaviour
         }
 
         CloseMap();
+    }
+
+    // ─────────────────────────────────────────────────────────────
+    //  Side buttons
+    // ─────────────────────────────────────────────────────────────
+
+    private void OnOpenChest()
+    {
+        if (blindBoxUI != null)
+            blindBoxUI.ShowPanel();
+    }
+
+    private void OnFreePower()
+    {
+        if (adRewardService == null) return;
+        if (freePowerButton != null) freePowerButton.interactable = false;
+
+        adRewardService.WatchAdForReward(RewardedAdPlacement.FreePower, 0, success =>
+        {
+            if (!isActiveAndEnabled) return;
+            if (freePowerButton != null) freePowerButton.interactable = true;
+            if (success && ProgressionManager.Instance != null)
+                ProgressionManager.Instance.AddPowerUp(freePowerId, 1);
+        });
     }
 
     private static void SafeDestroy(GameObject go)

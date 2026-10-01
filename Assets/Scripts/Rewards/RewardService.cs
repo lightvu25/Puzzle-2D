@@ -3,7 +3,7 @@ using UnityEngine;
 
 /// <summary>
 /// Central dispatcher responsible for applying granted RewardBundles to the
-/// player economy (Coins, Gems, ShowcaseAcclaim via EconomyManager).
+/// player economy (Coins, Gems via EconomyManager).
 /// </summary>
 public class RewardService : MonoBehaviour
 {
@@ -64,11 +64,11 @@ public class RewardService : MonoBehaviour
                         Debug.LogWarning($"[RewardService] EconomyManager unavailable to grant {item.Amount} Gems.");
                     break;
 
-                case RewardType.ShowcaseAcclaim:
-                    if (economy != null)
-                        economy.AddShowcaseAcclaim(item.Amount);
+                case RewardType.PowerUp:
+                    if (ProgressionManager.Instance != null)
+                        ProgressionManager.Instance.AddPowerUp(item.ItemId, item.Amount);
                     else
-                        Debug.LogWarning($"[RewardService] EconomyManager unavailable to grant {item.Amount} Acclaim.");
+                        Debug.LogWarning($"[RewardService] ProgressionManager unavailable to grant power-up '{item.ItemId}'.");
                     break;
 
                 default:

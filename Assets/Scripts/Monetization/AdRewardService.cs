@@ -111,13 +111,28 @@ public class AdRewardService : MonoBehaviour
                 }
                 break;
 
-            case RewardedAdPlacement.VisitorTipMultiplier:
+            case RewardedAdPlacement.CoinBonusMultiplier:
                 if (contextValue > 0 && rewardService != null)
                 {
                     var bundle = new RewardBundle();
                     bundle.Add(RewardType.Coins, contextValue);
-                    rewardService.GrantRewardBundle(bundle, "Ad_VisitorTipMultiplier");
+                    rewardService.GrantRewardBundle(bundle, "Ad_CoinBonusMultiplier");
                 }
+                break;
+
+            case RewardedAdPlacement.PostGameBonus:
+                if (contextValue > 0 && rewardService != null)
+                {
+                    var bundle = new RewardBundle();
+                    bundle.Add(RewardType.Coins, contextValue);
+                    rewardService.GrantRewardBundle(bundle, "Ad_PostGameBonus");
+                }
+                break;
+
+            case RewardedAdPlacement.BlindBoxDoubler:
+            case RewardedAdPlacement.FreePower:
+                // Re-granting is handled by the caller via the WatchAdForReward
+                // completion callback — no fulfillment here.
                 break;
 
             case RewardedAdPlacement.SecondChance:

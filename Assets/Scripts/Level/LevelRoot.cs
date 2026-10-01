@@ -41,6 +41,8 @@ public class LevelRoot : MonoBehaviour
     private PlayerSpawnPoint spawnPoint;
 
     private int collectedCount;
+    private int collectedStarCount;
+    private int totalStarCount;
 
     // ─────────────────────────────────────────────────────────────
     //  Public Accessors
@@ -59,6 +61,12 @@ public class LevelRoot : MonoBehaviour
     /// <summary>Collectibles picked up since the last reset.</summary>
     public int CollectedCount => collectedCount;
 
+    /// <summary>StarCollectibles picked up since the last reset — feeds the completion rating.</summary>
+    public int CollectedStarCount => collectedStarCount;
+
+    /// <summary>StarCollectibles placed in this layout. 0 = level uses the objective-based rating.</summary>
+    public int TotalStarCount => totalStarCount;
+
     // ─────────────────────────────────────────────────────────────
     //  Unity Lifecycle
     // ─────────────────────────────────────────────────────────────
@@ -73,6 +81,11 @@ public class LevelRoot : MonoBehaviour
         if (collectibles != null) return;
 
         collectibles = GetComponentsInChildren<Collectible>(includeInactive: true);
+        totalStarCount = 0;
+        for (int i = 0; i < collectibles.Length; i++)
+        {
+            if (collectibles[i] is StarCollectible) totalStarCount++;
+        }
         hazards = GetComponentsInChildren<Hazard>(includeInactive: true);
         exits = GetComponentsInChildren<LevelExit>(includeInactive: true);
         mazeTiles = GetComponentsInChildren<MazeTile>(includeInactive: true);
@@ -92,6 +105,7 @@ public class LevelRoot : MonoBehaviour
     public void NotifyCollectibleCollected(Collectible collectible)
     {
         collectedCount++;
+        if (collectible is StarCollectible) collectedStarCount++;
         OnCollectibleCollected?.Invoke(collectible);
     }
 
@@ -117,6 +131,7 @@ public class LevelRoot : MonoBehaviour
     {
         EnsureInitialized();
         collectedCount = 0;
+        collectedStarCount = 0;
 
         foreach (var collectible in collectibles)
         {

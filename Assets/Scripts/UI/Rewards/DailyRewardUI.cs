@@ -1,3 +1,4 @@
+using TMPro;
 using System;
 using System.Text;
 using UnityEngine;
@@ -18,19 +19,19 @@ public class DailyRewardUI : MonoBehaviour
     [Header("Panel")]
     [SerializeField] private GameObject panelRoot;
     [SerializeField] private Button backButton;
-    [SerializeField] private Text titleText;
+    [SerializeField] private TMP_Text titleText;
 
     [Header("Currency")]
-    [SerializeField] private Text coinsText;
-    [SerializeField] private Text gemsText;
+    [SerializeField] private TMP_Text coinsText;
+    [SerializeField] private TMP_Text gemsText;
 
     [Header("Reward Display")]
-    [SerializeField] private Text dayText;
-    [SerializeField] private Text rewardText;
-    [SerializeField] private Text statusText;
+    [SerializeField] private TMP_Text dayText;
+    [SerializeField] private TMP_Text rewardText;
+    [SerializeField] private TMP_Text statusText;
     [SerializeField] private Button claimButton;
-    [SerializeField] private Text claimButtonLabel;
-    [SerializeField] private Text feedbackText;
+    [SerializeField] private TMP_Text claimButtonLabel;
+    [SerializeField] private TMP_Text feedbackText;
 
     private DailyRewardService dailyService;
     private EconomyManager economy;

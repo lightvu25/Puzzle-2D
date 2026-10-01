@@ -40,12 +40,16 @@ public class PlayerSquashStretch : MonoBehaviour
     [Tooltip("Ease used when returning to the base scale.")]
     [SerializeField] private Ease returnEase = Ease.OutQuad;
 
+    [Tooltip("Pixels the sprite presses into the wall on impact — sells which side got hit.")]
+    [SerializeField, Range(0f, 8f)] private float wallPressPx = 4f;
+
     [Header("Safety")]
     [Tooltip("Hard cap on total deformation so the sprite never distorts badly. Must cover the GDD impact ratio (~0.43).")]
     [SerializeField, Range(0f, 0.6f)] private float maxDeformation = 0.45f;
 
     private PlayerMovement movement;
     private Vector3 baseScale;
+    private Vector3 baseLocalPosition;
     private Vector2 lastDirection = Vector2.right;
     private Sequence activeSequence;
 
@@ -73,6 +77,7 @@ public class PlayerSquashStretch : MonoBehaviour
         }
 
         baseScale = visualTransform.localScale;
+        baseLocalPosition = visualTransform.localPosition;
     }
 
     private void OnEnable()
@@ -91,7 +96,11 @@ public class PlayerSquashStretch : MonoBehaviour
             movement.OnMoveStopped -= HandleMoveStopped;
         }
         KillActive();
-        if (visualTransform != null) visualTransform.localScale = baseScale;
+        if (visualTransform != null)
+        {
+            visualTransform.localScale = baseScale;
+            visualTransform.localPosition = baseLocalPosition;
+        }
     }
 
     // ---------------------------------------------------------------
@@ -117,17 +126,17 @@ public class PlayerSquashStretch : MonoBehaviour
     public void Squash() => Squash(lastDirection);
 
     /// <summary>
-    /// Wall-impact pose: GDD spec is 28 px wide × 16 px tall versus the
-    /// 20 × 28 moving form — the sprite goes wide and flat for a beat before
-    /// snapping back. Applied direction-independent so vertical and
-    /// horizontal impacts read identically.
+    /// Wall-impact pose: flat along the axis of motion, wide across it —
+    /// the GDD 28 × 16 form mirrored onto whichever axis got hit, so a
+    /// left/right wall produces a sideways squash. The sprite also presses
+    /// a few pixels toward <paramref name="direction"/> so the deformation
+    /// visibly leans into the wall instead of shrinking toward the centre.
     /// </summary>
     public void Squash(Vector2 direction)
     {
-        float sx = Mathf.Clamp(impactWidthPx / Mathf.Max(1f, movingWidthPx) - 1f, -maxDeformation, maxDeformation);
-        float sy = Mathf.Clamp(impactHeightPx / Mathf.Max(1f, movingHeightPx) - 1f, -maxDeformation, maxDeformation);
-        Vector3 target = new Vector3(baseScale.x * (1f + sx), baseScale.y * (1f + sy), baseScale.z);
-        Play(target, squashDuration);
+        float flat = Mathf.Clamp(impactHeightPx / Mathf.Max(1f, movingHeightPx) - 1f, -maxDeformation, maxDeformation);
+        float wide = Mathf.Clamp(impactWidthPx / Mathf.Max(1f, movingWidthPx) - 1f, -maxDeformation, maxDeformation);
+        Play(Deform(direction, flat, wide), squashDuration, direction);
     }
 
     /// <summary>Slide-start stretch using the last known direction.</summary>
@@ -145,7 +154,8 @@ public class PlayerSquashStretch : MonoBehaviour
         if (visualTransform == null) return;
         KillActive();
         activeSequence = DOTween.Sequence()
-            .Append(visualTransform.DOScale(baseScale, squashDuration * 0.5f).SetEase(returnEase));
+            .Append(visualTransform.DOScale(baseScale, squashDuration * 0.5f).SetEase(returnEase))
+            .Join(visualTransform.DOLocalMove(baseLocalPosition, squashDuration * 0.5f).SetEase(returnEase));
     }
 
     // ---------------------------------------------------------------
@@ -164,17 +174,24 @@ public class PlayerSquashStretch : MonoBehaviour
         return new Vector3(baseScale.x * (1f + sx), baseScale.y * (1f + sy), baseScale.z);
     }
 
-    /// <summary>Two-step tween: deform fast, then ease back to the base scale.</summary>
-    private void Play(Vector3 deformed, float duration)
+    /// <summary>Two-step tween: deform fast, then ease back to the base scale.
+    /// <paramref name="pressDirection"/> optionally shoves the sprite toward a wall for the squash beat.</summary>
+    private void Play(Vector3 deformed, float duration, Vector2 pressDirection = default)
     {
         if (visualTransform == null) return;
+
+        Vector3 pressed = pressDirection != Vector2.zero
+            ? baseLocalPosition + (Vector3)(pressDirection.normalized * (wallPressPx / 32f))
+            : baseLocalPosition;
 
         // Killing the previous sequence prevents tweens from stacking up and
         // fighting each other during rapid direction changes.
         KillActive();
         activeSequence = DOTween.Sequence()
             .Append(visualTransform.DOScale(deformed, duration * 0.4f).SetEase(Ease.OutQuad))
-            .Append(visualTransform.DOScale(baseScale, duration * 0.6f).SetEase(returnEase));
+            .Join(visualTransform.DOLocalMove(pressed, duration * 0.4f).SetEase(Ease.OutQuad))
+            .Append(visualTransform.DOScale(baseScale, duration * 0.6f).SetEase(returnEase))
+            .Join(visualTransform.DOLocalMove(baseLocalPosition, duration * 0.6f).SetEase(returnEase));
     }
 
     private void KillActive()

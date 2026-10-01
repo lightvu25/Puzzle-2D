@@ -1,3 +1,4 @@
+using TMPro;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,11 +9,11 @@ using UnityEngine.UI;
 public class LevelNodeWidget : MonoBehaviour
 {
     [Header("UI Elements")]
-    [SerializeField] private Text levelTitleText;
+    [SerializeField] private TMP_Text levelTitleText;
     [SerializeField] private Button selectButton;
     [SerializeField] private GameObject lockOverlay;
     [SerializeField] private GameObject completedIndicator;
-    [SerializeField] private Text starsText;
+    [SerializeField] private TMP_Text starsText;
 
     private LevelData levelData;
     private Action<LevelData> onSelectedCallback;

@@ -3,9 +3,11 @@ using UnityEngine;
 
 /// <summary>
 /// Singleton service managing game currencies:
-///   1. Coins (soft currency for standard tools, basic decor)
-///   2. Gems (premium currency for collections, bundles, shaders)
-///   3. Showcase Acclaim (non-spendable prestige metric unlocking cosmetic tiers)
+///   1. Coins (soft currency earned from level clears and bonuses)
+///   2. Gems (premium currency for bundles and shop offers)
+///
+/// Stars are the prestige metric — they are earned via level completion and
+/// owned by ProgressionManager, not this wallet.
 ///
 /// Persistence is integrated directly with SaveManager / ProfileData.
 /// Strictly guarantees non-negative balances.
@@ -19,18 +21,15 @@ public class EconomyManager : MonoBehaviour
     // ─────────────────────────────────────────────────────────────
     public event Action<int, int> OnCoinsChanged;
     public event Action<int, int> OnGemsChanged;
-    public event Action<int, int> OnShowcaseAcclaimChanged;
 
     // ─────────────────────────────────────────────────────────────
     //  Runtime Cache
     // ─────────────────────────────────────────────────────────────
     private int coins;
     private int gems;
-    private int showcaseAcclaim;
 
     public int Coins => coins;
     public int Gems => gems;
-    public int ShowcaseAcclaim => showcaseAcclaim;
 
     private void Awake()
     {
@@ -143,24 +142,6 @@ public class EconomyManager : MonoBehaviour
     }
 
     // ─────────────────────────────────────────────────────────────
-    //  Showcase Acclaim API (Non-Spendable Prestige)
-    // ─────────────────────────────────────────────────────────────
-
-    /// <summary>
-    /// Adds to the player's cumulative Showcase Acclaim prestige score.
-    /// Showcase Acclaim is strictly non-spendable and acts as an unlock tier metric.
-    /// </summary>
-    public void AddShowcaseAcclaim(int amount, string source = "")
-    {
-        if (amount <= 0) return;
-
-        showcaseAcclaim += amount;
-        SaveToProfile();
-        OnShowcaseAcclaimChanged?.Invoke(showcaseAcclaim, amount);
-        Debug.Log($"[EconomyManager] Added {amount} Showcase Acclaim (Source: {source}). New Total: {showcaseAcclaim}");
-    }
-
-    // ─────────────────────────────────────────────────────────────
     //  Persistence Integration
     // ─────────────────────────────────────────────────────────────
 
@@ -171,13 +152,11 @@ public class EconomyManager : MonoBehaviour
         {
             coins = Math.Max(0, profile.coins);
             gems = Math.Max(0, profile.gems);
-            showcaseAcclaim = Math.Max(0, profile.showcaseAcclaim);
         }
         else
         {
             coins = 0;
             gems = 0;
-            showcaseAcclaim = 0;
         }
     }
 
@@ -188,7 +167,6 @@ public class EconomyManager : MonoBehaviour
         ProfileData profile = SaveManager.loadProfile() ?? new ProfileData();
         profile.coins = coins;
         profile.gems = gems;
-        profile.showcaseAcclaim = showcaseAcclaim;
         SaveManager.saveProfile(profile);
 
         if (GameSession.Instance != null)
@@ -204,16 +182,13 @@ public class EconomyManager : MonoBehaviour
     {
         int oldCoins = coins;
         int oldGems = gems;
-        int oldAcclaim = showcaseAcclaim;
 
         coins = 0;
         gems = 0;
-        showcaseAcclaim = 0;
         SaveToProfile();
 
         OnCoinsChanged?.Invoke(0, -oldCoins);
         OnGemsChanged?.Invoke(0, -oldGems);
-        OnShowcaseAcclaimChanged?.Invoke(0, -oldAcclaim);
         Debug.Log("[EconomyManager] Economy reset to zero.");
     }
 }

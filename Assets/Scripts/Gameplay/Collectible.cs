@@ -46,7 +46,11 @@ public class Collectible : MonoBehaviour
         IsCollected = true;
         gameObject.SetActive(false);
         levelRoot?.NotifyCollectibleCollected(this);
+        OnCollected();
     }
+
+    /// <summary>Hook invoked after this pickup is collected — override for special pickups.</summary>
+    protected virtual void OnCollected() { }
 
     /// <summary>Restores the pickup for a level reset.</summary>
     public void ResetCollectible()
