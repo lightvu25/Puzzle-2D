@@ -13,31 +13,28 @@ public class InGameHUD : MonoBehaviour
 
     [Header("Header")]
     [SerializeField] private Button menuButton;
-    [SerializeField] private PauseMenuUI pauseMenu;
 
     [Header("Currencies")]
     [SerializeField] private TMP_Text coinsText;
-    [SerializeField] private TMP_Text gemsText;
-    [SerializeField] private TMP_Text starsText;
+    [SerializeField] private Image[] starImages;
 
     [Header("Run Info")]
-    [SerializeField] private TMP_Text levelText;
     [SerializeField] private TMP_Text movesText;
-    [SerializeField] private TMP_Text tierText;
 
     [Header("Power-up Counter")]
-    [SerializeField] private GameObject shieldCounterRoot;
+    [SerializeField] private Button shieldButton;
     [SerializeField] private TMP_Text shieldCountText;
 
     private void Awake()
     {
         if (flowController == null)
             flowController = FindAnyObjectByType<LevelFlowController>();
-        if (pauseMenu == null)
-            pauseMenu = FindAnyObjectByType<PauseMenuUI>(FindObjectsInactive.Include);
 
         if (menuButton != null)
             menuButton.onClick.AddListener(OnMenuClicked);
+
+        if (shieldButton != null)
+            shieldButton.onClick.AddListener(OnShieldClicked);
     }
 
     private void Start()
@@ -45,7 +42,6 @@ public class InGameHUD : MonoBehaviour
         if (PlayerMovement.Instance != null)
         {
             PlayerMovement.Instance.OnTileCrossed += UpdateMoves;
-            PlayerMovement.Instance.OnTierChanged += UpdateTier;
         }
 
         if (flowController != null)
@@ -57,22 +53,38 @@ public class InGameHUD : MonoBehaviour
         if (EconomyManager.Instance != null)
         {
             EconomyManager.Instance.OnCoinsChanged += UpdateCoins;
-            EconomyManager.Instance.OnGemsChanged += UpdateGems;
         }
 
         if (ProgressionManager.Instance != null)
-            ProgressionManager.Instance.OnProgressionChanged += UpdateProgressionDisplay;
+        {
+            ProgressionManager.Instance.OnProgressionChanged += RefreshPowerUp;
+        }
 
         RefreshHUD();
 
-        // Reconcile visibility with the current flow state immediately —
-        // the HUD object must start active in the scene so Awake/Start run.
         if (flowController != null)
+        {
             HandleStateChanged(flowController.CurrentState);
+        }
     }
 
     private void OnDestroy()
     {
+        if (menuButton != null)
+        {
+            menuButton.onClick.RemoveListener(OnMenuClicked);
+        }
+
+        if (shieldButton != null)
+        {
+            shieldButton.onClick.RemoveListener(OnShieldClicked);
+        }
+
+        if (PlayerMovement.Instance != null)
+        {
+            PlayerMovement.Instance.OnTileCrossed -= UpdateMoves;
+        }
+
         if (flowController != null)
         {
             flowController.OnLevelStarted -= HandleLevelStarted;
@@ -82,105 +94,113 @@ public class InGameHUD : MonoBehaviour
         if (EconomyManager.Instance != null)
         {
             EconomyManager.Instance.OnCoinsChanged -= UpdateCoins;
-            EconomyManager.Instance.OnGemsChanged -= UpdateGems;
         }
 
         if (ProgressionManager.Instance != null)
-            ProgressionManager.Instance.OnProgressionChanged -= UpdateProgressionDisplay;
-
-        if (PlayerMovement.Instance != null)
         {
-            PlayerMovement.Instance.OnTileCrossed -= UpdateMoves;
-            PlayerMovement.Instance.OnTierChanged -= UpdateTier;
+            ProgressionManager.Instance.OnProgressionChanged -= RefreshPowerUp;
         }
     }
-
-    // ─────────────────────────────────────────────────────────────
-    //  Flow state
-    // ─────────────────────────────────────────────────────────────
 
     private void HandleLevelStarted()
     {
         SetHudVisible(true);
-        RefreshHUD();
-
-        if (levelText != null && flowController != null && flowController.CurrentLevelData != null)
-            levelText.text = flowController.CurrentLevelData.DisplayName;
         UpdateMoves(0);
-        UpdateTier(VelocityTier.None);
+        SetStars(0);
+        RefreshHUD();
     }
 
     private void HandleStateChanged(LevelState state)
     {
-        // HUD only exists while playing — completed/failed show ResultPanelUI,
-        // idle shows the main menu tab bar.
-        if (state == LevelState.Playing || state == LevelState.Idle)
-            SetHudVisible(state == LevelState.Playing);
-        else
-            SetHudVisible(false);
+        bool show = state == LevelState.Playing;
+        SetHudVisible(show);
     }
 
     private void SetHudVisible(bool visible)
     {
         GameObject target = hudRoot != null ? hudRoot : gameObject;
-        if (target.activeSelf != visible)
-            target.SetActive(visible);
-    }
 
-    // ─────────────────────────────────────────────────────────────
-    //  Display
-    // ─────────────────────────────────────────────────────────────
+        if (target.activeSelf != visible)
+        {
+            target.SetActive(visible);
+        }
+    }
 
     public void RefreshHUD()
     {
         if (EconomyManager.Instance != null)
         {
             UpdateCoins(EconomyManager.Instance.Coins, 0);
-            UpdateGems(EconomyManager.Instance.Gems, 0);
         }
 
-        UpdateProgressionDisplay();
+        UpdateMoves(0);
+        RefreshPowerUp();
+        SetStars(0);
     }
 
     private void UpdateCoins(int amount, int delta) { if (coinsText != null) coinsText.text = amount.ToString(); }
-    private void UpdateGems(int amount, int delta) { if (gemsText != null) gemsText.text = amount.ToString(); }
+    
+    public void SetStars(int earnedStars)
+    {
+        earnedStars = Mathf.Clamp(earnedStars, 0, 3);
+
+        if (starImages == null)
+        {
+            return;
+        }
+
+        for (int i = 0; i < starImages.Length; i++)
+        {
+            if (starImages[i] == null)
+            {
+                continue;
+            }
+
+            starImages[i].gameObject.SetActive(i < earnedStars);
+        }
+    }
 
     private void UpdateMoves(int tiles)
     {
         if (movesText != null) movesText.text = tiles.ToString();
     }
 
-    private void UpdateTier(VelocityTier tier)
+    private void RefreshPowerUp()
     {
-        if (tierText != null) tierText.text = tier == VelocityTier.None ? "" : tier.ToString().ToUpperInvariant();
-    }
+        int shieldCount = 0;
 
-    private void UpdateProgressionDisplay()
-    {
-        if (starsText != null && ProgressionManager.Instance != null)
-            starsText.text = $"{ProgressionManager.Instance.TotalStars}";
+        if (ProgressionManager.Instance != null)
+        {
+            shieldCount =
+                ProgressionManager.Instance.GetPowerUpCount(
+                    PowerUpIds.KineticShield
+                );
+        }
 
-        int shields = ProgressionManager.Instance != null
-            ? ProgressionManager.Instance.GetPowerUpCount(PowerUpIds.KineticShield)
-            : 0;
-
-        if (shieldCounterRoot != null)
-            shieldCounterRoot.SetActive(shields > 0);
         if (shieldCountText != null)
-            shieldCountText.text = shields.ToString();
+        {
+            shieldCountText.text = shieldCount.ToString();
+        }
+
+        if (shieldButton != null)
+        {
+            shieldButton.gameObject.SetActive(shieldCount > 0);
+            shieldButton.interactable = shieldCount > 0;
+        }
     }
 
-    // ─────────────────────────────────────────────────────────────
-    //  Buttons
-    // ─────────────────────────────────────────────────────────────
+    private void OnShieldClicked()
+    {
+    }
 
     private void OnMenuClicked()
     {
-        // Pause is a UIManager overlay — it opens on top and freezes time
-        // without hiding this HUD.
-        if (UIManager.Instance != null && UIManager.Instance.GetPanel<IUIPanel>(UIPanelType.Pause) != null)
-            UIManager.Instance.OpenPanel(UIPanelType.Pause);
-        else if (pauseMenu != null)
-            pauseMenu.Show();
+        if (UIManager.Instance == null)
+        {
+            return;
+        }
+
+        UIManager.Instance.OpenPanel(UIPanelType.Pause);
     }
+
 }

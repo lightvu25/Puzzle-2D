@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6bb91eb172f65c54db725588800d7c94
+guid: d5d61d96eda6621458a739ca4d2453c6
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -127,7 +127,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Coin
+  - name: Shield
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -137,9 +137,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 32
+      width: 26
       height: 32
-    spriteID: 625da22cfa9edaa44b03e54dbdfce7ba
+    spriteID: 41b3af16d05f59b4a8c4a07b63ed55c4
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -153,25 +153,25 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 1367191875
+      value0: 4055199599
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: Coin
+    name: Shield
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Coin
+    - name: Shield
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 0
+        x: 3
         y: 0
-        width: 32
+        width: 26
         height: 32
-      spriteId: 625da22cfa9edaa44b03e54dbdfce7ba
+      spriteId: 41b3af16d05f59b4a8c4a07b63ed55c4
     linkedCells: []
     tileCells: []
     tileSetIndex: 0

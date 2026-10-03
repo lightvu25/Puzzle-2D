@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6bb91eb172f65c54db725588800d7c94
+guid: be12d68aa08120b4188f5c7f778e6bb0
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -102,7 +102,7 @@ ScriptedImporter:
     generateIndividualEvents: 1
     generateSpriteAtlas: 1
   importFileNodeState: 1
-  platformSettingsDirtyTick: 639265584271578380
+  platformSettingsDirtyTick: 639265584271593432
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -127,9 +127,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Coin
+  - name: Misson
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5185185, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -137,9 +137,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 32
+      width: 27
       height: 32
-    spriteID: 625da22cfa9edaa44b03e54dbdfce7ba
+    spriteID: 65e47c87fbc18f842ab98e2c3634a3c3
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -153,25 +153,25 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 1367191875
+      value0: 809476137
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: Coin
+    name: Misson
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Coin
+    - name: Misson
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 0
+        x: 2
         y: 0
-        width: 32
+        width: 27
         height: 32
-      spriteId: 625da22cfa9edaa44b03e54dbdfce7ba
+      spriteId: 65e47c87fbc18f842ab98e2c3634a3c3
     linkedCells: []
     tileCells: []
     tileSetIndex: 0

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6bb91eb172f65c54db725588800d7c94
+guid: e33180b0e09fa46479b79e83d7c3957e
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -102,7 +102,7 @@ ScriptedImporter:
     generateIndividualEvents: 1
     generateSpriteAtlas: 1
   importFileNodeState: 1
-  platformSettingsDirtyTick: 639265584271578380
+  platformSettingsDirtyTick: 639265584271593432
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -127,9 +127,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Coin
+  - name: Shop
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: -0.037037037}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -138,8 +138,8 @@ ScriptedImporter:
       x: 4
       y: 4
       width: 32
-      height: 32
-    spriteID: 625da22cfa9edaa44b03e54dbdfce7ba
+      height: 27
+    spriteID: b8ab60018ff5a84499c2ad3175561737
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -153,25 +153,25 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 1367191875
+      value0: 1844382282
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: Coin
+    name: Shop
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Coin
+    - name: Shop
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
         x: 0
-        y: 0
+        y: 1
         width: 32
-        height: 32
-      spriteId: 625da22cfa9edaa44b03e54dbdfce7ba
+        height: 27
+      spriteId: b8ab60018ff5a84499c2ad3175561737
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
